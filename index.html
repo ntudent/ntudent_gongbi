@@ -10,7 +10,7 @@
         function getData(pageName) { //裡面放page name，在body可以onload某頁面，在讓各物件onclick分別切不同page
             //XML為原生物件，專門和伺服器連線
             var req = new XMLHttpRequest();
-            req.open("get", "https:''127.0.0.1/"+pageName);
+            req.open("get", pageName);
             req.onload = function() { //load事件，偵測連線的狀態結束
                 //連線完成
                 var content = document.getElementById("content");
@@ -67,8 +67,8 @@
     </table>
     
     <button id="aaa"></button>
-    <div onload=""> 
-        <span onclick="">熱門</span>
+    <div onload="getData('https://www.ntu.edu.tw/index.html');"> 
+        <span onclick="getData('https://news.google.com/index.html');">熱門</span>
     </div>
 
     <script src="./jquery-3.6.0.js"></script>
