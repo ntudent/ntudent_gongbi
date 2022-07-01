@@ -101,14 +101,14 @@ $(() => {
 
         n_layer_id += 1
         //alert寫手
-        if (gb[day_0[i]][2] !== "" && jQuery.inArray(gb[day_0[i]][1], alert_name_ss) == -1) {
+        if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][1], alert_name_ss) == -1) {
             alert_name_ss.push(gb[day_0[i]][1])
         }
-        if (gb[day_0[i]][2] !== "" && jQuery.inArray(gb[day_0[i]][2], alert_name_ss) == -1) {
+        if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][2], alert_name_ss) == -1) {
             alert_name_ss.push(gb[day_0[i]][2])
         }
         //alert審稿
-        if (gb[day_0[i]][4] !== "" && jQuery.inArray(gb[day_0[i]][4], alert_name_sg) == -1) {
+        if (gb[day_0[i]][4] !== n[0] && jQuery.inArray(gb[day_0[i]][4], alert_name_sg) == -1) {
             alert_name_sg.push(gb[day_0[i]][4])
         }
 
