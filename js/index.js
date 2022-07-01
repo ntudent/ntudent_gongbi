@@ -1,5 +1,3 @@
-
-
 function getData(pageName) { //裡面放page name，在body可以onload某頁面，在讓各物件onclick分別切不同page
     //XML為原生物件，專門和伺服器連線
     var req = new XMLHttpRequest();
@@ -11,28 +9,21 @@ function getData(pageName) { //裡面放page name，在body可以onload某頁面
     };
     req.send(); //送出連線
 };
-
+function objShow(id) { //並顯示新的obj
+    obj = document.querySelector('object[style="display: block;"]')
+    obj.style.display = 'none'
+    objName = "#obj_" + id
+}
+function objShow(id) { //並顯示新的obj
+    obj = document.querySelector('object[style="display: block;"]');
+    obj.style.display = 'none';
+    objName = "obj_" + id;
+    document.getElementById(objName).style.display = 'block';
+    //document.querySelector(objName).sylte.font-siza = '19';設字體 注意.css只能用在jQuery
+}
 $(() => {
     
-    $('#aaa').on('click', () => {
-        obj = document.querySelector('object')
-        obj.style.display = 'none'
-        //$('#obj1').hide()
-    })
-
-    //按下列表後，關其他正在show的object，開目標object
-    $('#countdown').on('click', () => {
-        obj = document.querySelector('object[style="display: block;"]')
-        obj.style.display = 'none'
-        $('#obj_countdown').css('display', 'block')
-        //$('#countdown').css('color', 'blue')
-    })
-    $('#all').on('click', () => {
-        obj = document.querySelector('object[style="display: block;"]')
-        obj.style.display = 'none'
-        $('#obj_all').css('display', 'block')
-        //$('#all').css('color', 'blue')
-    })
+    
     
 })
 
