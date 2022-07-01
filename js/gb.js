@@ -24,6 +24,7 @@ function getTr(id, parentId) {
     const past = document.getElementById(parentId) 
     past.appendChild(tr) //從table的t_body下append節點到parentTd元素上
 }
+
 function alert_name_f (alert_name, type) {
     var a = "";
     for (i=0; i<alert_name.length-1; i++) {
@@ -33,53 +34,24 @@ function alert_name_f (alert_name, type) {
     a += alert_name[alert_name.length-1]
     return ("今天當" + type + "的人類: " + a);
 }
-
 $(() => {
     
     item = document.createElement('item') //開一個DOM節點
     gb = document.createElement('gb') //開一個DOM節點
     
-    n_0 = ""
-    n_1 = "顏圓圓"
-    n_2 = "陳映璇"
-    n_3 = "呂欣蓉"
-    n_4 = "朱凱新"
-    n_5 = "何奕佑"
-    n_6 = "李崇愷"
-    n_7 = "王冠中"
-    n_8 = "馮文風"
-    n_9 = "曾子洋"
-    n_10 = "洪子淵"
-    n_11 = "陳庭禾"
-    n_12 = "洪秀峰"
-    n_13 = "夏家亨"
-    n_14 = "謝沛辰"
-    n_15 = "林裕凱"
-    n_17 = "謝沛葶"
-    n_19 = "蔡侁甫"
-    n_21 = "吳肇家"
-    n_22 = "李兆哲"
-    n_23 = "林育澤"
-    n_24 = "林琨祐"
-    n_26 = "黃昱賓"
-    n_27 = "黃淳暉"
-    n_28 = "黃聆歆"
-    n_29 = "葉亭妤"
-    n_30 = "蔡鈺程"
-    n_31 = "鄭丞佑"
-    n_32 = "戴均祐"
-    n_33 = "謝岳辰"
-    n_34 = "涂峻銓"
+    n = new Array(" ", "顏圓圓", "陳映璇", "呂欣蓉", "朱凱新", "何奕佑", "李崇愷", "王冠中", "馮文風", "曾子洋", "洪子淵", "陳庭禾", "洪秀峰", "夏家亨", "謝沛辰", "林裕凱", "", "謝沛葶", "凌卓軒", "蔡侁甫", "", "吳肇家", "李兆哲", "林育澤", "林琨祐", "", "黃昱賓", "黃淳暉", "黃聆歆", "葉亭妤", "蔡鈺程", "鄭丞佑", "戴均祐", "謝岳辰", "涂峻銓")
 
     item = new Array()
-    item[0] = new Array(thisgb("OD", "1"), n_19, n_23, "2022-06-30", n_19, "") //(共筆, 寫手1, 寫手2, 寫手日, 審稿, 審稿日)
-    item[1] = new Array(thisgb("OD", "2"), n_19, n_19, "2022-07-01", n_19, "")
-    item[2] = new Array(thisgb("生理", "1"), n_19, n_19, "2022-06-28", n_19, "")
-    item[3] = new Array(thisgb("口解", "考古"), n_17, n_0, "2022-06-30", n_0, "x")
-    item[4] = new Array(thisgb("醫人", "1"), n_19, n_19, "2022-06-25", n_19, "")
-    item[5] = new Array(thisgb("醫人", "2"), n_21, n_19, "2022-06-29", n_19, "")
-    item[6] = new Array(thisgb("醫人", "3"), n_19, n_19, "2022-06-30", n_26, "")
-    item[7] = new Array(thisgb("醫人", "0"), n_19, n_19, "2022-06-24", n_19, "")
+    //改共筆改以下這段
+    item[0] = new Array(thisgb("OD", "1"), n[19], n[23], "2022-07-01", n[17], "") //(共筆, 寫手1, 寫手2, 寫手日, 審稿, 審稿日)
+    item[1] = new Array(thisgb("OD", "2"), n[1], n[19], "2022-07-02", n[10], "")
+    item[2] = new Array(thisgb("生理", "1"), n[2], n[9], "2022-06-30", n[19], "")
+    item[3] = new Array(thisgb("口解", "考古"), n[17], n[0], "2022-07-01", n[0], "x")
+    item[4] = new Array(thisgb("醫人", "1"), n[3], n[19], "2022-06-26", n[8], "")
+    item[5] = new Array(thisgb("醫人", "2"), n[21], n[19], "2022-06-30", n[7], "")
+    item[6] = new Array(thisgb("醫人", "3"), n[4], n[19], "2022-07-01", n[26], "")
+    item[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-06-25", n[19], "")
+    //改共筆改以上這段
     for (i=0; i<n_item; i++) {
         gb[i] = new Array() //建新array元素
     }
@@ -117,6 +89,7 @@ $(() => {
             day_0.push(i) //創造day_0陣列儲存gb[i]寫手日為0的
         }
     }
+    
     for (i=0; i<day_0.length; i++) {
         getTr(n_layer_id, 'print_today') //創層       
         for (j=0; j<6; j++) { 
@@ -185,18 +158,6 @@ $(() => {
             }
         }        
     }
-    
-    
-    
-    
-    //all.html
-    $('#enter_name').on('click', () => {
-        alert('3')
-        yourname = $('#yourname').val() //儲存輸入的名字字串
-        alert(yourname)
-        $('#yourname').val('') //清除<input>中字串
-        
-    })
     
 })
 
