@@ -6,70 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reminder</title>
     <script>//臺大牙醫系B09蔡侁甫所有網站</script>
-    <script type="text/javascript">
-        function getData(pageName) { //裡面放page name，在body可以onload某頁面，在讓各物件onclick分別切不同page
-            //XML為原生物件，專門和伺服器連線
-            var req = new XMLHttpRequest();
-            req.open("get", pageName);
-            req.onload = function() { //load事件，偵測連線的狀態結束
-                //連線完成
-                var content = document.getElementById("content");
-                content.innerHTML = this.responseText;
-            };
-            req.send(); //送出連線
-        };
+    <script>
+        function handleLoad(e) {
+            $('#aaa').text('Loaded import: ' + e.target.href);
+        }
+        function handleError(e) {
+            $('#aaa').text('Error loading import: ' + e.target.href);
+        }
     </script>
+    
 </head>
 <body>
     
-    <div id="head"></div>
-    <table class="div" id="print_today" border="1">
-        <div>今日待做</div>
-        <thead>
-            <tr id="t_head_1">
-                <th>共筆名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>寫手1&nbsp;&nbsp;&nbsp;</th>
-                <th>寫手2&nbsp;&nbsp;&nbsp;</th>
-                <th>剩餘日&nbsp;&nbsp;</th>
-                <th>審稿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>剩餘日&nbsp;&nbsp;</th>
-            </tr>
-        </thead>
-        
-    </table>
-    <table class="div" id="print_sg" border="1">
-        <div>未來一周審稿交件</div>
-        <thead>
-            <tr id="t_head_2">
-                <th>共筆名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>寫手1&nbsp;&nbsp;&nbsp;</th>
-                <th>寫手2&nbsp;&nbsp;&nbsp;</th>
-                <th>剩餘日&nbsp;&nbsp;</th>
-                <th>審稿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>剩餘日&nbsp;&nbsp;</th>
-            </tr>
-        </thead>
-        
-    </table>
-    <table class="div" id="print_gb" border="1">
-        <div>未來一周共筆/考古</div>
-        <thead>
-            <tr id="t_head_3">
-                <th>共筆名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>寫手1&nbsp;&nbsp;&nbsp;</th>
-                <th>寫手2&nbsp;&nbsp;&nbsp;</th>
-                <th>剩餘日&nbsp;&nbsp;</th>
-                <th>審稿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>剩餘日&nbsp;&nbsp;</th>
-            </tr>
-        </thead>
-        
-    </table>
+    <div id="head_index">臺大牙醫共筆</div>
+    <div id="menu">
+        <span id="countdown">倒數計時</span>
+        <span id="all">全部/篩選</span>
+        <span id="textday">考試日程</span>
+        <span id="checkin">簽到</span>
+        <span id="guideline">使用說明</span>
+        <span id="code">Code Generator</span>
+    </div>
+    <div id="object">
+        <object data="./gb.html" width="600" height="400" id="obj_countdown" style="display: block;">
+            <embed src="./gb.html" type="">
+        </object>
+        <object data="./all.html" width="600" height="400" id="obj_all" type="" style="display: none;">
+            <embed src="./all.html" type="">
+        </object>
+    </div>
     
     <button id="aaa"></button>
-    <div onload="getData('https://ntudent.github.io/index.html');"> 
-        <span onclick="getData('https://ntudent.github.io/index.html');">熱門</span>
+    <div onload="" id="div"> 
+        <span onclick="getData('https://ntudent.github.io/index.html');" id="news">熱門</span>
     </div>
+
+    <script type="text/javascript"> //java一定要放在下面
+        
+    </script>
 
     <script src="./jquery-3.6.0.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
