@@ -54,6 +54,7 @@ $(() => {
     item_all[5] = new Array(thisgb("醫人", "2"), n[21], n[19], "2022-06-30", n[7], "")
     item_all[6] = new Array(thisgb("醫人", "3"), n[4], n[19], "2022-07-01", n[26], "")
     item_all[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-06-25", n[19], "")
+    item_all[8] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-04", n[19], "")
     //改共筆改以上這段
 
     $('#enter_name').on('click', () => {        
