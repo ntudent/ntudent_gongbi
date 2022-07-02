@@ -33,9 +33,10 @@ $(() => {
         for (j=0; j<4; j++) { 
             let $td = $('<td>') //創造元素
             testday_layer_id_num = $('#' + testday_layer_id)
-            $td.text(item_testday[i][j]).css('color', 'red').appendTo(testday_layer_id_num) //賦予元素值，加到層之中
+            $td.text(item_testday[i][j]).appendTo(testday_layer_id_num) //賦予元素值，加到層之中
             //加紅標css({property1: value1, property2: value2)          
         }
+        testday_layer_id += 1
     }
 
 })
