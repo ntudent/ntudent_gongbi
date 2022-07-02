@@ -15,7 +15,7 @@ function getday_all(k) {
         return (g.getFullYear()+"-"+(g.getMonth()+1)+"-"+g.getDate() );
     }    
 }
-var n_time = 0;
+var n_time = 0; //item_all[][0]的個數
 function count_item() {
     return n_time++;
 }
@@ -29,10 +29,10 @@ function thisgb(gb_name, week) {
     }
 }
 function getTr(id, parentId) {
-    const tr = document.createElement('tr') //創建新的層的DOM節點
-    tr.setAttribute('id', id) //賦予層元素id
-    const past = document.getElementById(parentId) 
-    past.appendChild(tr) //從table的t_body下append節點到parentTd元素上
+    const tr = document.createElement('tr'); //創建新的層的DOM節點
+    tr.setAttribute('id', id); //賦予層元素id
+    const past = document.getElementById(parentId);
+    past.appendChild(tr); //從table的t_body下append節點到parentTd元素上
 }
 $(() => {
     //getTr(sorting_layer_id, 'print_all')
@@ -129,30 +129,25 @@ $(() => {
                 num_all += 1 //計數
             }
         }
-        for (i=-7; i<200; i++) {
-            for (j=0; j<num_all; j++) { //輸出
-                if (all[j][4] == i) {
-                    getTr(sorting_layer_id, 'print_all')
-                    for (k=0; k<6; k++) { 
-                        let $td = $('<td class="removable">') //創造元素
-                        n_sorting_layer_id_num = $('#' + sorting_layer_id)
-                        if (i == 0) {
-                            $td.text(all[j][k]).css('color', 'red').appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
-                            //加紅標css({property1: value1, property2: value2)
-                        } else if (i < 0) {
-                            all[j][4] = "已過"
-                            $td.text(all[j][k]).appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
-                        } else {
-                            $td.text(all[j][k]).appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
-                        }
-                                  
-                    }
-                    sorting_layer_id += 1
+        all.sort((a, b) => a[4] - b[4])
+        for (i=0; i<num_all; i++) {
+            getTr(sorting_layer_id, 'print_all')
+            for (j=0; j<6; j++) { 
+                let $td = $('<td class="removable">') //創造元素
+                n_sorting_layer_id_num = $('#' + sorting_layer_id)
+                if (all[i][4] == 0) {
+                    $td.text(all[i][j]).css('color', 'red').appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
+                    //加紅標css({property1: value1, property2: value2)
+                } else if (all[i][4] < 0) {
+                    all[i][4] = "已過"
+                    $td.text(all[i][j]).appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
+                } else {
+                    $td.text(all[i][j]).appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
                 }
+                          
             }
+            sorting_layer_id += 1
         }
-        
-        
     
     })
 })
