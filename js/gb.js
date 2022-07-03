@@ -29,7 +29,7 @@ function alert_name_f (alert_name, type) {
     var a = "";
     for (i=0; i<alert_name.length-1; i++) {
         a += alert_name[i];
-        a += "及";
+        a += "、";
     }
     a += alert_name[alert_name.length-1]
     return ("今天當" + type + "的人類: " + a);
