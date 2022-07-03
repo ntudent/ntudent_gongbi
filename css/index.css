@@ -1,0 +1,21 @@
+:root {
+    /*這裡放global variables*/
+    --c: center;
+}
+
+.middle {
+    text-align: var(--c);
+    
+}
+@media (max-width: 700px) {
+    .middle {
+        text-align: var(--c);
+    }
+    p {
+        font-size: smaller;
+    }
+}
+
+.button {
+    background-color: white;
+}
