@@ -56,7 +56,13 @@ $(() => {
     item_all[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-06-25", n[19], "")
     item_all[8] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-04", n[19], "")
     //改共筆改以上這段
-
+    
+    $('#yourname').keypress(function(e) { //按enter鍵也觸發#enter_name的onclick()事件
+        key = window.event ? e.keyCode : e.which
+        if (key == 13) {
+            $('#enter_name').trigger("click")
+        }
+    })
     $('#enter_name').on('click', () => {        
         sorting_layer_id = 1
         //刪既存編號數字id的tr
