@@ -5,20 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reminder</title>
-    <script>//臺大牙醫系B09蔡侁甫所有網站</script>    
-</head>
-<body>
+    <script>//臺大牙醫系B09蔡侁甫所有網站</script>  
     
-    <div id="head_index">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body style="background: #00ffcc; font-family: 'Times New Roman', Helvetica, 新細明體;">
+    
+    <div class="middle" id="head_index">
         <h1>臺大牙醫共筆</h1>
     </div>
-    <div id="menu" style="height: 4pc;">
-        <button id="countdown" onclick="objShow(this.id)">近期待辦</button>
-        <button id="all" onclick="objShow(this.id)">全部/篩選</button>
-        <button id="testday" onclick="objShow(this.id)">考試日程</button>
-        <button id="checkin" onclick="objShow(this.id)">簽到</button>
-        <button id="guideline" onclick="objShow(this.id)">使用說明</button>
-        <button id="code" onclick="objShow(this.id)">Code Generator</button>
+    <div class="list" id="menu" style="height: 4pc;">
+        <button class="button" id="countdown" onclick="objShow(this.id)">近期待辦</button>
+        <button class="button" id="all" onclick="objShow(this.id)">全部/篩選</button>
+        <button class="button" id="testday" onclick="objShow(this.id)">考試日程</button>
+        <button class="button" id="checkin" onclick="objShow(this.id)">簽到</button>
+        <button class="button" id="guideline" onclick="objShow(this.id)">使用說明</button>
+        <button class="button" id="code" onclick="objShow(this.id)">Code Generator</button>
     </div>
     <div id="object">
         <object data="./gb.html" width="600" height="400" id="obj_countdown" style="display: none;">
@@ -30,8 +33,8 @@
         <object data="./testday.html" width="600" height="400" id="obj_testday" type="" style="display: none;">
             <embed src="./testday.html" type="">
         </object>
-        <object data="" width="600" height="400" id="obj_checkin" type="" style="display: none;">
-            <embed src="" type="">
+        <object data="./checkin.html" width="600" height="400" id="obj_checkin" type="" style="display: none;">
+            <embed src="./checkin.html" type="">
         </object>
         <object data="" width="600" height="400" id="obj_guideline" type="" style="display: none;">
             <embed src="" type="">
@@ -43,7 +46,7 @@
     
     <button id="aaa"></button>
     <div onload="" id="div"> 
-        <span onclick="getData('https://ntudent.github.io/index.html');" id="news">熱門</span>
+        <span onclick="getData('https://ntudent.github.io/index.html');" id="news">公告</span>
     </div>
 
     <script type="text/javascript"> //java一定要放在下面
