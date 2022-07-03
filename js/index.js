@@ -10,11 +10,6 @@ function getData(pageName) { //裡面放page name，在body可以onload某頁面
     req.send(); //送出連線
 };
 function objShow(id) { //並顯示新的obj
-    obj = document.querySelector('object[style="display: block;"]')
-    obj.style.display = 'none'
-    objName = "#obj_" + id
-}
-function objShow(id) { //並顯示新的obj
     obj = document.querySelector('object[style="display: block;  margin: 0 auto;"]');
     obj.style.display = 'none';
     objName = "obj_" + id;
