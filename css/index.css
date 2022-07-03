@@ -17,5 +17,9 @@
 }
 
 .button {
-    background-color: white;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color: azure;
 }
+
