@@ -11,6 +11,8 @@ function getData(pageName) { //裡面放page name，在body可以onload某頁面
 }; 
 function objShow(id) { //並顯示新的obj
     obj = document.querySelector('object[style="display: block;"]');
+    obj.style.backgroundColor = 'azure';
+    obj.style.color = 'green';
     obj.style.display = 'none';
     objName = "obj_" + id;
     document.getElementById(objName).style.display = 'block';
@@ -22,7 +24,7 @@ function objShow(id) { //並顯示新的obj
 $(() => {
     
     prop = document.getElementById('obj_countdown')
-
+    
     
 })
 
