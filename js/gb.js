@@ -52,10 +52,11 @@ $(() => {
     item[6] = new Array(thisgb("醫人", "3"), n[4], n[19], "2022-07-01", n[26], "")
     item[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-06-29", n[19], "")
     item[8] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-04", n[19], "")
-    item[9] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-05", n[19], "")
-    item[10] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-06", n[19], "")
-    item[11] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-07", n[19], "")
-    item[12] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-08", n[19], "")
+    item[9] = new Array(thisgb("胚胎", "1"), n[33], n[34], "2022-07-05", n[19], "")
+    item[10] = new Array(thisgb("胚胎", "2"), n[33], n[34], "2022-07-06", n[19], "")
+    item[11] = new Array(thisgb("胚胎", "3"), n[33], n[34], "2022-07-07", n[19], "")
+    item[12] = new Array(thisgb("生理", "考古"), n[29], n[0], "2022-07-08", n[0], "")
+    item[13] = new Array(thisgb("生理", "考古古"), n[30], n[31], "2022-07-15", n[32], "")
     //改共筆改以上這段
     for (i=0; i<n_item; i++) {
         gb[i] = new Array() //建新array元素
@@ -149,7 +150,7 @@ $(() => {
             }
         }        
     }
-    n_layer_id_tillnow = n_layer_id //等等寫手的n_layer_id會重置
+    n_layer_id_tillnow = n_layer_id //等等後來的n_layer_id會重置
     //寫手sorting
     for (i=1; i<=7; i++){
         
@@ -173,13 +174,43 @@ $(() => {
     }
     
     //做顯示全部
-    //gb.sort((a, b) => a[3] - b[3])
+    //item.sort((a, b) => a[3] - b[3])
+    //gb.sort((a, b) => a[5] - b[5])
     $('#loadAll').on('click', () => {
         if ($('#loadAll').is(':checked') == true) {
-            n_layer_id = n_layer_id_tillnow + 1 //n_layer_id重置
-            gb.sort((a, b) => a[3] - b[3]) //先去sort寫手日
+            for (i=n_layer_id_tillnow; i<=n_item; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
+                if (document.getElementById(i) !== null) {
+                    //alert(document.getElementById(i))
+                    document.getElementById(i).remove("#"+toString(i))
+                }
+            }
+
+            n_layer_id = n_layer_id_tillnow //n_layer_id重置
+            item.sort((a, b) => a[3] - b[3]) //先去sort寫手日，我不知道為啥item.sort可以但gb.sort卻不行
             for (i=0; i<n_item; i++) {
                 if (gb[i][3] > 0) {
+                    getTr(n_layer_id, 'print_gb') //創層
+                    for (j=0; j<6; j++) { 
+                        let $td = $('<td>') //創造元素
+                        n_layer_id_num = $('#' + n_layer_id)
+                        $td.text(gb[i][j]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
+                    }
+                    n_layer_id += 1
+                }
+            }
+        }
+        else {
+            for (i=n_layer_id_tillnow; i<=n_item; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
+                if (document.getElementById(i) !== null) {
+                    //alert(document.getElementById(i))
+                    document.getElementById(i).remove("#"+toString(i))
+                }
+            }
+
+            n_layer_id = n_layer_id_tillnow //n_layer_id重置
+            item.sort((a, b) => a[3] - b[3]) //先去sort寫手日，我不知道為啥item.sort可以但gb.sort卻不行
+            for (i=0; i<n_item; i++) {
+                if (gb[i][3] > 0 && gb[i][3] < 7) {
                     getTr(n_layer_id, 'print_gb') //創層
                     for (j=0; j<6; j++) { 
                         let $td = $('<td>') //創造元素
