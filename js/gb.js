@@ -83,7 +83,6 @@ $(() => {
             }
         }        
     }
-
     //把day0的拉進來
     day_0 = new Array()
     alert_name_ss = new Array() //寫手名單
@@ -119,6 +118,7 @@ $(() => {
 
     }
     //alert那些人
+    
     if (alert_name_ss.length == 0) {
         alert(alert_name_f(alert_name_sg, "審稿"))
         if (alert_name_sg.length == 0) {
@@ -128,19 +128,7 @@ $(() => {
         alert(alert_name_f(alert_name_ss, "寫手"))
     } else {
         alert(alert_name_f(alert_name_ss, "寫手") + "\n" + alert_name_f(alert_name_sg, "審稿"))
-    } 
-    $('#countdown').on('click', () => { //再按一次時，再次alert
-        if (alert_name_ss.length == 0) {
-            alert(alert_name_f(alert_name_sg, "審稿"))
-            if (alert_name_sg.length == 0) {
-                alert("大吉!本日無課")
-            }
-        } else if (alert_name_sg.length == 0) {
-            alert(alert_name_f(alert_name_ss, "寫手"))
-        } else {
-            alert(alert_name_f(alert_name_ss, "寫手") + "\n" + alert_name_f(alert_name_sg, "審稿"))
-        }
-    })  
+    }    
    
     //審稿sorting
     for (i=1; i<=6; i++){
@@ -161,7 +149,7 @@ $(() => {
             }
         }        
     }
-
+    n_layer_id_tillnow = n_layer_id //等等寫手的n_layer_id會重置
     //寫手sorting
     for (i=1; i<=7; i++){
         
@@ -183,8 +171,27 @@ $(() => {
             }
         }        
     }
-
+    
     //做顯示全部
+    //gb.sort((a, b) => a[3] - b[3])
+    $('#loadAll').on('click', () => {
+        if ($('#loadAll').is(':checked') == true) {
+            n_layer_id = n_layer_id_tillnow + 1 //n_layer_id重置
+            gb.sort((a, b) => a[3] - b[3]) //先去sort寫手日
+            for (i=0; i<n_item; i++) {
+                if (gb[i][3] > 0) {
+                    getTr(n_layer_id, 'print_gb') //創層
+                    for (j=0; j<6; j++) { 
+                        let $td = $('<td>') //創造元素
+                        n_layer_id_num = $('#' + n_layer_id)
+                        $td.text(gb[i][j]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
+                    }
+                    n_layer_id += 1
+                }
+            }
+        }
+    })
+    
     
 })
 
