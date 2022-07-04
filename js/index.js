@@ -8,17 +8,21 @@ function getData(pageName) { //裡面放page name，在body可以onload某頁面
         content.innerHTML = this.responseText;
     };
     req.send(); //送出連線
-};
+}; 
 function objShow(id) { //並顯示新的obj
     obj = document.querySelector('object[style="display: block;"]');
     obj.style.display = 'none';
     objName = "obj_" + id;
     document.getElementById(objName).style.display = 'block';
-    //document.querySelector(objName).sylte.font-siza = '19';設字體 注意.css只能用在jQuery
+    document.getElementById(objName).style.height = '2000';
+    document.getElementById(id).style.backgroundColor = 'azure';
+    document.getElementById(id).style.backgroundColor = 'green';
+    //document.querySelector(objName).style.font-size = '19';設字體 注意.css只能用在jQuery
 }
 $(() => {
     
-    
+    prop = document.getElementById('obj_countdown')
+    prop.setProperty('height', '2000')
     
 })
 
