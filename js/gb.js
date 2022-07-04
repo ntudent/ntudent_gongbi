@@ -52,6 +52,10 @@ $(() => {
     item[6] = new Array(thisgb("醫人", "3"), n[4], n[19], "2022-07-01", n[26], "")
     item[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-06-29", n[19], "")
     item[8] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-04", n[19], "")
+    item[9] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-05", n[19], "")
+    item[10] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-06", n[19], "")
+    item[11] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-07", n[19], "")
+    item[12] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-08", n[19], "")
     //改共筆改以上這段
     for (i=0; i<n_item; i++) {
         gb[i] = new Array() //建新array元素
