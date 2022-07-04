@@ -16,7 +16,12 @@
         font-size: smaller;
     }
 }
-
+.flex-button {
+    display: flex; /*flex排列*/
+    flex-direction: row;
+    flex-wrap: nowrap; /*超過不換行*/
+    justify-content: space-around;
+}
 .button {
     background-color: green;
     border: none;
