@@ -16,13 +16,13 @@ function objShow(id) { //並顯示新的obj
     document.getElementById(objName).style.display = 'block';
     document.getElementById(objName).style.height = '2000';
     document.getElementById(id).style.backgroundColor = 'azure';
-    document.getElementById(id).style.backgroundColor = 'green';
+    document.getElementById(id).style.color = 'green';
     //document.querySelector(objName).style.font-size = '19';設字體 注意.css只能用在jQuery
 }
 $(() => {
     
     prop = document.getElementById('obj_countdown')
-    prop.setProperty('height', '2000')
+
     
 })
 
