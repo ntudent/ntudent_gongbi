@@ -124,7 +124,19 @@ $(() => {
         alert(alert_name_f(alert_name_ss, "寫手"))
     } else {
         alert(alert_name_f(alert_name_ss, "寫手") + "\n" + alert_name_f(alert_name_sg, "審稿"))
-    }   
+    } 
+    $('#countdown').on('click', () => { //再按一次時，再次alert
+        if (alert_name_ss.length == 0) {
+            alert(alert_name_f(alert_name_sg, "審稿"))
+            if (alert_name_sg.length == 0) {
+                alert("大吉!本日無課")
+            }
+        } else if (alert_name_sg.length == 0) {
+            alert(alert_name_f(alert_name_ss, "寫手"))
+        } else {
+            alert(alert_name_f(alert_name_ss, "寫手") + "\n" + alert_name_f(alert_name_sg, "審稿"))
+        }
+    })  
    
     //審稿sorting
     for (i=1; i<=6; i++){
