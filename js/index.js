@@ -18,14 +18,19 @@ function objShow(id) { //並顯示新的obj
     document.getElementById('#countdown')
     var objName = "obj_" + id;
     document.getElementById(objName).style.display = 'block';
-    document.getElementById(id).classList.add('button_clicked')
+    document.getElementById(id).classList.add('button_clicked');
     //document.querySelector(objName).style.font-size = '19';設字體 注意.css只能用在jQuery
 }
-function overMouse(id) {
-    document.getElementById(id).classList.add('button_clicked')
-    document.getElementById(id).onmouseleave = function () {
-        document.getElementById(id).classList.remove('button_clicked')
+function overMouse(id) { //index的button滑鼠放上去時
+    if (document.getElementById(id).classList.contains('button_clicked')) {
+        return;
+    } else {
+        document.getElementById(id).classList.add('button_clicked');
+        document.getElementById(id).onmouseleave = function () {
+            document.getElementById(id).classList.remove('button_clicked');
+        }
     }
+    
 }
 $(() => {
     $('#obj_countdown').attr("height", "2000")
