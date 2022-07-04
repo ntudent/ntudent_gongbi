@@ -15,7 +15,7 @@ function thisgb(gb_name, week) {
         return (gb_name + " Week " + week);
     }
     else {
-        return (gb_name + week);
+        return (gb_name + " " + week);
     }
 }
 function getTr(id, parentId) {
@@ -26,13 +26,16 @@ function getTr(id, parentId) {
 }
 
 function alert_name_f (alert_name, type) {
+    if (alert_name.length == 0) {
+        return ("今天無要" + type + "的人類");
+    }
     var a = "";
     for (i=0; i<alert_name.length-1; i++) {
         a += alert_name[i];
         a += "、";
     }
     a += alert_name[alert_name.length-1]
-    return ("今天當" + type + "的人類: " + a);
+    return ("今天要" + type + "的人類: " + a);
 }
 $(() => {
     
@@ -88,6 +91,8 @@ $(() => {
     day_0 = new Array()
     alert_name_ss = new Array() //寫手名單
     alert_name_sg = new Array() //審稿名單
+    alert_name_sg_today = new Array() //今日審稿名單
+    alert_name_kg = new Array() //考古名單
     n_layer_id = 1
     for (i=0; i<n_item; i++) {
         if (gb[i][3] == 0) {
@@ -105,31 +110,32 @@ $(() => {
         }
 
         n_layer_id += 1
-        //alert寫手
+        //alert當寫手
         if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][1], alert_name_ss) == -1) {
             alert_name_ss.push(gb[day_0[i]][1])
         }
         if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][2], alert_name_ss) == -1) {
             alert_name_ss.push(gb[day_0[i]][2])
         }
-        //alert審稿
+        //alert審稿today
+        if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][4], alert_name_sg_today) == -1) {
+            alert_name_sg_today.push(gb[day_0[i]][4])
+        }
+        //alert交審稿
         if (gb[day_0[i]][4] !== n[0] && jQuery.inArray(gb[day_0[i]][4], alert_name_sg) == -1) {
             alert_name_sg.push(gb[day_0[i]][4])
+        }
+        //alert考古
+        if (gb[day_0[i]][2] == n[0] && jQuery.inArray(gb[day_0[i]][1], alert_name_kg) == -1) {
+            alert_name_kg.push(gb[day_0[i]][1])
         }
 
     }
     //alert那些人
     
-    if (alert_name_ss.length == 0) {
-        alert(alert_name_f(alert_name_sg, "審稿"))
-        if (alert_name_sg.length == 0) {
-            alert("大吉!本日無課")
-        }
-    } else if (alert_name_sg.length == 0) {
-        alert(alert_name_f(alert_name_ss, "寫手"))
-    } else {
-        alert(alert_name_f(alert_name_ss, "寫手") + "\n" + alert_name_f(alert_name_sg, "審稿"))
-    }    
+    
+    alert(alert_name_f(alert_name_ss, "當寫手") + "\n" + alert_name_f(alert_name_sg_today, "當審稿")+ "\n\n" + alert_name_f(alert_name_sg, "交審稿")+ "\n" + alert_name_f(alert_name_kg, "交考古"))
+        
    
     //審稿sorting
     for (i=1; i<=6; i++){
