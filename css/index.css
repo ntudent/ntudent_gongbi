@@ -17,6 +17,7 @@
         flex-direction: row;
         flex-wrap: nowrap; /*超過不換行*/
         justify-content: space-around;
+        padding: 10px;
     }
     .button {
         background-color: green;
@@ -30,6 +31,7 @@
     flex-direction: row;
     flex-wrap: nowrap; /*超過不換行*/
     justify-content: center;
+    padding: 10px;
 }
 .button {
     background-color: green;
@@ -57,5 +59,9 @@
     flex-direction: row;
     flex-wrap: nowrap; /*超過不換行*/
     justify-content: flex-start;
+}
+.inputMargin {
+    margin-top: -10px;
+    margin-right: 5px;
 }
 
