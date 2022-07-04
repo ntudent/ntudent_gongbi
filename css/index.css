@@ -5,7 +5,8 @@
 
 .middle {
     text-align: var(--c);
-    
+    margin-left: auto;
+    margin-right: auto;
 }
 @media (max-width: 700px) {
     .middle {
@@ -16,16 +17,19 @@
     }
 }
 
-.button {
+/*.button {
     background-color: green;
     border: none;
     border-radius: 5px;
     color: azure;
-}
+}*/
 .obj {
     margin: 0 auto;
 }
-.borderBlack {
-    border: 1px;
-    color: black;
+.flex-container {
+    display: flex; /*flex排列*/
+    flex-direction: row;
+    flex-wrap: nowrap; /*超過不換行*/
+    justify-content: flex-start;
 }
+
