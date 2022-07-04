@@ -25,6 +25,11 @@
         border-radius: 5px;
         color: azure;
     }
+    .inputMargin {
+        margin-top: -10px;
+        margin-right: 5px;
+        vertical-align: text-bottom;
+    }
 }
 .flex-button {
     display: flex; /*flex排列*/
