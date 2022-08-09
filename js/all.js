@@ -73,7 +73,7 @@ $(() => {
         sorting_layer_id = 1
         //刪既存編號數字id的tr
         //var del = document.querySelector('removable')
-        for (i=0; i<100; i++) { //再按一次鍵後清空所有數字(id="1"~"99")的<tr>
+        for (i=0; i<200; i++) { //再按一次鍵後清空所有數字(id="1"~"99")的<tr>
             if (document.getElementById(i) !== null) {
                 //alert(document.getElementById(i))
                 document.getElementById(i).remove("#"+toString(i))
@@ -168,7 +168,7 @@ $(() => {
             else if (item_all[i][5] == yourname && item_all[i][3] !== "x") { //審稿人士
                 all[num_all] = new Array(item_all[i][0], "審稿", "", item_all[i][6], gb_all[i][6])
                 num_all += 1 //計數
-            } else if (item_all[i][5] == yourname && item_all[i][3] !== "x") { //考古的審稿
+            } else if (item_all[i][5] == yourname && item_all[i][3] == "x") { //考古的審稿
                 all[num_all] = new Array(item_all[i][0], "考古(審)", item_all[i][1], item_all[i][4], gb_all[i][4])
                 num_all += 1 //計數
             }
