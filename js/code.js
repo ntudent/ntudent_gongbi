@@ -3,11 +3,11 @@ function onChange(x) { //切換mode
         document.getElementById("data_gb").style.display = 'none';
         document.getElementById("output_gb").style.display = 'none';
         document.getElementById("data_testday").style.display = 'block';
-        document.getElementById("output_testday").style.display = 'block';
+        document.getElementById("output_testday_out").style.display = 'block';
     }
     if (x.value == "_gb") {
         document.getElementById("data_testday").style.display = 'none';
-        document.getElementById("output_testday").style.display = 'none';
+        document.getElementById("output_testday_out").style.display = 'none';
         document.getElementById("data_gb").style.display = 'block';
         document.getElementById("output_gb").style.display = 'block';
     }
@@ -32,10 +32,37 @@ function getDiv(mode, parentId, id) {
     const past = document.getElementById(parentId) 
     past.appendChild(div) //從table的t_body下append節點到parentTd元素上
 }
-function toNumber(x) {
-    x = parseInt(x) + 1; 
+function toNumber(x, y) {
+    x = parseInt(x) + y; 
     return x;
 }
+document.getElementById("rep_countdown").addEventListener('click', function(){
+    var copyArea = document.getElementById("output_gb_countdown");
+    var range = document.createRange(); 
+    range.selectNode(copyArea); //選取範圍
+    window.getSelection().addRange(range);
+    document.execCommand('copy'); //copy
+    window.getSelection().removeAllRanges(); //取消選取
+    document.getElementById("rep_countdown").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
+})
+document.getElementById("rep_all").addEventListener('click', function(){
+    var copyArea = document.getElementById("output_gb_all");
+    var range = document.createRange(); 
+    range.selectNode(copyArea); //選取範圍
+    window.getSelection().addRange(range);
+    document.execCommand('copy'); //copy
+    window.getSelection().removeAllRanges(); //取消選取
+    document.getElementById("rep_all").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
+})
+document.getElementById("rep_testday").addEventListener('click', function(){
+    var copyArea = document.getElementById("output_testday");
+    var range = document.createRange(); 
+    range.selectNode(copyArea); //選取範圍
+    window.getSelection().addRange(range);
+    document.execCommand('copy'); //copy
+    window.getSelection().removeAllRanges(); //取消選取
+    document.getElementById("rep_testday").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
+})
 $(() => {
     //$('#button_name').on('change', () => {
         //if ($('#button_name').val() == "_countdown") {
@@ -53,8 +80,10 @@ $(() => {
             }
         }
     })
-    code_gb_id = 0
     $('#gb_next').on('click', () => {
+        $('#rep_countdown').css('display', 'block')
+        $('#rep_all').css('display', 'block')
+        code_gb_id = toNumber($('#data_gb_number').val(), 0)
         //item[流水號] = new Array(共筆名, 寫手1, 寫手2, 上課日, 交初稿日, 審稿日, 審稿日)
         //item[0] = new Array(thisgb("生理", "1"), n[19], n[23], "2022-09-05", "", n[17], "")
         //item[13] = new Array(thisgb("生理", "期中"), n[27], n[0], "x", "2022-10-10", n[0], "x")
@@ -80,7 +109,7 @@ $(() => {
         code_gb_id += 1
         if ($.isNumeric($('#data_gb_week').val())) { //周次如果是數字則每次都+1
             num_week = $('#data_gb_week').val()
-            num_week = toNumber(num_week)
+            num_week = toNumber(num_week, 1)
             $('#data_gb_week').val(num_week)
         }
         $('#data_gb_number').val(code_gb_id) //流水號+1
@@ -91,8 +120,88 @@ $(() => {
     })
 
     $('#gb_back').on('click', () => {
-        countdownId = "#countdown" + code_gb_id
-        allId = "#all" + code_gb_id
-        
+        if (code_gb_id > 0) {
+            $('#rep_countdown').css('display', 'block')
+            $('#rep_all').css('display', 'block')
+            code_gb_id -= 1 //流水號-1
+            //countdownId = "#countdown" + code_gb_id
+            //allId = "#all" + code_gb_id
+            document.getElementById("countdown" + code_gb_id).remove()
+            document.getElementById("all" + code_gb_id).remove()
+            $('#data_gb_number').val(code_gb_id)
+            if ($.isNumeric($('#data_gb_week').val()) && $('#data_gb_week').val() > 1) { //周次如果是數字則-1
+                num_week = $('#data_gb_week').val()
+                num_week = toNumber(num_week, -1)
+                $('#data_gb_week').val(num_week)
+            }
+            $('#data_gb_ss_1').val("") //共筆人重設
+            $('#data_gb_ss_2').val("") //共筆人重設
+            $('#data_gb_sg').val("") //審稿人重設
+            $('#data_gb_date').val("") //日期重設
+        }
+        if (code_gb_id == 0) {
+            $('#rep_countdown').css('display', 'none')
+            $('#rep_all').css('display', 'none')
+        }
+    })
+    $('#gb_delete').on('click', () => {
+        while (code_gb_id > 0) {
+            code_gb_id -= 1 //流水號-1
+            if(document.getElementById("countdown" + code_gb_id) !== null) {
+                document.getElementById("countdown" + code_gb_id).remove()
+                document.getElementById("all" + code_gb_id).remove()
+                $('#data_gb_week').val("")
+                $('#data_gb_ss_1').val("") //共筆人重設
+                $('#data_gb_ss_2').val("") //共筆人重設
+                $('#data_gb_sg').val("") //審稿人重設
+                $('#data_gb_date').val("") //日期重設
+            }           
+        }
+        $('#data_gb_number').val("0")
+        $('#rep_countdown').css('display', 'none')
+        $('#rep_all').css('display', 'none')
+    })
+
+    $('#testday_next').on('click', () => {
+        $('#rep_testday').css('display', 'block')
+        code_testday_id = toNumber($('#data_testday_number').val(), 0)
+        //item_testday[流水號] = new Array(考科, 範圍, 日期, 剩餘日)
+        //item_testday[0] = new Array(count_item_testday("OD"), "期中", "2022-07-03", "")
+        getDiv("testday", "output_testday", code_testday_id) //創造考程每一項的div
+        code_testday = "item_testday[" + $('#data_testday_number').val() + "] = new Array(count_item_testday(\"" + $('#data_testday_name').val() + "\"), \"" + $('#data_testday_range').val() + "\", \"" + $('#data_testday_date').val() + "\", \"\")"
+        testdayId = "#testday" + code_testday_id //考程的每一項id
+        $(testdayId).text(code_testday)
+
+        code_testday_id += 1
+        $('#data_testday_number').val(code_testday_id) //流水號+1
+        $('#data_testday_range').val("") //範圍重設
+        $('#data_testday_date').val("") //日期重設
+    })
+
+    $('#testday_back').on('click', () => {
+        if (code_testday_id > 0) {
+            $('#rep_testday').css('display', 'block')
+            code_testday_id -= 1 //流水號-1]
+            document.getElementById("testday" + code_testday_id).remove()
+            $('#data_testday_number').val(code_testday_id)
+            $('#data_testday_range').val("") //範圍重設
+            $('#data_testday_date').val("") //日期重設
+        }
+        if (code_testday_id == 0) {
+            $('#rep_testday').css('display', 'none')
+        }
+    })
+    $('#testday_delete').on('click', () => {
+        while (code_testday_id > 0) {
+            code_testday_id -= 1 //流水號-1]
+            if (document.getElementById("testday" + code_testday_id) !== null) {
+                document.getElementById("testday" + code_testday_id).remove()
+                $('#data_testday_name').val("") //考科重設
+                $('#data_testday_range').val("") //範圍重設
+                $('#data_testday_date').val("") //日期重設
+            } 
+        }
+        $('#data_testday_number').val("0")
+        $('#rep_testday').css('display', 'none')
     })
 })
