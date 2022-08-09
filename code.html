@@ -37,9 +37,9 @@
                 </div>
             </div>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 10px;" >
-                <button id="gb_next" style="margin: 10px;">確定</button>
-                <button id="gb_back" style="margin: 10px;">上一步</button>
-                <button id="gb_delete" style="margin: 10px;">清空</button>
+                <button id="gb_next" style="margin: 10px; border: 0; border-radius: 6px; background-color: blue; opacity: 0.7; color: white;">確定</button>
+                <button id="gb_back" style="margin: 10px; border: 0; border-radius: 6px; background-color: blue; opacity: 0.7; color: white;">上一步</button>
+                <button id="gb_delete" style="margin: 10px; border: 0; border-radius: 6px; background-color: blue; opacity: 0.7; color: white;">清空</button>
             </div>
         </div>
 
@@ -57,33 +57,43 @@
                 </div>
             </div>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 10px;" >
-                <button id="testday_next" style="margin: 10px;">確定</button>
-                <button id="testday_back" style="margin: 10px;">上一步</button>
-                <button id="testday_delete" style="margin: 10px;">清空</button>
+                <button id="testday_next" style="margin: 10px; border: 0; border-radius: 6px; background-color: blue; opacity: 0.7; color: white;">確定</button>
+                <button id="testday_back" style="margin: 10px; border: 0; border-radius: 6px; background-color: blue; opacity: 0.7; color: white;">上一步</button>
+                <button id="testday_delete" style="margin: 10px; border: 0; border-radius: 6px; background-color: blue; opacity: 0.7; color: white;">清空</button>
             </div>
         </div>
 
-        <div id="output_gb" style="display: block;">
-            <p>輸出：</p>
-            <input type="checkbox" id="checkbox_countdown" checked onclick="onClick_countdown();">"近期"
-            <div id="output_gb_countdown" style="display: block;">
-                <div id="countdown0">
-                    <!--item[流水號] = new Array(共筆名, 寫手1, 寫手2, 上課日, 交初稿日, 審稿日, 審稿日)-->
+        <div style="display: flex; justify-content: center;">
+            <div id="output_gb" style="display: block;">
+                <p style="margin-bottom: 0px;">輸出：</p>
+                <div style="display: flex; justify-content: start;">
+                    <input type="checkbox" id="checkbox_countdown" checked onclick="onClick_countdown();" style="margin-right: 5px;">
+                    <p style="margin: 5px;">"近期"</p>
+                    <button id="rep_countdown" style="display: none; margin: 5px; border: 0; border-radius: 6px; background-color: white; opacity: 0.7; color: grey;" >一鍵複製</button>
+                </div>
+                <div id="output_gb_countdown" style="display: block;">
+                
+                </div>
+                <div style="display: flex; justify-content: start;">
+                    <input type="checkbox" id="checkbox_all" onclick="onClick_all();" style="margin-right: 5px;">
+                    <p style="margin: 5px;">"篩選"</p>
+                    <button id="rep_all" style="display: none; margin: 5px; border: 0; border-radius: 6px; background-color: white; opacity: 0.7; color: grey;" >一鍵複製</button>
+                </div>
+                <div id="output_gb_all" style="display: none;">
+                
                 </div>
             </div>
-            <input type="checkbox" id="checkbox_all" onclick="onClick_all();">"篩選"
-            <div id="output_gb_all" style="display: none;">
-                <div id="all0">
-                    <!--item_all[流水號] = new Array(共筆名, 寫手1, 寫手2, 上課日, 交初稿日, 審稿日, 審稿日)-->
+            <div id="output_testday_out" style="display: none;">
+                <div style="display: flex; justify-content: start; height: 36px;">
+                    <p style="margin: 5px;">輸出：</p>
+                    <button id="rep_testday" style="display: none; margin: 5px; border: 0; border-radius: 6px; background-color: white; opacity: 0.7; color: grey;" >一鍵複製</button>
+                </div>
+                <div id="output_testday" style="display: block; margin-left: 5px;">
+                
                 </div>
             </div>
         </div>
-        <div id="output_testday" style="display: none;">
-            <p>輸出：</p>
-            <div id="testday0">
-                <!--item_testday[流水號] = new Array(考科, 範圍, 日期, 剩餘日)-->
-            </div>
-        </div>
+        
     </div>
 
     <script src="./jquery-3.6.0.js"></script>
