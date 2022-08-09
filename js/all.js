@@ -53,13 +53,14 @@ $(() => {
     item_all[4] = new Array(thisgb("醫人", "1"), n[3], n[19], "2022-07-06", "", n[8], "")
     item_all[5] = new Array(thisgb("醫人", "2"), n[21], n[19], "2022-07-02", "", n[7], "")
     item_all[6] = new Array(thisgb("醫人", "3"), n[4], n[19], "2022-07-01", "", n[26], "")
-    item_all[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-07-03", "", n[19], "")
-    item_all[8] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-04", "", n[19], "")
-    item_all[9] = new Array(thisgb("胚胎", "1"), n[33], n[34], "2022-07-05", "", n[19], "")
-    item_all[10] = new Array(thisgb("胚胎", "2"), n[33], n[34], "2022-07-06", "", n[19], "")
-    item_all[11] = new Array(thisgb("胚胎", "3"), n[33], n[34], "2022-07-07", "", n[19], "")
-    item_all[12] = new Array(thisgb("生理", "考古"), n[29], n[0], "x", "2022-07-04", n[0], "x")
-    item_all[13] = new Array(thisgb("生理", "考古古"), n[30], n[0], "x", "2022-07-15", n[0], "x")
+    item_all[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-08-03", "", n[19], "")
+    item_all[8] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-08-04", "", n[19], "")
+    item_all[9] = new Array(thisgb("胚胎", "1"), n[33], n[34], "2022-08-05", "", n[19], "")
+    item_all[10] = new Array(thisgb("胚胎", "2"), n[33], n[34], "2022-08-06", "", n[19], "")
+    item_all[11] = new Array(thisgb("胚胎", "3"), n[33], n[34], "2022-08-07", "", n[19], "")
+    item_all[12] = new Array(thisgb("生理", "考古"), n[29], n[0], "x", "2022-08-04", n[19], "x")
+    item_all[13] = new Array(thisgb("生理", "考古古"), n[30], n[0], "x", "2022-08-15", n[19], "x")
+    item_all[14] = new Array(thisgb("生理", "期中"), n[27], n[0], "x", "2022-08-09", n[10], "x")
     //改共筆改以上這段
 
     $('#yourname').keypress(function(e) { //按enter鍵也觸發#enter_name的onclick()事件
@@ -152,7 +153,7 @@ $(() => {
                 all[num_all] = new Array()
 
                 if (item_all[i][3] == "x") { //考古人士
-                    all[num_all] = new Array(item_all[i][0], "考古", "", item_all[i][4], gb_all[i][4])
+                    all[num_all] = new Array(item_all[i][0], "考古", item_all[i][5], item_all[i][4], gb_all[i][4])
                 }
                 else if (item_all[i][1] == yourname) { //寫手人士 && 名字==item[j][1]
                     all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][2], item_all[i][3], gb_all[i][3])
@@ -164,8 +165,11 @@ $(() => {
                 }
                 num_all += 1 //計數
             }
-            else if (item_all[i][5] == yourname) { //審稿人士
+            else if (item_all[i][5] == yourname && item_all[i][3] !== "x") { //審稿人士
                 all[num_all] = new Array(item_all[i][0], "審稿", "", item_all[i][6], gb_all[i][6])
+                num_all += 1 //計數
+            } else if (item_all[i][5] == yourname && item_all[i][3] !== "x") { //考古的審稿
+                all[num_all] = new Array(item_all[i][0], "考古(審)", item_all[i][1], item_all[i][4], gb_all[i][4])
                 num_all += 1 //計數
             }
         }
