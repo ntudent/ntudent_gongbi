@@ -54,20 +54,32 @@ $(() => {
     gb = new Array()
     item = new Array()
     //改共筆改以下這段
-    item[0] = new Array(thisgb("OD", "1"), n[19], n[23], "2022-07-05", "", n[17], "") //(共筆, 寫手1, 寫手2, 寫手日, 交稿日, 審稿, 審稿日)
-    item[1] = new Array(thisgb("OD", "2"), n[1], n[19], "2022-07-05", "", n[10], "")
-    item[2] = new Array(thisgb("生理", "1"), n[2], n[9], "2022-07-04", "", n[19], "")
-    item[3] = new Array(thisgb("口解", "考古"), n[17], n[0], "x", "2022-07-05", n[0], "x")
-    item[4] = new Array(thisgb("醫人", "1"), n[3], n[19], "2022-07-06", "", n[8], "")
-    item[5] = new Array(thisgb("醫人", "2"), n[21], n[19], "2022-07-02", "", n[7], "")
-    item[6] = new Array(thisgb("醫人", "3"), n[4], n[19], "2022-07-01", "", n[26], "")
-    item[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-07-03", "", n[19], "")
-    item[8] = new Array(thisgb("胚胎", "0"), n[33], n[34], "2022-07-04", "", n[19], "")
-    item[9] = new Array(thisgb("胚胎", "1"), n[33], n[34], "2022-07-05", "", n[19], "")
-    item[10] = new Array(thisgb("胚胎", "2"), n[33], n[34], "2022-07-06", "", n[19], "")
-    item[11] = new Array(thisgb("胚胎", "3"), n[33], n[34], "2022-07-07", "", n[19], "")
-    item[12] = new Array(thisgb("生理", "考古"), n[29], n[0], "x", "2022-07-04", n[0], "x")
-    item[13] = new Array(thisgb("生理", "考古古"), n[30], n[0], "x", "2022-07-15", n[0], "x")
+    item[0] = new Array(thisgb("生理", "1"), n[19], n[23], "2022-09-05", "", n[17], "") //(共筆, 寫手1, 寫手2, 寫手日, 交稿日, 審稿, 審稿日)
+    item[1] = new Array(thisgb("生理", "2"), n[1], n[19], "2022-09-12", "", n[10], "")
+    item[2] = new Array(thisgb("生理", "3"), n[2], n[9], "2022-09-19", "", n[19], "")
+    item[3] = new Array(thisgb("生理", "4"), n[17], n[10], "2022-09-26", "", n[30], "x")
+    item[4] = new Array(thisgb("生理", "5"), n[3], n[19], "2022-10-03", "", n[8], "")
+    item[5] = new Array(thisgb("生理", "6"), n[21], n[19], "2022-10-17", "", n[7], "")
+    item[6] = new Array(thisgb("生理", "7"), n[4], n[19], "2022-10-31", "", n[26], "")
+    item[7] = new Array(thisgb("生理", "8"), n[5], n[6], "2022-11-07", "", n[19], "")
+    item[8] = new Array(thisgb("生理", "9"), n[33], n[34], "2022-11-14", "", n[19], "")
+    item[9] = new Array(thisgb("生理", "10"), n[33], n[34], "2022-11-21", "", n[19], "")
+    item[10] = new Array(thisgb("生理", "11"), n[33], n[34], "2022-11-28", "", n[19], "")
+    item[11] = new Array(thisgb("生理", "Lab1"), n[33], n[34], "2022-11-14", "", n[19], "")
+    item[12] = new Array(thisgb("生理", "Lab2"), n[33], n[34], "2022-11-21", "", n[19], "")
+    item[13] = new Array(thisgb("生理", "期中"), n[27], n[0], "x", "2022-08-09", n[10], "x")
+    item[14] = new Array(thisgb("生理", "期末"), n[27], n[0], "x", "2022-11-21", n[15], "x")
+    item[15] = new Array(thisgb("胚胎", "1"), n[33], n[34], "2022-09-06", "", n[19], "")
+    item[16] = new Array(thisgb("胚胎", "2"), n[33], n[34], "2022-09-13", "", n[19], "")
+    item[17] = new Array(thisgb("胚胎", "3"), n[33], n[34], "2022-09-20", "", n[19], "")
+    item[18] = new Array(thisgb("胚胎", "4"), n[33], n[34], "2022-09-27", "", n[19], "")
+    item[19] = new Array(thisgb("胚胎", "5"), n[33], n[34], "2022-10-04", "", n[19], "")
+    item[20] = new Array(thisgb("胚胎", "6"), n[33], n[34], "2022-11-22", "", n[19], "")
+    item[21] = new Array(thisgb("胚胎", "7"), n[33], n[34], "2022-11-29", "", n[19], "")
+    item[22] = new Array(thisgb("胚胎", "8"), n[33], n[34], "2022-12-06", "", n[19], "")
+    item[23] = new Array(thisgb("胚胎", "9"), n[33], n[34], "2022-12-13", "", n[19], "")
+    item[24] = new Array(thisgb("胚胎", "期末"), n[30], n[0], "x", "2022-12-20", n[19], "x")
+    
     //改共筆改以上這段
 
     for (i=0; i<n_item; i++) {
@@ -161,14 +173,15 @@ $(() => {
                 }          
             }
             //alert當寫手
-            if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][1], alert_name_ss) == -1) {
+            // if (gb[day_0[i]][2] !== n[0]
+            if (gb[day_0[i]][3] !== "" && jQuery.inArray(gb[day_0[i]][1], alert_name_ss) == -1) {
                 alert_name_ss.push(gb[day_0[i]][1])
             }
-            if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][2], alert_name_ss) == -1) {
+            if (gb[day_0[i]][3] !== "" && jQuery.inArray(gb[day_0[i]][2], alert_name_ss) == -1) {
                 alert_name_ss.push(gb[day_0[i]][2])
             }
             //alert審稿today
-            if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][5], alert_name_sg_today) == -1) {
+            if (gb[day_0[i]][3] !== "" && jQuery.inArray(gb[day_0[i]][5], alert_name_sg_today) == -1) {
                 alert_name_sg_today.push(gb[day_0[i]][5])
             }
         } else if (gb[day_0[i]][4] === 0) { //交稿日:寫手交稿審稿審稿
@@ -182,15 +195,18 @@ $(() => {
                 }          
             }
             //alert交初稿
-            if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][1], alert_name_ss_jiao) == -1) {
+            if (gb[day_0[i]][3] !== "" && jQuery.inArray(gb[day_0[i]][1], alert_name_ss_jiao) == -1) {
                 alert_name_ss_jiao.push(gb[day_0[i]][1])
             }
-            if (gb[day_0[i]][2] !== n[0] && jQuery.inArray(gb[day_0[i]][2], alert_name_ss_jiao) == -1) {
+            if (gb[day_0[i]][3] !== "" && jQuery.inArray(gb[day_0[i]][2], alert_name_ss_jiao) == -1) {
                 alert_name_ss_jiao.push(gb[day_0[i]][2])
             }
             //alert考古
-            if (gb[day_0[i]][2] == n[0] && jQuery.inArray(gb[day_0[i]][1], alert_name_kg) == -1) {
+            if (gb[day_0[i]][3] == "" && jQuery.inArray(gb[day_0[i]][1], alert_name_kg) == -1) {
                 alert_name_kg.push(gb[day_0[i]][1])
+            }
+            if (gb[day_0[i]][3] == "" && jQuery.inArray(gb[day_0[i]][5], alert_name_kg) == -1) {
+                alert_name_kg.push(gb[day_0[i]][5])
             }
         } else if (gb[day_0[i]][6] === 0) { //審稿日
             for (j=0; j<7; j++) { 
