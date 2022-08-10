@@ -44,6 +44,16 @@ function alert_name_f (alert_name, type) {
     a += alert_name[alert_name.length-1]
     return ("今天要" + type + "的人類: " + a);
 }
+document.getElementById("loadAll").addEventListener('click', () => {
+    if (document.getElementById("loadAll").checked) {
+        var $week = document.getElementById("week");
+        $($week).text("所有"); //當按下"未來所有"時改字
+    }
+    else {
+        var $week = document.getElementById("week");
+        $($week).text("一周");
+    }
+})
 $(() => {
     
     item = document.createElement('item') //開一個DOM節點
@@ -66,8 +76,8 @@ $(() => {
     item[9] = new Array(thisgb("生理", "10"), n[33], n[34], "2022-11-21", "", n[19], "")
     item[10] = new Array(thisgb("生理", "11"), n[33], n[34], "2022-11-28", "", n[19], "")
     item[11] = new Array(thisgb("生理", "Lab1"), n[33], n[34], "2022-11-14", "", n[19], "")
-    item[12] = new Array(thisgb("生理", "Lab2"), n[33], n[34], "2022-11-21", "", n[19], "")
-    item[13] = new Array(thisgb("生理", "期中"), n[27], n[0], "x", "2022-08-09", n[10], "x")
+    item[12] = new Array(thisgb("生理", "Lab2"), n[33], n[34], "2022-08-11", "", n[19], "")
+    item[13] = new Array(thisgb("生理", "期中"), n[27], n[0], "x", "2022-08-10", n[10], "x")
     item[14] = new Array(thisgb("生理", "期末"), n[27], n[0], "x", "2022-11-21", n[15], "x")
     item[15] = new Array(thisgb("胚胎", "1"), n[33], n[34], "2022-09-06", "", n[19], "")
     item[16] = new Array(thisgb("胚胎", "2"), n[33], n[34], "2022-09-13", "", n[19], "")
