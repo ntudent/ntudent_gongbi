@@ -34,6 +34,30 @@ function getTr(id, parentId) {
     const past = document.getElementById(parentId);
     past.appendChild(tr); //從table的t_body下append節點到parentTd元素上
 }
+var arrowClick = 0;
+document.getElementById("arrowClick").addEventListener("click", function(){
+    if (arrowClick % 2 == 0) { //第一次按
+        var element = document.getElementById("arrowClick")
+        if (arrowClick == 0) {
+            element.classList.add("image_rotate_90");
+        } else {
+            element.classList.remove("image_rotate_-90");
+            element.classList.add("image_rotate_90");
+        }
+        setTimeout(() => {
+            document.getElementById("gb_buy").style.display = 'block';
+            document.getElementById("kg_buy").style.display = 'block';
+        }, "1000")
+    } else {
+        var element = document.getElementById("arrowClick")
+        element.classList.remove("image_rotate_90");
+        element.classList.add("image_rotate_-90");
+        document.getElementById("gb_buy").style.display = 'none';
+        document.getElementById("kg_buy").style.display = 'none';
+    }
+    arrowClick +=1;
+});
+
 $(() => {
     //getTr(sorting_layer_id, 'print_all')
 
@@ -62,6 +86,14 @@ $(() => {
     item_all[13] = new Array(thisgb("生理", "考古古"), n[30], n[0], "x", "2022-08-15", n[19], "x")
     item_all[14] = new Array(thisgb("生理", "期中"), n[27], n[0], "x", "2022-08-09", n[10], "x")
     //改共筆改以上這段
+
+    item_buy = new Array()
+    item_buy = document.createElement('item_buy')
+    //改購買的共筆改以下這段
+    item_buy[0] = new Array("共筆", "生理", n[10], n[19], n[23])
+    item_buy[1] = new Array("共筆", "胚胎", n[1], n[19], n[3])
+    item_buy[2] = new Array("考古", "生理", n[4], n[19], n[23])
+    //改購買的共筆改以上這段    
 
     $('#yourname').keypress(function(e) { //按enter鍵也觸發#enter_name的onclick()事件
         key = window.event ? e.keyCode : e.which
@@ -193,8 +225,20 @@ $(() => {
             sorting_layer_id += 1
         }
         
-        
-        
-    
+        //以下為共筆購買搜尋
+        gb_buy = new Array()
+        kg_buy = new Array()
+        for (i=0; i<3; i++) { //這邊記得中間改成全部共筆的個數
+            if (jQuery.inArray(yourname, item_buy[i]) !== -1) {
+                if (item_buy[i][0] == "共筆") {
+                    gb_buy.push(item_buy[i][1])
+                }
+                if (item_buy[i][0] == "考古") {
+                    kg_buy.push(item_buy[i][1])
+                }
+            }
+        }
+        $('#gb_buy').text("購買共筆：" + gb_buy) //輸出
+        $('#kg_buy').text("購買考古：" + kg_buy) //輸出
     })
 })
