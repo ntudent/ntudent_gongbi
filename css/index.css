@@ -55,7 +55,7 @@
     margin-left: 5px;
     margin-right: 5px;
 }
-.obj {
+.obj_50 {
     margin: 0 auto;
     height: 400px;
 }
@@ -87,4 +87,27 @@
     margin-top: -10px;
     margin-right: 5px;
 }
-
+.image_rotate_90 {
+    animation: rotation_90 1s;
+    animation-fill-mode: forwards; /*讓動畫停在最後一個frame*/
+}
+@keyframes rotation_90 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+.image_rotate_-90 {
+    animation: rotation_-90 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes rotation_-90 {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
