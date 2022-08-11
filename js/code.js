@@ -15,15 +15,24 @@ function onChange(x) { //切換mode
 function onClick_countdown() {
     if (document.getElementById("checkbox_countdown").checked) { //"近期"鍵打勾
         document.getElementById("output_gb_countdown").style.display = 'block';
+        if (document.getElementById("output_gb_countdown").innerHTML !== "") {
+            document.getElementById("rep_countdown").style.display = 'block'; //有東西才有複製鍵
+        }
     } else {
         document.getElementById("output_gb_countdown").style.display = 'none';
+        document.getElementById("rep_countdown").style.display = 'none';
+
     }
 }
 function onClick_all() {
     if (document.getElementById("checkbox_all").checked) { //"篩選"鍵打勾
         document.getElementById("output_gb_all").style.display = 'block';
+        if (document.getElementById("output_gb_all").innerHTML !== "") {
+            document.getElementById("rep_all").style.display = 'block'; //有東西才有複製鍵
+        }
     } else {
         document.getElementById("output_gb_all").style.display = 'none';
+        document.getElementById("rep_all").style.display = 'none';
     }
 }
 function getDiv(mode, parentId, id) {
@@ -43,7 +52,16 @@ document.getElementById("rep_countdown").addEventListener('click', function(){
     window.getSelection().addRange(range);
     document.execCommand('copy'); //copy
     window.getSelection().removeAllRanges(); //取消選取
-    document.getElementById("rep_countdown").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
+    var $rep = document.getElementById("rep_countdown")
+    $($rep).text("已複製");
+    $rep.style.background = 'orange';
+    $rep.style.color = 'green'; 
+    setTimeout(() => {
+        $($rep).text("一鍵複製");
+        $rep.style.background = 'white';
+        $rep.style.color = 'grey';
+    }, "2000")
+    //document.getElementById("rep_countdown").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
 })
 document.getElementById("rep_all").addEventListener('click', function(){
     var copyArea = document.getElementById("output_gb_all");
@@ -52,7 +70,16 @@ document.getElementById("rep_all").addEventListener('click', function(){
     window.getSelection().addRange(range);
     document.execCommand('copy'); //copy
     window.getSelection().removeAllRanges(); //取消選取
-    document.getElementById("rep_all").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
+    var $rep = document.getElementById("rep_all")
+    $($rep).text("已複製");
+    $rep.style.background = 'orange';
+    $rep.style.color = 'green';
+    setTimeout(() => {
+        $($rep).text("一鍵複製");
+        $rep.style.background = 'white';
+        $rep.style.color = 'grey';
+    }, "2000")
+    //document.getElementById("rep_all").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
 })
 document.getElementById("rep_testday").addEventListener('click', function(){
     var copyArea = document.getElementById("output_testday");
@@ -61,8 +88,57 @@ document.getElementById("rep_testday").addEventListener('click', function(){
     window.getSelection().addRange(range);
     document.execCommand('copy'); //copy
     window.getSelection().removeAllRanges(); //取消選取
-    document.getElementById("rep_testday").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
+    var $rep = document.getElementById("rep_testday")
+    $($rep).text("已複製");
+    $rep.style.background = 'orange';
+    $rep.style.color = 'green';
+    setTimeout(() => {
+        $($rep).text("一鍵複製");
+        $rep.style.background = 'white';
+        $rep.style.color = 'grey';
+    }, "2000")
+    //document.getElementById("rep_testday").style.display = 'none'; //暫時隱藏按鍵，除非有下一個動作
 })
+for (i=0; i<3; i++) {
+    document.getElementsByClassName("next")[i].addEventListener('keyup', function (e) { //按鍵時偵測字串長度
+        var target = e.srcElement || e.target;
+        var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+        var thisLength = target.value.length;
+        if ($.isNumeric(target)) {
+            if (target.value > 3 || thisLength >= maxLength) { //如果號碼是4-9號或是兩位數號碼，跳下一欄
+                var next = target;
+                while (next = next.nextElementSibling) {
+                    next.focus();
+                    break;
+                }
+            }
+        } else {
+            if (target.value == "x" || thisLength >= maxLength) { //考古人如果輸入x，跳下一欄
+                var next = target;
+                while (next = next.nextElementSibling) {
+                    next.focus();
+                    break;
+                }
+            }
+        }
+        
+    })
+}
+for (i=0; i<100; i++) {
+    if (document.getElementsByClassName("right")[i]) {
+        document.getElementsByClassName("right")[i].addEventListener('keydown', function (e) {
+            if (e.keyCode == '39' || e.keyCode == '40') { //右鍵
+                var target = e.srcElement || e.target;
+                target.nextElementSibling.focus(); //移到下一格
+            }
+            if (e.keyCode == '37' || e.keyCode == '38') { //左鍵
+                var target = e.srcElement || e.target;
+                target.previousElementSibling.focus(); //移到上一格
+            }
+        })
+    }
+}
+
 $(() => {
     //$('#button_name').on('change', () => {
         //if ($('#button_name').val() == "_countdown") {
@@ -81,8 +157,12 @@ $(() => {
         }
     })
     $('#gb_next').on('click', () => {
-        $('#rep_countdown').css('display', 'block')
-        $('#rep_all').css('display', 'block')
+        if (document.getElementById("checkbox_countdown").checked) {
+            $('#rep_countdown').css('display', 'block') //有東西才有複製鍵
+        }
+        if (document.getElementById("checkbox_all").checked) {
+            $('#rep_all').css('display', 'block') //有東西才有複製鍵
+        }
         code_gb_id = toNumber($('#data_gb_number').val(), 0)
         //item[流水號] = new Array(共筆名, 寫手1, 寫手2, 上課日, 交初稿日, 審稿日, 審稿日)
         //item[0] = new Array(thisgb("生理", "1"), n[19], n[23], "2022-09-05", "", n[17], "")
