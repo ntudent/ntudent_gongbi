@@ -13,8 +13,8 @@
     <div id="head_code"></div>
     <div id="body_code">
         <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-            <select name="button_name" id="button_name" onchange="onChange(this);">
-                <option value="gb_name_select">請選擇模式</option>
+            <div style="margin-right: 10px;">請選擇模式</div>
+            <select name="button_name" id="button_name" onchange="onChange(this);" style="border: 0;">
                 <option value="_gb">共筆</option>
                 <option value="_testday">考程</option>
             </select>
@@ -24,16 +24,16 @@
             <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!--手機板設成flex-direction: column-->
                 <div style="display: flex; flex-wrap: wrap;">
                     <p style="padding-top: 20px;">No.</p>
-                    <input type="text" id="data_gb_number" style="width: 80px; margin: 10px;" autocomplete="off" value="0" placeholder="流水號"> <!--一開始="0"，之後依照頁面顯示的輸入-->              
+                    <input type="text" id="data_gb_number" style="width: 80px; margin: 10px; border: 0;" autocomplete="off" value="0" placeholder="流水號"> <!--一開始="0"，之後依照頁面顯示的輸入-->              
                 </div>                
-                <input type="text" name="gb_name" id="data_gb_name" style="width: 80px; margin: 10px;" autocomplete="off" placeholder="共筆名">
-                <input type="text" name="gb_week" id="data_gb_week" style="width: 140px; margin: 10px;" autocomplete="off" placeholder="Week/考古名">
-                <input type="text" name="gb_ss_1" id="data_gb_ss_1" style="width: 140px; margin: 10px;" autocomplete="off" placeholder="寫手1 座號">
-                <input type="text" name="gb_ss_2" id="data_gb_ss_2" style="width: 140px; margin: 10px;" autocomplete="off" placeholder="寫手2 考古請填'x'">
-                <input type="text" name="gb_sg" id="data_gb_sg" style="width: 80px; margin: 10px;" autocomplete="off" placeholder="審稿">
+                <input type="text" name="gb_name" id="data_gb_name" style="width: 80px; margin: 10px; border: 0;" autocomplete="off" placeholder="共筆名" class="right">
+                <input type="text" name="gb_week" id="data_gb_week" style="width: 140px; margin: 10px; border: 0;" autocomplete="off" placeholder="Week/考古名" class="right">
+                <input type="text" name="gb_ss_1" id="data_gb_ss_1" style="width: 140px; margin: 10px; border: 0;" autocomplete="off" placeholder="寫手1 座號" class="next right" maxlength="2">
+                <input type="text" name="gb_ss_2" id="data_gb_ss_2" style="width: 140px; margin: 10px; border: 0;" autocomplete="off" placeholder="寫手2 考古請填'x'" class="next right" maxlength="2">
+                <input type="text" name="gb_sg" id="data_gb_sg" style="width: 80px; margin: 10px; border: 0;" autocomplete="off" placeholder="審稿" class="next right" maxlength="2">
                 <div style="display: flex; flex-wrap: wrap;">
                     <p style="padding-top: 20px;">上課/考古交稿日</p>
-                    <input type="date" name="gb_date" id="data_gb_date" style="width: 120px; margin: 10px;" autocomplete="off" placeholder="">
+                    <input type="date" name="gb_date" id="data_gb_date" style="width: 120px; margin: 10px; border: 0;" autocomplete="off" placeholder="">
                 </div>
             </div>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 10px;" >
@@ -47,13 +47,13 @@
             <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!--手機板設成flex-direction: column-->
                 <div style="display: flex; flex-wrap: wrap;">
                     <p style="padding-top: 20px;">No.</p>
-                    <input type="text" id="data_testday_number" style="width: 80px; margin: 10px;" autocomplete="off" value="0" placeholder="流水號"> <!--一開始="0"，之後依照頁面顯示的輸入-->
+                    <input type="text" id="data_testday_number" style="width: 80px; margin: 10px; border: 0;" autocomplete="off" value="0" placeholder="流水號"> <!--一開始="0"，之後依照頁面顯示的輸入-->
                 </div>
-                <input type="text" name="testday_name" id="data_testday_name" style="width: 80px; margin: 10px;" autocomplete="off" placeholder="考科">
-                <input type="text" name="testday_range" id="data_testday_range" style="width: 160px; margin: 10px;" autocomplete="off" placeholder="範圍">
+                <input type="text" name="testday_name" id="data_testday_name" style="width: 80px; margin: 10px; border: 0;" autocomplete="off" placeholder="考科" class="right">
+                <input type="text" name="testday_range" id="data_testday_range" style="width: 160px; margin: 10px; border: 0;" autocomplete="off" placeholder="範圍" class="right">
                 <div style="display: flex; flex-wrap: wrap;">
                     <p style="padding-top: 20px;">日期</p>
-                    <input type="date" name="testday_date" id="data_testday_date" style="width: 160px; margin: 10px;" autocomplete="off" placeholder="日期">
+                    <input type="date" name="testday_date" id="data_testday_date" style="width: 160px; margin: 10px; border: 0;" autocomplete="off" placeholder="日期">
                 </div>
             </div>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 10px;" >
@@ -71,26 +71,20 @@
                     <p style="margin: 5px;">"近期"</p>
                     <button id="rep_countdown" style="display: none; margin: 5px; border: 0; border-radius: 6px; background-color: white; opacity: 0.7; color: grey;" >一鍵複製</button>
                 </div>
-                <div id="output_gb_countdown" style="display: block;">
-                
-                </div>
+                <div id="output_gb_countdown" style="display: block;"></div> <!--數據-->
                 <div style="display: flex; justify-content: start;">
                     <input type="checkbox" id="checkbox_all" onclick="onClick_all();" style="margin-right: 5px;">
                     <p style="margin: 5px;">"篩選"</p>
                     <button id="rep_all" style="display: none; margin: 5px; border: 0; border-radius: 6px; background-color: white; opacity: 0.7; color: grey;" >一鍵複製</button>
                 </div>
-                <div id="output_gb_all" style="display: none;">
-                
-                </div>
+                <div id="output_gb_all" style="display: none;"></div> <!--數據-->
             </div>
             <div id="output_testday_out" style="display: none;">
                 <div style="display: flex; justify-content: start; height: 36px;">
                     <p style="margin: 5px;">輸出：</p>
                     <button id="rep_testday" style="display: none; margin: 5px; border: 0; border-radius: 6px; background-color: white; opacity: 0.7; color: grey;" >一鍵複製</button>
                 </div>
-                <div id="output_testday" style="display: block; margin-left: 5px;">
-                
-                </div>
+                <div id="output_testday" style="display: block; margin-left: 5px;"></div> <!--數據-->
             </div>
         </div>
         
