@@ -83,9 +83,6 @@
 .showOnPhone {
     opacity: 0;
 }
-.delLine {
-    text-decoration-line: line-through;
-}
 .flex-container {
     display: flex; /*flex排列*/
     flex-direction: row;
@@ -154,6 +151,14 @@
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+.delLine {
+    text-decoration-line: line-through;
+    animation: delx 0.1s ease forwards;
+}
+@keyframes delx {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
 }
 .drop {
     /*margin-top: var(--margin-top);*/
