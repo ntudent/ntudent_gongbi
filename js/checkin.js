@@ -93,6 +93,23 @@ function week() { //星期幾
     $(docu).text(text);
     docu.classList.add("fadeIn"); //浮現動畫
 }
+function addLoadEvent(func) { 
+    var oldonload = window.onload; 
+    if (typeof window.onload != 'function') { 
+      window.onload = func; 
+    } else { 
+      window.onload = function() { 
+        if (oldonload) { 
+          oldonload(); 
+        } 
+        func(); 
+      } 
+    } 
+}
+addLoadEvent(getmonth);
+addLoadEvent(month_en);
+addLoadEvent(getdate);
+addLoadEvent(week);
 function week_lower () {
     var d = (new Date()).getDay();
     return d;
