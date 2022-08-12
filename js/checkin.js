@@ -267,12 +267,15 @@ $(() => {
             $('#' + i).addClass("delLine");
         }
         //箭頭掉下來
-        document.getElementsByClassName("drop").style.setProperty('--top', `${del * 10}px`)
+        docu = document.getElementsByClassName("drop")
+        docu.style.setProperty('--margin-top', `${del * 20}px`)
     }
     if (del >= 9){ //放學後，全部課程劃掉
         for(i=1; i<=9; i++) {
             $('#' + i).addClass("delLine");
         }
+        docu = document.getElementsByClassName("drop")
+        docu.style.display = 'none';
     }
     //顯示明天課表
 })
