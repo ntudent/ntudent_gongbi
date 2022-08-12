@@ -3,12 +3,10 @@ function thisrefresh() {
 }
 setTimeout('thisrefresh()', 10000); //自動刷新頁面
 function getmonth() {
-    var d = new Date()
-    var month = d.prototype.getMonth();
-    var i = 0;
-    if (i <= month) {
+    var month = (new Date()).getMonth();
+    for (var i=0; i <= month; i++) {
         setTimeout(() => {
-            var docu = document.getElementById("month_num")
+            var docu = document.getElementById("month_num");
             $(docu).text(i+1);
         }, 1000*i)
     }
@@ -53,7 +51,7 @@ function month_en(i) {
             var text = "December";
             break;
     }
-    var docu = document.getElementById("month_en")
+    var docu = document.getElementById("month_en");
     $(docu).text(text);
 }
 $(() => {
