@@ -9,10 +9,10 @@ function getmonth() { //取得月份
             var docu = document.getElementById("month_num");
             $(docu).text(i++); //月份往上跳
         }, 100 * i)
-    }   
-    month_en(i-1);
+    } 
 }
-function month_en(i) {
+function month_en() {
+    var i = (new Date()).getMonth()
     switch (i) {
         case 0 : 
             var text = "January";
@@ -61,9 +61,8 @@ function getdate() { //取得日期
         setTimeout(() => {
             var docu = document.getElementById("date");
             $(docu).text(i++); //日期往上跳
-        }, 100 * i)
+        }, 50 * i)
     }
-    week();
 }
 function week() { //星期幾
     var week = (new Date()).getDay();
@@ -129,5 +128,8 @@ $(() => {
             $($ptClass).text("胚胎")
         }
     }
-    //組織:若碰上第i節有掛id::ptClass的就不要getDiv
+    //星期一 組織:若碰上第i節有掛id::ptClass的就不要getDiv
+    if (week_lower() == 1) {
+
+    }
 })
