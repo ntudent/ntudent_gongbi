@@ -1,15 +1,33 @@
-function getData() { //裡面放page name，在body可以onload某頁面，在讓各物件onclick分別切不同page
-    //XML為原生物件，專門和伺服器連線
-    var req = new XMLHttpRequest();
-    req.open("get", "https://www.google.com/search?q=0056&oq=0056");
-    req.onload = function() { //load事件，偵測連線的狀態結束
-        //連線完成
-        var content = document.getElementsByClassName("IsqQVc");
-        content.innerHTML = this.responseText;
-        document.getElementById("body_checkin").text(content);
-    };
-    req.send(); //送出連線
-}; 
+function thisrefresh() {
+    window.location.reload();
+}
+setTimeout('thisrefresh()', 10000); //自動刷新頁面
+function getmonth() {
+    var d = new Date()
+    var month = d.prototype.getMonth();
+    var i = 0;
+    if (i <= month) {
+        setTimeout(() => {
+            document.getElementById("month_num").text(i+1);
+        }, 1000*i)
+    }
+    month_en(i);
+}
+function month_en(i) {
+    switch (i) {
+        case 0 : 
+            var text = "January";
+            break;
+        case 1 :
+            var text = "Febuary";
+            break;
+        case 7 :
+            var text = "August";
+            break; 
+    }
+    document.getElementById("month_en").text(text);
+}
 $(() => {
-    
+    d = new Date()
+
 })
