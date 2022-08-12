@@ -133,7 +133,7 @@ function formatDate() {
 }
 function getLi(id, parentId) {
     const li = document.createElement('li'); //創建新的層的DOM節點
-    div.setAttribute('id', id); //賦予層元素id
+    li.setAttribute('id', id); //賦予層元素id
     const past = document.getElementById(parentId);
     past.appendChild(li); //append節點到parentId元素上
 }
