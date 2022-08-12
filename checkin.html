@@ -13,14 +13,15 @@
 <body style="background: #24fdd2; font-family: 'Times New Roman', Helvetica, 新細明體;">
     <div id="head_checkin"></div>
     <div id="body_checkin">
-        <div style="background-color: rgb(192, 206, 255); opacity: 0.5;">
+        <div style="background-color: rgb(192, 206, 255); opacity: 0.8;">
             <div id="upperHolder" style="height: 200px; width: 200px; background-color: pink; border: green; border-style: groove; border-radius: 10px;">
                 <div id="month" style="display: flex;">
                     <div id="month_num" style="font-size: 28;"></div> <!--div無法onload-->
-                    <div id="month_en" style="font-size: 10;"></div>
+                    <div>月</div>
+                    <div id="month_en" style="font-size: 10; margin-left: 10px;"></div>
                 </div>
-                <div id="date" style="font-size: 18; margin-left: auto; margin-right: auto;"></div>
-                <div id="week" style="margin-left: auto; margin-right: auto;"></div>
+                <div id="date" class="middle"></div>
+                <div id="week" class="middle"></div>
             </div>
             <div id="lowerHolder" style="height: 400px; width: 200px;" style="display: flex;">
                 <div id="class" style="width: 150px;">
