@@ -54,7 +54,7 @@ function month_en() {
     }
     var docu = document.getElementById("month_en");
     $(docu).text(text);
-    docu.style.fontSize = '36px';
+    docu.style.fontSize = '24px';
     docu.classList.add("fadeIn"); //浮現動畫
 }
 function getdate() { //取得日期
@@ -94,7 +94,7 @@ function week() { //星期幾
     }
     var docu = document.getElementById("week");
     $(docu).text(text);
-    docu.style.fontSize = '36px';
+    docu.style.fontSize = '24px';
     docu.classList.add("fadeIn"); //浮現動畫
 }
 function addLoadEvent(func) {  //load進頁面時自動load下面func
@@ -149,7 +149,7 @@ $(() => {
             $($ptClass).text("胚胎")
         }
     }
-    //星期一 組織:若碰上第i節有掛id::ptClass的就不要getDiv
+    //星期一 組織:若碰上第i節有掛id::ptClass的就不要getLi
     if (week_lower() == 5) {
         for (i=1; i<=9; i++) {
             docu = document.querySelectorAll("[id='ptClass']")
@@ -168,6 +168,11 @@ $(() => {
                     $($slClass).text("生理")
                 }
             } 
+        }
+    }
+    //星期二 下午若無胚胎則組織
+    if (week_lower() == 2) {
+        for (i=1; i<=9; i++) {
 
         }
     }
