@@ -39,6 +39,9 @@
         margin-right: 5px;
         border: 1px solid yellow;
     }
+    .showOnPhone {
+        opacity: 1;
+    }
 }
 .flex-button {
     display: flex; /*flex排列*/
@@ -77,6 +80,9 @@
     margin-right: 5px;
     border: 1px solid yellow;
 }
+.showOnPhone {
+    opacity: 0;
+}
 .flex-container {
     display: flex; /*flex排列*/
     flex-direction: row;
@@ -92,7 +98,7 @@
     width: 50px;
     height: 50px;
 }
-.image_rotate_90 {
+.image_rotate_90 { /*順時針旋轉*/
     animation: rotation_90 1s;
     animation-fill-mode: forwards;
     -webkit-animation: rotation_90 1s forwards;
@@ -113,7 +119,7 @@
         transform: rotate(90deg);
     }
 }
-.image_rotate_-90 {
+.image_rotate_-90 { /*逆時針旋轉*/
     animation: rotation_-90 1s;
     animation-fill-mode: forwards;
     -webkit-animation: rotation_-90 1s forwards;
@@ -134,7 +140,7 @@
         transform: rotate(0deg);
     }
 }
-.fadeIn {
+.fadeIn { /*浮現*/
     animation: fadeIn 0.5s forwards;
     -webkit-animation: fadeIn 0.5s forwards;
 }
