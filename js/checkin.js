@@ -143,6 +143,13 @@ function getLi(id, parentId) {
     const past = document.getElementById(parentId);
     past.appendChild(li); //append節點到parentId元素上
 }
+function addDel(del){ //刪除線
+    for(let i=1; i<=del; i++) {
+        setTimeout(() => {
+            $('#' + i).addClass("delLine");
+        }, 100)
+    }
+}
 $(() => {
     today = formatDate()
     special = new Array()
@@ -263,17 +270,13 @@ $(() => {
     if (getHours() == 16) {del = 7}
     if (getHours() == 17) {del = 8}
     if (del > 0 && del < 9) { //上課時間，依照節次加入劃掉的css
-        for(i=1; i<=del; i++) {
-            $('#' + i).addClass("delLine");
-        }
+        addDel(del)
         //箭頭掉下來
         docu = document.getElementsByClassName("drop")
         docu[0].style.setProperty('--margin-top', `${del * 20}px`) //setProperty要加[0]
     }
     if (del >= 9){ //放學後，全部課程劃掉
-        for(i=1; i<=9; i++) {
-            $('#' + i).addClass("delLine");
-        }
+        addDel(9)
         docu = document.getElementsByClassName("drop")
         docu[0].style.setProperty('--margin-top', `${del * 20}px`)
         //docu[0].style.setProperty('display', 'none') //setProperty要加[0]
