@@ -94,7 +94,16 @@
 }
 .image_rotate_90 {
     animation: rotation_90 1s;
-    animation-fill-mode: forwards; /*讓動畫停在最後一個frame*/
+    animation-fill-mode: forwards;
+    -webkit-animation: rotation_90 1s forwards;
+}
+@-webkit-keyframes rotation_90 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
 }
 @keyframes rotation_90 {
     from {
@@ -107,6 +116,15 @@
 .image_rotate_-90 {
     animation: rotation_-90 1s;
     animation-fill-mode: forwards;
+    -webkit-animation: rotation_-90 1s forwards;
+}
+@-webkit-keyframes rotation_-90 {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 @keyframes rotation_-90 {
     from {
@@ -115,4 +133,16 @@
     to {
         transform: rotate(0deg);
     }
+}
+.fadeIn {
+    animation: fadein 0.5s forwards;
+    -webkit-animation: fadein 0.5s forwards;
+}
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
