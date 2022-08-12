@@ -1,16 +1,14 @@
 function thisrefresh() {
     window.location.reload();
 }
-setTimeout('thisrefresh()', 100000); //自動刷新頁面
+setTimeout('thisrefresh()', 100000); //每100秒自動刷新頁面
 function getmonth() { //取得月份
     var month = (new Date()).getMonth() + 1;
-    var i = 1;
-    while (i<=month) {
+    for (leti = 1; i<=month; i++) {
         setTimeout(() => {
             var docu = document.getElementById("month_num");
-            $(docu).text(i); //月份往上跳
-        }, 1000)
-        i += 1;
+            $(docu).text(i++); //月份往上跳
+        }, 100 * i)
     }   
     month_en(i-1);
 }
@@ -59,12 +57,11 @@ function month_en(i) {
 }
 function getdate() { //取得日期
     var date = (new Date()).getDate();
-    while (i <= date) {
+    for (let i = 1; i <= date; i++) { //用let避免用var
         setTimeout(() => {
             var docu = document.getElementById("date");
-            $(docu).text(i+1); //日期往上跳
-        }, 1000)
-        i += 1;
+            $(docu).text(i++); //日期往上跳
+        }, 100 * i)
     }
     week();
 }
@@ -97,7 +94,14 @@ function week() { //星期幾
     $(docu).text(text);
     docu.classList.add("fadeIn"); //浮現動畫
 }
+function week_lower () {
+    var d = (new Date()).getDay();
+    return d;
+}
 $(() => {
-    d = new Date()
+    today = new Date()
+    //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
+    if (today == "2022-10-24") {
 
+    }
 })
