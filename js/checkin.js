@@ -143,12 +143,29 @@ $(() => {
     if (jQuery.inArray(today, pt_class) !== -1) {
         for (i=6; i<=7; i++) {
             getDiv("ptClass", i)
-            $ptClass = $('#plClass')
+            $ptClass = $('#ptClass')
             $($ptClass).text("胚胎")
         }
     }
     //星期一 組織:若碰上第i節有掛id::ptClass的就不要getDiv
-    if (week_lower() == 1) {
+    if (week_lower() == 5) {
+        for (i=1; i<=9; i++) {
+            if ($('#' + i).getElementById("ptClass") !== null) {
+                continue;
+            } 
+            if ($('#' + i).getElementById("ptClass") == null) {
+                if (i<=4) {
+                    getDiv("zzClass", i)
+                    $zzClass = $('#zzClass')
+                    $($zzClass).text("組織")
+                }
+                if (i>=5) {
+                    getDiv("slClass", i)
+                    $slClass = $('#slClass')
+                    $($slClass).text("生理")
+                }
+            } 
 
+        }
     }
 })
