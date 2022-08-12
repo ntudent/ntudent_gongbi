@@ -4,7 +4,7 @@ function thisrefresh() {
 setTimeout('thisrefresh()', 100000); //每100秒自動刷新頁面
 function getmonth() { //取得月份
     var month = (new Date()).getMonth() + 1;
-    for (leti = 1; i<=month; i++) {
+    for (let i = 1; i<=month; i++) {
         setTimeout(() => {
             var docu = document.getElementById("month_num");
             $(docu).text(i++); //月份往上跳
