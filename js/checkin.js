@@ -153,7 +153,7 @@ $(() => {
     if (week_lower() == 5) {
         for (i=1; i<=9; i++) {
             docu = document.querySelectorAll("[id='ptClass']")
-            if (i == $(docu).closest('ul').attr('id')) {
+            if (i == $(docu[0]).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
                 continue;
             } 
             if (i !== $(docu).closest('ul').attr('id')) {
@@ -162,7 +162,7 @@ $(() => {
                     $zzClass = document.querySelectorAll("[id='zzClass']")
                     $($zzClass).text("組織")
                 }
-                if (i>=5) {
+                if (i>=6) {
                     getLi("slClass", i)
                     $slClass = document.querySelectorAll("[id='slClass']")
                     $($slClass).text("生理")
@@ -173,7 +173,27 @@ $(() => {
     //星期二 下午若無胚胎則組織
     if (week_lower() == 2) {
         for (i=1; i<=9; i++) {
-
+            docu = document.querySelectorAll("[id='ptClass']")
+            if (i == $(docu).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
+                continue;
+            } 
+            if (i !== $(docu).closest('ul').attr('id')) {
+                if (i<=4) {
+                    getLi("dtClass", i)
+                    $dtClass = document.querySelectorAll("[id='dtClass']")
+                    $($dtClass).text("大體")
+                }
+                if (i == 6 || i == 7) {
+                    getLi("zzClass", i)
+                    $zzClass = document.querySelectorAll("[id='zzClass']")
+                    $($zzClass).text("組織")
+                }
+                if (i == 8 || i == 9) {
+                    getLi("dtClass", i)
+                    $dtClass = document.querySelectorAll("[id='dtClass']")
+                    $($dtClass).text("大體")
+                }
+            }
         }
     }
 })
