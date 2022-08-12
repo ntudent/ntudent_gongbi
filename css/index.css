@@ -162,9 +162,14 @@
 }
 .drop {
     /*margin-top: var(--margin-top);*/
-    animation: drop 0.5s ease forwards;
+    /*animation: drop 0.5s ease forwards;*/
+    transform: 
+        translate3d(0, var(--margin-top), 0); 
+        --duration: 2000ms;
+  
+    transition: transform var(--duration)
 }
 @keyframes drop {
-    from { transform: translate(0px, 0px); }
-    to   { transform: translate(0px, var(--margin-top)); }
+    from { transform: translateY(0px); }
+    to   { transform: translateY(var(--margin-top)); }
 }
