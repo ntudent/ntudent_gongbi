@@ -8,7 +8,8 @@ function getmonth() {
     var i = 0;
     if (i <= month) {
         setTimeout(() => {
-            document.getElementById("month_num").text(i+1);
+            var docu = document.getElementById("month_num")
+            $(docu).text(i+1);
         }, 1000*i)
     }
     month_en(i);
@@ -52,7 +53,8 @@ function month_en(i) {
             var text = "December";
             break;
     }
-    document.getElementById("month_en").text(text);
+    var docu = document.getElementById("month_en")
+    $(docu).text(text);
 }
 $(() => {
     d = new Date()
