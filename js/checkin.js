@@ -54,6 +54,7 @@ function month_en() {
     }
     var docu = document.getElementById("month_en");
     $(docu).text(text);
+    docu.style.fontSize = '36px';
     docu.classList.add("fadeIn"); //浮現動畫
 }
 function getdate() { //取得日期
@@ -93,6 +94,7 @@ function week() { //星期幾
     }
     var docu = document.getElementById("week");
     $(docu).text(text);
+    docu.style.fontSize = '36px';
     docu.classList.add("fadeIn"); //浮現動畫
 }
 function addLoadEvent(func) {  //load進頁面時自動load下面func
@@ -129,11 +131,11 @@ function formatDate() {
 
     return [year, month, day].join('-');
 }
-function getDiv(id, parentId) {
-    const div = document.createElement('div'); //創建新的層的DOM節點
+function getLi(id, parentId) {
+    const li = document.createElement('li'); //創建新的層的DOM節點
     div.setAttribute('id', id); //賦予層元素id
     const past = document.getElementById(parentId);
-    past.appendChild(div); //append節點到parentId元素上
+    past.appendChild(li); //append節點到parentId元素上
 }
 $(() => {
     today = formatDate()
@@ -142,7 +144,7 @@ $(() => {
     pt_class = new Array("2022-08-12", "2022-10-24")
     if (jQuery.inArray(today, pt_class) !== -1) {
         for (i=6; i<=7; i++) {
-            getDiv("ptClass", i)
+            getLi("ptClass", i)
             $ptClass = document.querySelectorAll("[id='ptClass']")
             $($ptClass).text("胚胎")
         }
@@ -150,17 +152,18 @@ $(() => {
     //星期一 組織:若碰上第i節有掛id::ptClass的就不要getDiv
     if (week_lower() == 5) {
         for (i=1; i<=9; i++) {
-            if ($('#' + i).getElementById("ptClass") !== null) {
+            docu = document.querySelectorAll("[id='ptClass']")
+            if (i == $(docu).closest('ul').attr('id')) {
                 continue;
             } 
-            if ($('#' + i).getElementById("ptClass") == null) {
+            if (i !== $(docu).closest('ul').attr('id')) {
                 if (i<=4) {
-                    getDiv("zzClass", i)
+                    getLi("zzClass", i)
                     $zzClass = document.querySelectorAll("[id='zzClass']")
                     $($zzClass).text("組織")
                 }
                 if (i>=5) {
-                    getDiv("slClass", i)
+                    getLi("slClass", i)
                     $slClass = document.querySelectorAll("[id='slClass']")
                     $($slClass).text("生理")
                 }
