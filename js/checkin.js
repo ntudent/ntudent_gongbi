@@ -21,9 +21,36 @@ function month_en(i) {
         case 1 :
             var text = "Febuary";
             break;
+        case 2 :
+            var text = "March";
+            break;
+        case 3 :
+            var text = "April";
+            break;
+        case 4 :
+            var text = "May";
+            break;
+        case 5 :
+            var text = "June";
+            break;
+        case 6 :
+            var text = "July";
+            break;
         case 7 :
             var text = "August";
-            break; 
+            break;
+        case 8 :
+            var text = "September";
+            break;
+        case 9 :
+            var text = "October";
+            break;
+        case 10 :
+            var text = "November";
+            break;
+        case 11 :
+            var text = "December";
+            break;
     }
     document.getElementById("month_en").text(text);
 }
