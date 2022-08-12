@@ -7,6 +7,7 @@ function getmonth() { //取得月份
     for (let i = 1; i<=month; i++) {
         setTimeout(() => {
             var docu = document.getElementById("month_num");
+            docu.style.fontSize = '48px';
             $(docu).text(i++); //月份往上跳
         }, 100 * i)
     } 
@@ -60,6 +61,7 @@ function getdate() { //取得日期
     for (let i = 1; i <= date; i++) { //用let避免用var
         setTimeout(() => {
             var docu = document.getElementById("date");
+            docu.style.fontSize = '60px';
             $(docu).text(i++); //日期往上跳
         }, 50 * i)
     }
