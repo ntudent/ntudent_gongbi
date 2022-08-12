@@ -148,7 +148,7 @@ $(() => {
     special = new Array()
     //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
     //胚胎上課表
-    pt_class = new Array("2022-08-12", "2022-10-24")
+    pt_class = new Array("2022-08-14", "2022-10-24")
     if (jQuery.inArray(today, pt_class) !== -1) {
         for (i=6; i<=7; i++) {
             getLi("ptClass", i)
@@ -167,7 +167,7 @@ $(() => {
         }
     }
     //星期一 組織:若碰上第i節有掛id::ptClass的就不要getLi
-    if (week_lower() == 5) {
+    if (week_lower() == 1) {
         for (i=1; i<=9; i++) {
             if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
@@ -235,7 +235,7 @@ $(() => {
         }
     }
     //星期五
-    if (week_lower() == 4) {
+    if (week_lower() == 5) {
         for (i=1; i<=9; i++) {
             if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
@@ -260,18 +260,19 @@ $(() => {
     }
     //時間已過的要劃掉
     del = getHours() - 8 //第2節getHours() = 9，要劃掉第1節課
-    if (getHours() = 16) {del = 7}
-    if (getHours() = 17) {del = 8}
+    if (getHours() == 16) {del = 7}
+    if (getHours() == 17) {del = 8}
     if (del > 0 && del < 9) { //上課時間，依照節次加入劃掉的css
         for(i=1; i<=del; i++) {
             $('#' + i).classList.add("delLine");
         }
+        //箭頭掉下來
+        //document.getElementsByClassName("drop").style.setProperty('--top', `${del * 10}px`)
     }
     if (del >= 9){ //放學後，全部課程劃掉
         for(i=1; i<=9; i++) {
             $('#' + i).classList.add("delLine");
         }
     }
-    //箭頭掉下來
     //顯示明天課表
 })
