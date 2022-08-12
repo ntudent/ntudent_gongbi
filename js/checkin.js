@@ -53,6 +53,7 @@ function month_en(i) {
     }
     var docu = document.getElementById("month_en");
     $(docu).text(text);
+    docu.classList.add("fadeIn");
 }
 function getdate() {
     var date = (new Date()).getDate();
@@ -91,6 +92,7 @@ function week() {
     }
     var docu = document.getElementById("week");
     $(docu).text(text);
+    docu.classList.add("fadeIn");
 }
 $(() => {
     d = new Date()
