@@ -264,14 +264,14 @@ $(() => {
     if (getHours() == 17) {del = 8}
     if (del > 0 && del < 9) { //上課時間，依照節次加入劃掉的css
         for(i=1; i<=del; i++) {
-            $('#' + i).classList.add("delLine");
+            $('#' + i).addClass("delLine");
         }
         //箭頭掉下來
-        //document.getElementsByClassName("drop").style.setProperty('--top', `${del * 10}px`)
+        document.getElementsByClassName("drop").style.setProperty('--top', `${del * 10}px`)
     }
     if (del >= 9){ //放學後，全部課程劃掉
         for(i=1; i<=9; i++) {
-            $('#' + i).classList.add("delLine");
+            $('#' + i).addClass("delLine");
         }
     }
     //顯示明天課表
