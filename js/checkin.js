@@ -54,6 +54,44 @@ function month_en(i) {
     var docu = document.getElementById("month_en");
     $(docu).text(text);
 }
+function getdate() {
+    var date = (new Date()).getDate();
+    for (var i=1; i <= date; i++) {
+        setTimeout(() => {
+            var docu = document.getElementById("date");
+            $(docu).text(i+1);
+        }, 1000*i)
+    }
+    week();
+}
+function week() {
+    var week = (new Date()).getDay();
+    switch (week) {
+        case 0 :
+            var text = "Sunday";
+            break;
+        case 1 :
+            var text = "Monday";
+            break;
+        case 2 :
+            var text = "Tuesday";
+            break;
+        case 3 :
+            var text = "Wednesday";
+            break;
+        case 4 :
+            var text = "Thursday";
+            break;
+        case 5 :
+            var text = "Friday";
+            break;
+        case 6 :
+            var text = "Saturday";
+            break;
+    }
+    var docu = document.getElementById("week");
+    $(docu).text(text);
+}
 $(() => {
     d = new Date()
 
