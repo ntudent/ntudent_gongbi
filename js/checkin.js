@@ -1,16 +1,18 @@
 function thisrefresh() {
     window.location.reload();
 }
-setTimeout('thisrefresh()', 100000); //自動刷新頁面
-function getmonth() {
-    var month = (new Date()).getMonth();
-    for (var i=0; i <= month; i++) {
+setTimeout('thisrefresh()', 10000); //自動刷新頁面
+function getmonth() { //取得月份
+    var month = (new Date()).getMonth() + 1;
+    var i = 1;
+    while (i<=month) {
         setTimeout(() => {
             var docu = document.getElementById("month_num");
-            $(docu).text(i+1);
-        }, 1000*i)
-    }
-    month_en(i);
+            $(docu).text(i); //月份往上跳
+        }, 1000)
+        i += 1;
+    }   
+    month_en(i-1);
 }
 function month_en(i) {
     switch (i) {
@@ -53,19 +55,20 @@ function month_en(i) {
     }
     var docu = document.getElementById("month_en");
     $(docu).text(text);
-    docu.classList.add("fadeIn");
+    docu.classList.add("fadeIn"); //浮現動畫
 }
-function getdate() {
+function getdate() { //取得日期
     var date = (new Date()).getDate();
-    for (var i=1; i <= date; i++) {
+    while (i <= date) {
         setTimeout(() => {
             var docu = document.getElementById("date");
-            $(docu).text(i+1);
-        }, 1000*i)
+            $(docu).text(i+1); //日期往上跳
+        }, 1000)
+        i += 1;
     }
     week();
 }
-function week() {
+function week() { //星期幾
     var week = (new Date()).getDay();
     switch (week) {
         case 0 :
@@ -92,7 +95,7 @@ function week() {
     }
     var docu = document.getElementById("week");
     $(docu).text(text);
-    docu.classList.add("fadeIn");
+    docu.classList.add("fadeIn"); //浮現動畫
 }
 $(() => {
     d = new Date()
