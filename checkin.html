@@ -13,12 +13,12 @@
     <div id="body_checkin">
         <div>
             <div id="upperHolder" style="height: 200px; width: 200px;">
-                <div id="month" onload="getmonth();" style="display: flex;">
-                    <div id="month_num"></div>
-                    <div id="month_en" style="font-size: 10;"></div>
+                <div id="month" style="display: flex;">
+                    <div id="month_num" onload="getmonth()" style="font-size: 28;"></div>
+                    <div id="month_en" onload="month_en()" style="font-size: 10;"></div>
                 </div>
-                <div id="date" onload="getdate();" style="margin-left: auto; margin-right: auto;"></div>
-                <div id="week" style="margin-left: auto; margin-right: auto;"></div>
+                <div id="date" onload="getdate()" style="font-size: 18; margin-left: auto; margin-right: auto;"></div>
+                <div id="week" onload="week()" style="margin-left: auto; margin-right: auto;"></div>
             </div>
             <div id="lowerHolder" style="height: 400px; width: 200px;" style="display: flex;">
                 <div id="class" style="width: 150px;">
