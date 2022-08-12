@@ -139,6 +139,7 @@ function getLi(id, parentId) {
 }
 $(() => {
     today = formatDate()
+    special = new Array()
     //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
     //胚胎上課表
     pt_class = new Array("2022-08-12", "2022-10-24")
@@ -147,13 +148,22 @@ $(() => {
             getLi("ptClass", i)
             $ptClass = document.querySelectorAll("[id='ptClass']")
             $($ptClass).text("胚胎")
+            special.push(i) //特別課程的節次
+        }
+    }
+    pt_class2 = new Array("2022-08-13", "2022-9-24")
+    if (jQuery.inArray(today, pt_class2) !== -1) {
+        for (i=1; i<=2; i++) {
+            getLi("ptClass", i)
+            $ptClass = document.querySelectorAll("[id='ptClass']")
+            $($ptClass).text("胚胎")
+            special.push(i) //特別課程的節次
         }
     }
     //星期一 組織:若碰上第i節有掛id::ptClass的就不要getLi
     if (week_lower() == 5) {
         for (i=1; i<=9; i++) {
-            docu = document.querySelectorAll("[id='ptClass']")
-            if (i == $(docu[0]).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
+            if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
             } else {
                 if (i<=4) {
@@ -194,4 +204,10 @@ $(() => {
             }
         }
     }
+    //星期三
+
+    //星期五
+    //時間已過的要劃掉
+    //箭頭掉下來
+    //顯示明天課表
 })
