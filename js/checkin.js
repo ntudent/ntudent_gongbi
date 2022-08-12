@@ -95,7 +95,7 @@ function week() { //星期幾
     $(docu).text(text);
     docu.classList.add("fadeIn"); //浮現動畫
 }
-function addLoadEvent(func) { 
+function addLoadEvent(func) {  //load進頁面時自動load下面func
     var oldonload = window.onload; 
     if (typeof window.onload != 'function') { 
       window.onload = func; 
@@ -129,9 +129,9 @@ function formatDate() {
 
     return [year, month, day].join('-');
 }
-function getDiv(id, parentId) {
+function getClass(className, parentId) {
     const div = document.createElement('div'); //創建新的層的DOM節點
-    div.setAttribute('id', id); //賦予層元素id
+    div.setAttribute('class', className); //賦予層元素id
     const past = document.getElementById(parentId);
     past.appendChild(div); //append節點到parentId元素上
 }
@@ -142,8 +142,8 @@ $(() => {
     pt_class = new Array("2022-08-12", "2022-10-24")
     if (jQuery.inArray(today, pt_class) !== -1) {
         for (i=6; i<=7; i++) {
-            getDiv("ptClass", i)
-            $ptClass = $('#ptClass')
+            getClass("ptClass", i)
+            $ptClass = document.getElementsByClassName("ptClass")
             $($ptClass).text("胚胎")
         }
     }
@@ -155,13 +155,13 @@ $(() => {
             } 
             if ($('#' + i).getElementById("ptClass") == null) {
                 if (i<=4) {
-                    getDiv("zzClass", i)
-                    $zzClass = $('#zzClass')
+                    getClass("zzClass", i)
+                    $zzClass = $('.zzClass')
                     $($zzClass).text("組織")
                 }
                 if (i>=5) {
-                    getDiv("slClass", i)
-                    $slClass = $('#slClass')
+                    getClass("slClass", i)
+                    $slClass = $('.slClass')
                     $($slClass).text("生理")
                 }
             } 
