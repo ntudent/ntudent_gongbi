@@ -275,7 +275,8 @@ $(() => {
             $('#' + i).addClass("delLine");
         }
         docu = document.getElementsByClassName("drop")
-        docu[0].style.setProperty('display', 'none') //setProperty要加[0]
+        docu[0].style.setProperty('--margin-top', `${del * 20}px`)
+        //docu[0].style.setProperty('display', 'none') //setProperty要加[0]
     }
     //顯示明天課表
 })
