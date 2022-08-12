@@ -98,10 +98,36 @@ function week_lower () {
     var d = (new Date()).getDay();
     return d;
 }
-$(() => {
-    today = new Date()
-    //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
-    if (today == "2022-10-24") {
+function formatDate() {
+    var d = new Date(),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
 
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+function getDiv(id, parentId) {
+    const div = document.createElement('div'); //創建新的層的DOM節點
+    div.setAttribute('id', id); //賦予層元素id
+    const past = document.getElementById(parentId);
+    past.appendChild(div); //append節點到parentId元素上
+}
+$(() => {
+    today = formatDate()
+    //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
+    //胚胎上課表
+    pt_class = new Array("2022-08-12", "2022-10-24")
+    if (jQuery.inArray(today, pt_class) !== -1) {
+        for (i=6; i<=7; i++) {
+            getDiv("ptClass", i)
+            $ptClass = $('#plClass')
+            $($ptClass).text("胚胎")
+        }
     }
+    //組織:若碰上第i節有掛id::ptClass的就不要getDiv
 })
