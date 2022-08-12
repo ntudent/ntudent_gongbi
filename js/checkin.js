@@ -124,12 +124,18 @@ function formatDate() {
         day = '' + d.getDate(),
         year = d.getFullYear();
 
-    if (month.length < 2) 
+    if (month.length < 2) {
         month = '0' + month;
-    if (day.length < 2) 
+    }
+    if (day.length < 2) {
         day = '0' + day;
-
+    }
     return [year, month, day].join('-');
+}
+function getHours() {
+    var d = new Date();
+    d = d.getHours();
+    return d;
 }
 function getLi(id, parentId) {
     const li = document.createElement('li'); //創建新的層的DOM節點
@@ -253,6 +259,19 @@ $(() => {
         }
     }
     //時間已過的要劃掉
+    del = getHours() - 8 //第2節getHours() = 9，要劃掉第1節課
+    if (getHours() = 16) {del = 7}
+    if (getHours() = 17) {del = 8}
+    if (del > 0 && del < 9) { //上課時間，依照節次加入劃掉的css
+        for(i=1; i<=del; i++) {
+            $('#' + i).classList.add("delLine");
+        }
+    }
+    if (del >= 9){ //放學後，全部課程劃掉
+        for(i=1; i<=9; i++) {
+            $('#' + i).classList.add("delLine");
+        }
+    }
     //箭頭掉下來
     //顯示明天課表
 })
