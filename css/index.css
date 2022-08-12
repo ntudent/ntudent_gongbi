@@ -8,7 +8,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-@media (min-width: 576px) {
+@media (min-width: 576px) { /*手機優先*/
     .middle {
         text-align: var(--c);
     }
@@ -82,6 +82,9 @@
 }
 .showOnPhone {
     opacity: 0;
+}
+.delLine {
+    text-decoration-line: line-through;
 }
 .flex-container {
     display: flex; /*flex排列*/
