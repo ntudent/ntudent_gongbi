@@ -1,3 +1,4 @@
+
 :root {
     /*這裡放global variables*/
     --c: center;
@@ -162,12 +163,7 @@
 }
 .drop {
     /*margin-top: var(--margin-top);*/
-    /*animation: drop 0.5s ease forwards;*/
-    transform: 
-        translate3d(0, var(--margin-top), 0); 
-        --duration: 2000ms;
-  
-    transition: transform var(--duration)
+    animation: drop 0.5s ease forwards;
 }
 @keyframes drop {
     from { transform: translateY(0px); }
