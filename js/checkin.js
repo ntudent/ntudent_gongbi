@@ -155,8 +155,7 @@ $(() => {
             docu = document.querySelectorAll("[id='ptClass']")
             if (i == $(docu[0]).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
                 continue;
-            } 
-            if (i !== $(docu).closest('ul').attr('id')) {
+            } else {
                 if (i<=4) {
                     getLi("zzClass", i)
                     $zzClass = document.querySelectorAll("[id='zzClass']")
@@ -176,8 +175,7 @@ $(() => {
             docu = document.querySelectorAll("[id='ptClass']")
             if (i == $(docu).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
                 continue;
-            } 
-            if (i !== $(docu).closest('ul').attr('id')) {
+            } else {
                 if (i<=4) {
                     getLi("dtClass", i)
                     $dtClass = document.querySelectorAll("[id='dtClass']")
