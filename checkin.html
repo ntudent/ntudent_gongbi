@@ -8,8 +8,20 @@
 </head>
 <body style="background: #24fdd2; font-family: 'Times New Roman', Helvetica, 新細明體;">
     <div id="head_checkin"></div>
-    <div id="body_checkin" onload="getData();">
+    <div id="body_checkin">
+        <div>
+            <div id="upperHolder" style="height: 100px; width: 100px;">
+                <div id="month" onload="getmonth();" style="display: flex;">
+                    <div id="month_num"></div>
+                    <div id="month_en"></div>
+                </div>
+                <div id="date"></div>
+                <div id="week"></div>
+            </div>
+            <div id="lowerHolder" style="height: 300px; width: 100px;">
 
+            </div>
+        </div>
     </div>
 
     <script src="./jquery-3.6.0.js"></script>
