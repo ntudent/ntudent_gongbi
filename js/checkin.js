@@ -205,8 +205,53 @@ $(() => {
         }
     }
     //星期三
-
+    if (week_lower() == 3) {
+        for (i=1; i<=9; i++) {
+            if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
+                continue;
+            } else {
+                if (i>=2 && i<=4) {
+                    getLi("odClass", i)
+                    $odClass = document.querySelectorAll("[id='odClass']")
+                    $($odClass).text("OD")
+                }
+                if (i==6 || i==7) {
+                    getLi("dtClass", i)
+                    $dtClass = document.querySelectorAll("[id='dtClass']")
+                    $($dtClass).text("大體")
+                }
+                if (i==8 || i==9) {
+                    getLi("zzClass", i)
+                    $zzClass = document.querySelectorAll("[id='zzClass']")
+                    $($zzClass).text("組織")
+                }
+            } 
+        }
+    }
     //星期五
+    if (week_lower() == 4) {
+        for (i=1; i<=9; i++) {
+            if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
+                continue;
+            } else {
+                if (i==1) {
+                    getLi("kjClass", i)
+                    $kjClass = document.querySelectorAll("[id='kjClass']")
+                    $($kjClass).text("口解")
+                }
+                if (i==3 || i==4) {
+                    getLi("irClass", i)
+                    $irClass = document.querySelectorAll("[id='irClass']")
+                    $($irClass).text("醫人")
+                }
+                if (i>=6) {
+                    getLi("kpClass", i)
+                    $kpClass = document.querySelectorAll("[id='kpClass']")
+                    $($kpClass).text("口胚")
+                }
+            } 
+        }
+    }
     //時間已過的要劃掉
     //箭頭掉下來
     //顯示明天課表
