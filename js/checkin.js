@@ -1,7 +1,7 @@
 function thisrefresh() {
     window.location.reload();
 }
-setTimeout('thisrefresh()', 10000); //自動刷新頁面
+setTimeout('thisrefresh()', 100000); //自動刷新頁面
 function getmonth() { //取得月份
     var month = (new Date()).getMonth() + 1;
     var i = 1;
