@@ -167,7 +167,7 @@
 .delLine::after {
     content: ' ';
     position: absolute;
-    top: 50%;
+    top: 120%;
     left: 0;
     width: 100%;
     height: 1px;
