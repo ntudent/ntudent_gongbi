@@ -154,18 +154,35 @@
     100% { opacity: 1; }
 }
 .delLine {
-    text-decoration-line: line-through;
+    position: relative;
+}
+.delLine::after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: black;
     color: grey;
-    animation: delx 0.1s ease forwards;
-    -webkit-animation: delx 0.1s ease forwards;
+    animation-name: delLine;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: delLine;
+    -webkit-animation-duration: 0.2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
 }
-@keyframes delx {
-    0% { transform: scaleX(0); }
-    100% { transform: scaleX(1); }
+@keyframes delLine {
+    0%   { width : 0; }
+    100% { width: 100%; }
 }
-@-webkit-keyframes delx {
-    0% { transform: scaleX(0); }
-    100% { transform: scaleX(1); }
+@-webkit-keyframes delLine {
+    0%   { width : 0; }
+    100% { width: 100%; }
 }
 .drop {
     /*margin-top: var(--margin-top);*/
