@@ -198,7 +198,7 @@ $(() => {
         }
     }
     //星期二 下午若無胚胎則組織
-    if (week_lower(0) == 7) {
+    if (week_lower(0) == 6) {
         for (i=1; i<=9; i++) {
             docu = document.querySelectorAll("[id='ptClass']")
             if (i == $(docu).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
@@ -278,7 +278,7 @@ $(() => {
         addDel(del)
         //箭頭掉下來
         docu = document.getElementsByClassName("drop")
-        docu[0].style.setProperty('--margin-top', `${del * 24}px`) //setProperty要加[0]
+        docu[0].style.setProperty('--margin-top', `${del * 25}px`) //setProperty要加[0]
     }
     if (del >= 9){ //放學後，全部課程劃掉
         addDel(9)
@@ -375,5 +375,7 @@ $(() => {
             }
         }
         $($('#tomorrowClass')).text(tomorrowClassOut.join('\n'))
+        docu = document.getElementsByClassName("tomorrow")
+        docu[0].style.setProperty('--width', `${tomorrowClassOut.length * 25 + 50}px`) //setProperty要加[0]
     }
 })
