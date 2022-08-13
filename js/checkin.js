@@ -160,7 +160,7 @@ $(() => {
     special = new Array()
     //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
     //胚胎上課表
-    pt_class = new Array("2022-08-14", "2022-10-24")
+    pt_class = new Array("2022-08-18", "2022-10-24")
     if (jQuery.inArray(today, pt_class) !== -1) {
         for (i=6; i<=7; i++) {
             getLi("ptClass", i)
@@ -169,7 +169,7 @@ $(() => {
             special.push(i) //特別課程的節次
         }
     }
-    pt_class2 = new Array("2022-08-13", "2022-9-24")
+    pt_class2 = new Array("2022-08-19", "2022-9-24")
     if (jQuery.inArray(today, pt_class2) !== -1) {
         for (i=1; i<=2; i++) {
             getLi("ptClass", i)
@@ -198,7 +198,7 @@ $(() => {
         }
     }
     //星期二 下午若無胚胎則組織
-    if (week_lower(0) == 6) {
+    if (week_lower(0) == 7) {
         for (i=1; i<=9; i++) {
             docu = document.querySelectorAll("[id='ptClass']")
             if (i == $(docu).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
