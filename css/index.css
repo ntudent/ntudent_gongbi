@@ -40,16 +40,13 @@
         margin-right: 5px;
         border: 1px solid yellow;
     }
-    .showOnPhone {
-        opacity: 1;
-    }
-    .centerLeft {
-        margin-left: 20px;
-    }
 }
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
     .centerLeft {
         margin-left: 300px;
+    }
+    .showOnPhone {
+        opacity: 0;
     }
 }
 .flex-button {
@@ -88,9 +85,6 @@
     margin-left: 5px;
     margin-right: 5px;
     border: 1px solid yellow;
-}
-.showOnPhone {
-    opacity: 0;
 }
 .flex-container {
     display: flex; /*flex排列*/
