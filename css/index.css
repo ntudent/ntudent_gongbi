@@ -155,17 +155,28 @@
 }
 .delLine {
     text-decoration-line: line-through;
+    color: grey;
     animation: delx 0.1s ease forwards;
+    -webkit-animation: delx 0.1s ease forwards;
 }
 @keyframes delx {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+}
+@-webkit-keyframes delx {
     0% { transform: scaleX(0); }
     100% { transform: scaleX(1); }
 }
 .drop {
     /*margin-top: var(--margin-top);*/
     animation: drop 0.5s ease forwards;
+    -webkit-animation: drop 0.5s ease forwards;
 }
 @keyframes drop {
+    from { transform: translateY(calc(-1 * var(--margin-top))); }
+    to   { transform: translateY(var(--margin-top)); }
+}
+@-webkit-keyframes drop {
     from { transform: translateY(calc(-1 * var(--margin-top))); }
     to   { transform: translateY(var(--margin-top)); }
 }
