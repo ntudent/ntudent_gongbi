@@ -107,7 +107,7 @@
 }
 .greenDark:hover {
     background: #87c2b6;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 .blueDarker:hover {
     background: linear-gradient(315deg, blue, purple);
