@@ -273,13 +273,13 @@ $(() => {
         addDel(del)
         //箭頭掉下來
         docu = document.getElementsByClassName("drop")
-        docu[0].style.setProperty('--margin-top', `${del * 20}px`) //setProperty要加[0]
+        docu[0].style.setProperty('--margin-top', `${del * 22}px`) //setProperty要加[0]
     }
     if (del >= 9){ //放學後，全部課程劃掉
         addDel(9)
         docu = document.getElementsByClassName("drop")
-        docu[0].style.setProperty('--margin-top', `${del * 20}px`)
-        //docu[0].style.setProperty('display', 'none') //setProperty要加[0]
+        //docu[0].style.setProperty('--margin-top', `${del * 22}px`)
+        docu[0].style.setProperty('display', 'none') //setProperty要加[0]
     }
     //顯示明天課表
 })
