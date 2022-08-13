@@ -188,7 +188,7 @@
     to   { transform: translateY(var(--margin-top)); }
 }
 
-@media (min-width: 576px) { /*手機優先*/
+@media (min-width: 576px) { /*手機優先 不知道為什麼放原來的前面會被槓掉*/
     .middle {
         text-align: var(--c);
     }
