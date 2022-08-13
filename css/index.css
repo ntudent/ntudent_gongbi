@@ -43,6 +43,14 @@
     .showOnPhone {
         opacity: 1;
     }
+    .centerLeft {
+        margin-left: 20px;
+    }
+}
+@media (min-width: 1000px) {
+    .centerLeft {
+        margin-left: 300px;
+    }
 }
 .flex-button {
     display: flex; /*flex排列*/
