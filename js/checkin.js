@@ -287,11 +287,93 @@ $(() => {
         docu[0].style.setProperty('display', 'none') //setProperty要加[0]
     }
     //顯示明天課表
-    if (formatDate(1) == 6 || formatDate(1) == 0) {
+    if (formatDate(1) == 6 || formatDate(1) == 0) { //六日無課
         document.getElementById("noClass").style.setProperty('display', 'block')
-    } else if (formatDate(1) == 4) {
+    } else if (formatDate(1) == 4) { //四無課
         document.getElementById("noClass").style.setProperty('display', 'block')
     } else {
         document.getElementById("yesClass").style.setProperty('display', 'block')
+        if (formatDate(1) == 3) {
+            docu = document.getElementById("classFrom")
+            $(docu).text("二") //三是從第二節開始上課
+        } else {
+            docu = document.getElementById("classFrom")
+            $(docu).text("一")
+        }
+        tomorrowClass = new Array()
+        if (jQuery.inArray(formatDate(1), pt_class) !== -1) {
+            for (i=6; i<=7; i++) {
+                tomorrowClass[i] = "胚胎" //把特殊課程加到明天課程的array中
+            }
+        }
+        if (jQuery.inArray(formatDate(1), pt_class2) !== -1) {
+            for (i=1; i<=2; i++) {
+                tomorrowClass[i] = "胚胎"
+            }
+        }
+        if (formatDate(1) == 1) { //星期一普通課程
+            for (i=1; i<=9; i++) {
+                if (tomorrowClass[i] = "") { //若該節沒有特殊課程
+                    if(i<=4) {
+                        tomorrowClass[i] = "組織"
+                    }
+                    if(i>=6) {
+                        tomorrowClass[i] = "生理"
+                    }
+                }
+            }
+        }
+        if (formatDate(1) == 2) { //星期二普通課程
+            for (i=1; i<=9; i++) {
+                if (tomorrowClass[i] = "") { //若該節沒有特殊課程
+                    if(i<=4) {
+                        tomorrowClass[i] = "大體"
+                    }
+                    if(i==6||i==7){
+                        tomorrowClass[i] = "組織"
+                    }
+                    if(i==8||i==9){
+                        tomorrowClass[i] = "大體"
+                    }
+                }
+            }
+        }
+        if (formatDate(1) == 3) { //星期三普通課程
+            for (i=1; i<=9; i++) {
+                if (tomorrowClass[i] = "") { //若該節沒有特殊課程
+                    if(i<=4 && i>=2) {
+                        tomorrowClass[i] = "OD"
+                    }
+                    if(i==6||i==7){
+                        tomorrowClass[i] = "大體"
+                    }
+                    if(i==8||i==9){
+                        tomorrowClass[i] = "組織"
+                    }
+                }
+            }
+        }
+        if (formatDate(1) == 5) { //星期五普通課程
+            for (i=1; i<=9; i++) {
+                if (tomorrowClass[i] = "") { //若該節沒有特殊課程
+                    if(i==1) {
+                        tomorrowClass[i] = "口解"
+                    }
+                    if(i==3||i==4){
+                        tomorrowClass[i] = "醫人"
+                    }
+                    if(i>=6){
+                        tomorrowClass[i] = "口胚"
+                    }
+                }
+            }
+        }
+        tomorrowClassOut = new Array()
+        for (i=1; i<=9; i++) {
+            if(jQuery.inArray(tomorrowClass[i], tomorrowClassOut) == -1){
+                tomorrowClassOut.push(tomorrowClass[i]) //依節次輸出，每課程名只會用到一次
+            }
+        }
+        $($('#tomorrowClass')).text(tomorrowClassOut.join('\n'))
     }
 })
