@@ -54,6 +54,12 @@
         margin: 0 auto;
         height: 400px;
     }
+    thead {
+        font-size: 18px;
+    }
+}
+thead {
+    font-size: 15px;
 }
 .flex-button {
     display: flex; /*flex排列*/
