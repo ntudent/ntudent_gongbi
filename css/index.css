@@ -54,11 +54,11 @@
         margin: 0 auto;
         height: 400px;
     }
-    thead {
+    .wordLarge {
         font-size: 18px;
     }
 }
-thead {
+.wordLarge {
     font-size: 15px;
 }
 .flex-button {
