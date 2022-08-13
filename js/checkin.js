@@ -152,7 +152,7 @@ function addDel(del){ //刪除線
     for(let i=1; i<=del; i++) {
         setTimeout(() => {
             $('#' + i).addClass("delLine");
-        }, 100)
+        }, 200)
     }
 }
 $(() => {
