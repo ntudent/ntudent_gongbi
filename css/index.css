@@ -181,5 +181,8 @@
     to   { transform: translateY(var(--margin-top)); }
 }
 #tomorrow {
-    height: var(--height);
+    animation: height 0s forwards;
+}
+@keyframes height{
+    100% { height: var(--height); }
 }
