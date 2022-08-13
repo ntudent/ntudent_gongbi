@@ -114,16 +114,21 @@ addLoadEvent(getmonth);
 addLoadEvent(month_en);
 addLoadEvent(getdate);
 addLoadEvent(week);
-function week_lower () {
+function week_lower (i) {
     var d = (new Date()).getDay();
-    return d;
+    if (d+i > 6) {
+        return d + i - 6;
+    } else {
+        return d + i;
+    }
+    
 }
-function formatDate() {
-    var d = new Date(),
-        month = '' + (d.getMonth() + 1),
+function formatDate(i) {
+    const d = new Date();
+    d.setDate(d.getDate() + i);
+    var month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
-
     if (month.length < 2) {
         month = '0' + month;
     }
@@ -151,7 +156,7 @@ function addDel(del){ //刪除線
     }
 }
 $(() => {
-    today = formatDate()
+    today = formatDate(0)
     special = new Array()
     //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
     //胚胎上課表
@@ -174,7 +179,7 @@ $(() => {
         }
     }
     //星期一 組織:若碰上第i節有掛id::ptClass的就不要getLi
-    if (week_lower() == 1) {
+    if (week_lower(0) == 1) {
         for (i=1; i<=9; i++) {
             if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
@@ -193,7 +198,7 @@ $(() => {
         }
     }
     //星期二 下午若無胚胎則組織
-    if (week_lower() == 2) {
+    if (week_lower(0) == 6) {
         for (i=1; i<=9; i++) {
             docu = document.querySelectorAll("[id='ptClass']")
             if (i == $(docu).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
@@ -218,7 +223,7 @@ $(() => {
         }
     }
     //星期三
-    if (week_lower() == 3) {
+    if (week_lower(0) == 3) {
         for (i=1; i<=9; i++) {
             if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
@@ -242,7 +247,7 @@ $(() => {
         }
     }
     //星期五
-    if (week_lower() == 5) {
+    if (week_lower(0) == 5) {
         for (i=1; i<=9; i++) {
             if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
@@ -273,13 +278,20 @@ $(() => {
         addDel(del)
         //箭頭掉下來
         docu = document.getElementsByClassName("drop")
-        docu[0].style.setProperty('--margin-top', `${del * 22}px`) //setProperty要加[0]
+        docu[0].style.setProperty('--margin-top', `${del * 24}px`) //setProperty要加[0]
     }
     if (del >= 9){ //放學後，全部課程劃掉
         addDel(9)
         docu = document.getElementsByClassName("drop")
-        //docu[0].style.setProperty('--margin-top', `${del * 22}px`)
+        //docu[0].style.setProperty('--margin-top', `${del * 20}px`)
         docu[0].style.setProperty('display', 'none') //setProperty要加[0]
     }
     //顯示明天課表
+    if (formatDate(1) == 6 || formatDate(1) == 0) {
+        document.getElementById("noClass").style.setProperty('display', 'block')
+    } else if (formatDate(1) == 4) {
+        document.getElementById("noClass").style.setProperty('display', 'block')
+    } else {
+        document.getElementById("yesClass").style.setProperty('display', 'block')
+    }
 })
