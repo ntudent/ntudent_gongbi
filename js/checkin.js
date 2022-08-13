@@ -278,7 +278,7 @@ $(() => {
         addDel(del)
         //箭頭掉下來
         docu = document.getElementsByClassName("drop")
-        docu[0].style.setProperty('--margin-top', `${del * 26}px`) //setProperty要加[0]
+        docu[0].style.setProperty('--margin-top', `${del * 25.5}px`) //setProperty要加[0]
     }
     if (del >= 9){ //放學後，全部課程劃掉
         addDel(9)
