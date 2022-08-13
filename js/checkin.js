@@ -117,7 +117,7 @@ addLoadEvent(week);
 function week_lower (i) {
     var d = (new Date()).getDay();
     if (d+i > 6) {
-        return d + i - 6;
+        return d + i - 7;
     } else {
         return d + i;
     }
@@ -198,7 +198,7 @@ $(() => {
         }
     }
     //星期二 下午若無胚胎則組織
-    if (week_lower(0) == 6) {
+    if (week_lower(0) == 2) {
         for (i=1; i<=9; i++) {
             docu = document.querySelectorAll("[id='ptClass']")
             if (i == $(docu).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
@@ -287,15 +287,15 @@ $(() => {
         docu[0].style.setProperty('display', 'none') //setProperty要加[0]
     }
     //顯示明天課表
-    if (formatDate(1) == 6 || formatDate(1) == 0) { //六日無課
+    if (week_lower(1) == 6 || week_lower(1) == 0) { //禮拜六日無課
         document.getElementById("noClass").style.setProperty('display', 'block')
-    } else if (formatDate(1) == 4) { //四無課
+    } else if (week_lower(1) == 4) { //禮拜四無課
         document.getElementById("noClass").style.setProperty('display', 'block')
     } else {
         document.getElementById("yesClass").style.setProperty('display', 'block')
-        if (formatDate(1) == 3) {
+        if (week_lower(1) == 3) {
             docu = document.getElementById("classFrom")
-            $(docu).text("二") //三是從第二節開始上課
+            $(docu).text("二") //裡拜三是從第二節開始上課
         } else {
             docu = document.getElementById("classFrom")
             $(docu).text("一")
@@ -311,7 +311,7 @@ $(() => {
                 tomorrowClass[i] = "胚胎"
             }
         }
-        if (formatDate(1) == 1) { //星期一普通課程
+        if (week_lower(1) == 1) { //星期一普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] = "") { //若該節沒有特殊課程
                     if(i<=4) {
@@ -323,7 +323,7 @@ $(() => {
                 }
             }
         }
-        if (formatDate(1) == 2) { //星期二普通課程
+        if (week_lower(1) == 2) { //星期二普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] = "") { //若該節沒有特殊課程
                     if(i<=4) {
@@ -338,7 +338,7 @@ $(() => {
                 }
             }
         }
-        if (formatDate(1) == 3) { //星期三普通課程
+        if (week_lower(1) == 3) { //星期三普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] = "") { //若該節沒有特殊課程
                     if(i<=4 && i>=2) {
@@ -353,7 +353,7 @@ $(() => {
                 }
             }
         }
-        if (formatDate(1) == 5) { //星期五普通課程
+        if (week_lower(1) == 5) { //星期五普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] = "") { //若該節沒有特殊課程
                     if(i==1) {
@@ -376,6 +376,6 @@ $(() => {
         }
         $($('#tomorrowClass')).text(tomorrowClassOut.join('\n'))
         docu = document.getElementById("tomorrow")
-        docu[0].style.setProperty('--height', `${tomorrowClassOut.length * 25 + 50}px`) //setProperty要加[0]
+        docu.style.setProperty('--height', `${tomorrowClassOut.length * 20 + 40}px`)
     }
 })
