@@ -112,6 +112,9 @@
 .blueDarker:hover {
     background: linear-gradient(315deg, blue, purple);
 }
+.blueDarker2:hover {
+    background: linear-gradient(135deg, blue, purple);
+}
 .redDarker:hover {
     background: black;
 }
