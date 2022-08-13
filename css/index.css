@@ -9,58 +9,8 @@
     margin-left: auto;
     margin-right: auto;
 }
-@media (min-width: 576px) { /*手機優先*/
-    .middle {
-        text-align: var(--c);
-    }
-    .flex-button {
-        display: flex; /*flex排列*/
-        flex-direction: row;
-        flex-wrap: nowrap; /*超過不換行*/
-        justify-content: space-around;
-        padding: 10px;
-    }
-    .button {
-        background-color: green;
-        border: none;
-        border-radius: 5px;
-        color: azure;
-    }
-    .inputMargin {
-        margin-top: 10px;
-        margin-right: 5px;
-        vertical-align: text-bottom;
-    }
-    .button:hover {
-        background-color: azure;
-        border: none;
-        border-radius: 5px;
-        color: green;
-        margin-left: 5px;
-        margin-right: 5px;
-        border: 1px solid yellow;
-    }
-}
-@media (min-width: 800px) {
-    .centerLeft {
-        margin-left: calc(50% - 280px);
-        display: flex;
-        margin-top: -10px;
-    }
-    .showOnPhone {
-        opacity: 0;
-    }
-    .obj_50 {
-        margin: 0 auto;
-        height: 400px;
-    }
-    .wordLarge {
-        font-size: 18px;
-    }
-    .obj_90 {
-        width: 60%;
-        margin-left: 20%;
-    }
+.leftHeader {
+    margin-left: calc(50% - 140px);
 }
 .wordLarge {
     font-size: 15px;
@@ -236,4 +186,61 @@
 @-webkit-keyframes drop {
     from { transform: translateY(calc(-1 * var(--margin-top))); }
     to   { transform: translateY(var(--margin-top)); }
+}
+
+@media (min-width: 576px) { /*手機優先*/
+    .middle {
+        text-align: var(--c);
+    }
+    .flex-button {
+        display: flex; /*flex排列*/
+        flex-direction: row;
+        flex-wrap: nowrap; /*超過不換行*/
+        justify-content: space-around;
+        padding: 10px;
+    }
+    .button {
+        background-color: green;
+        border: none;
+        border-radius: 5px;
+        color: azure;
+    }
+    .inputMargin {
+        margin-top: 10px;
+        margin-right: 5px;
+        vertical-align: text-bottom;
+    }
+    .button:hover {
+        background-color: azure;
+        border: none;
+        border-radius: 5px;
+        color: green;
+        margin-left: 5px;
+        margin-right: 5px;
+        border: 1px solid yellow;
+    }
+}
+@media (min-width: 800px) {
+    .centerLeft {
+        margin-left: calc(50% - 280px);
+        display: flex;
+        margin-top: -10px;
+    }
+    .showOnPhone {
+        opacity: 0;
+    }
+    .obj_50 {
+        margin: 0 auto;
+        height: 400px;
+    }
+    .wordLarge {
+        font-size: 18px;
+    }
+    .obj_90 {
+        width: 60%;
+        margin-left: 20%;
+    }
+    .leftHeader {
+        margin-left: 0;
+    }
 }
