@@ -169,3 +169,6 @@
     from { transform: translateY(calc(-1 * var(--margin-top))); }
     to   { transform: translateY(var(--margin-top)); }
 }
+#tomorrow {
+    height: var(--height);
+}
