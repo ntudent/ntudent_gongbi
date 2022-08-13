@@ -11,16 +11,16 @@
 </head>
 <body style="background: #24fdd2; font-family: 'Times New Roman', Helvetica, 標楷體;">
     <div id="head_code"></div>
-    <div id="body_code">
-        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-            <div style="margin-right: 10px;">請選擇模式</div>
+    <div id="body_code" style="background: black;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; padding: 10px;">
+            <div style="margin-right: 10px; color: aliceblue;">請選擇模式</div>
             <select name="button_name" id="button_name" onchange="onChange(this);" style="border: 0;">
                 <option value="_gb">共筆</option>
                 <option value="_testday">考程</option>
             </select>
         </div>
 
-        <div id="data_gb" style="display: block;">
+        <div id="data_gb" style="display: block; background: orange; margin-left: 4%; margin-right: 4%; margin-bottom: 20px; border-radius: 20px;">
             <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!--手機板設成flex-direction: column-->
                 <div style="display: flex; flex-wrap: wrap;">
                     <p style="padding-top: 20px;">No.</p>
@@ -87,7 +87,7 @@
                 <div id="output_testday" style="display: block; margin-left: 5px;"></div> <!--數據-->
             </div>
         </div>
-        <div class="showOnPhone middle" style="font-size: 32px;">
+        <div class="showOnPhone middle" style="font-size: 32px; color: aliceblue;">
             浪漫小提醒：建議使用電腦或平板操作。
         </div>
         
