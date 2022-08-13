@@ -22,7 +22,7 @@ function count_item() {
 function thisgb(gb_name, week) {
     count_item();
     if ($.isNumeric(week)) {
-        return (gb_name + " Week " + week);
+        return (gb_name + " Week" + week);
     }
     else {
         return (gb_name + " " + week);
