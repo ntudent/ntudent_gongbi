@@ -1,3 +1,4 @@
+
 :root {
     /*這裡放global variables*/
     --c: center;
@@ -43,9 +44,14 @@
 @media (min-width: 800px) {
     .centerLeft {
         margin-left: 300px;
+        width: 80px;
     }
     .showOnPhone {
         opacity: 0;
+    }
+    .obj_50 {
+        margin: 0 auto;
+        height: 400px;
     }
 }
 .flex-button {
@@ -65,8 +71,8 @@
 }
 .obj_50 {
     margin: 0 auto;
-    height: 400px;
-    margin-left: 2%;
+    height: 450px;
+    padding-left: 2%;
 }
 .button:hover {
     background-color: azure;
