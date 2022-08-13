@@ -109,6 +109,12 @@
     background: #87c2b6;
     border-radius: 10px;
 }
+.blueDarker:hover {
+    background: linear-gradient(315deg, blue, purple);
+}
+.redDarker:hover {
+    background: black;
+}
 .flex-container {
     display: flex; /*flex排列*/
     flex-direction: row;
