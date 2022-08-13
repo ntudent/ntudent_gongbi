@@ -9,17 +9,16 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body style="background: #24fdd2; font-family: 'Times New Roman', Helvetica, 標楷體;">
-    <div id="head_all" style="padding-left: 2%;">
+    <div id="head_all" style="padding-left: 5%;">
         <input type="text" id="yourname" autocomplete="off" inputmode="search" style="width: 140px; border: 0; border-radius: 0px;" placeholder="請輸入名字或座號">
         <!--inputmode:search可以有讓手機按確認後按button-->
         <button class="button_key" id="enter_name" style="margin: 10px; border: 0; border-radius: 6px; background-color: blue; opacity: 0.7; color: white;">確定</button>
     </div>
-    <div id="body_all" style="padding-left: 2%;">
-        <div></div>
-        <table id="print_all" border="1">
-            <div>
-                <p>您的名字是: <span id="nameBlank"></span></p>
-            </div>
+    <div style="padding-left: 5%;">
+        <p>您的名字是: <span id="nameBlank"></span></p>
+    </div>
+    <div id="body_all" style="padding-left: 2%; background: #6495ED; border-radius: 10px;">
+        <table id="print_all" border="1" style="padding-top: 5px;">
             <thead>
                 <tr id="t_head_1">
                     <th>共筆名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -30,12 +29,13 @@
                 </tr>
             </thead>
         </table>
-    </div>
-    <div style="display: flex; padding-left: 2%;">
-        <span class="closebox">
-            <svg id="arrowClick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="margin-left: -10px;"><path d="m14.707 11.293-4-4A1 1 0 0 0 9 8v8a1 1 0 0 0 1.707.707l4-4a1 1 0 0 0 0-1.414z" style="fill:#ff8e31" data-name="Right"/></svg>
-        </span>
-        <span style="padding-top: 10px;">訂購物</span>
+
+        <div style="display: flex;">
+            <span class="closebox">
+                <svg id="arrowClick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="margin-left: -10px;"><path d="m14.707 11.293-4-4A1 1 0 0 0 9 8v8a1 1 0 0 0 1.707.707l4-4a1 1 0 0 0 0-1.414z" style="fill:#ff8e31" data-name="Right"/></svg>
+            </span>
+            <span style="padding-top: 10px;">訂購物</span>
+        </div>
     </div>
 
     <div id="gb_buy" style="display: none; margin-left: 30px; background: orange; opacity: 0.5; color: white;"></div>
