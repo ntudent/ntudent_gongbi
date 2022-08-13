@@ -43,7 +43,7 @@
 }
 @media (min-width: 800px) {
     .centerLeft {
-        margin-left: 300px;
+        margin-left: calc(50% - 280px);
         display: flex;
         margin-top: -10px;
     }
@@ -56,6 +56,10 @@
     }
     .wordLarge {
         font-size: 18px;
+    }
+    .obj_90 {
+        width: 60%;
+        margin-left: 20%;
     }
 }
 .wordLarge {
@@ -99,6 +103,7 @@
     border: 1px solid yellow;
 }
 .obj_90 {
+    width: 90%;
     margin-left: 5%;
 }
 .greenDark {
