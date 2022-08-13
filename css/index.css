@@ -1,4 +1,3 @@
-
 :root {
     /*這裡放global variables*/
     --c: center;
@@ -161,6 +160,7 @@
 }
 .delLine {
     position: relative;
+    color: grey;
 }
 .delLine::after {
     content: ' ';
