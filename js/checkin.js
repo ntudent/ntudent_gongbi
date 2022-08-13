@@ -376,6 +376,6 @@ $(() => {
         }
         $($('#tomorrowClass')).text(tomorrowClassOut.join('\n'))
         docu = document.getElementById("tomorrow")
-        docu[0].style.setProperty('--width', `${tomorrowClassOut.length * 25 + 50}px`) //setProperty要加[0]
+        docu[0].style.setProperty('--height', `${tomorrowClassOut.length * 25 + 50}px`) //setProperty要加[0]
     }
 })
