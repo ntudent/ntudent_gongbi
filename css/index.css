@@ -44,7 +44,6 @@
 @media (min-width: 800px) {
     .centerLeft {
         margin-left: 300px;
-        width: 80px;
         display: flex;
         margin-top: -10px;
     }
