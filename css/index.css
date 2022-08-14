@@ -252,7 +252,7 @@
         margin-top: -10px;
     }
     .centerLeft:hover {
-        background: linear-gradient(135deg, purple, red);
+        background: linear-gradient(45deg, purple, red);
     }
     .showOnPhone {
         opacity: 0;
