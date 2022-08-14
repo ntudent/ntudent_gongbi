@@ -243,4 +243,7 @@
     .leftHeader {
         margin-left: 0;
     }
+    #body_code{
+        height: 420px;
+    }
 }
