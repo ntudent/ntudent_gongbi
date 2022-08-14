@@ -233,23 +233,26 @@
         margin-right: 8px;
         border: 1px solid yellow;
     }
-    .greenDark:hover {
+    .greenDark:hover, .greenDark:active {
         background: #87c2b6;
         border-radius: 6px;
     }
-    .blueDarker:hover {
+    .blueDarker:hover, .blueDarker:active {
         background: linear-gradient(315deg, blue, purple);
     }
-    .blueDarker2:hover {
+    .blueDarker2:hover, .blueDarker2:active {
         background: linear-gradient(135deg, blue, purple);
     }
-    .redDarker:hover {
+    .redDarker:hover, .redDarker:active {
         background: black;
     }
     .centerLeft {
         margin-left: calc(50% - 280px);
         display: flex;
         margin-top: -10px;
+    }
+    .centerLeft:hover {
+        background: linear-gradient(135deg, purple, red);
     }
     .showOnPhone {
         opacity: 0;
