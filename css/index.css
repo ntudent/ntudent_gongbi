@@ -64,11 +64,20 @@
     background: #87c2b6;
     border-radius: 6px;
 }
+.blueDarker{
+    background: linear-gradient(135deg, blue, purple); 
+}
 .blueDarker:active {
     background: linear-gradient(315deg, blue, purple);
 }
+.blueDarker2{
+    background-color: blue; 
+}
 .blueDarker2:active {
     background: linear-gradient(135deg, blue, purple);
+}
+.redDarker{
+    background-color: red; 
 }
 .redDarker:active {
     background: black;
@@ -90,6 +99,9 @@
 }
 #tomorrowClass {
     white-space: pre-wrap;
+}
+#news {
+    background: red;
 }
 .image_rotate_90 { /*順時針旋轉*/
     animation: rotation_90 1s;
@@ -233,6 +245,10 @@
         margin-right: 8px;
         border: 1px solid yellow;
     }
+    .greenDark {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
     .greenDark:hover, .greenDark:active {
         background: #87c2b6;
         border-radius: 6px;
@@ -251,8 +267,8 @@
         display: flex;
         margin-top: -10px;
     }
-    .centerLeft:hover {
-        background: linear-gradient(45deg, purple, red);
+    #news:hover {
+        background: linear-gradient(225deg, purple, red);
     }
     .showOnPhone {
         opacity: 0;
