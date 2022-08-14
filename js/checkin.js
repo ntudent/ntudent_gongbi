@@ -313,7 +313,7 @@ $(() => {
         }
         if (week_lower(1) == 1) { //星期一普通課程
             for (i=1; i<=9; i++) {
-                if (tomorrowClass[i] = "") { //若該節沒有特殊課程
+                if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4) {
                         tomorrowClass[i] = "組織"
                     }
@@ -325,7 +325,7 @@ $(() => {
         }
         if (week_lower(1) == 2) { //星期二普通課程
             for (i=1; i<=9; i++) {
-                if (tomorrowClass[i] = "") { //若該節沒有特殊課程
+                if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4) {
                         tomorrowClass[i] = "大體"
                     }
@@ -340,7 +340,7 @@ $(() => {
         }
         if (week_lower(1) == 3) { //星期三普通課程
             for (i=1; i<=9; i++) {
-                if (tomorrowClass[i] = "") { //若該節沒有特殊課程
+                if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4 && i>=2) {
                         tomorrowClass[i] = "OD"
                     }
@@ -355,7 +355,7 @@ $(() => {
         }
         if (week_lower(1) == 5) { //星期五普通課程
             for (i=1; i<=9; i++) {
-                if (tomorrowClass[i] = "") { //若該節沒有特殊課程
+                if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i==1) {
                         tomorrowClass[i] = "口解"
                     }
