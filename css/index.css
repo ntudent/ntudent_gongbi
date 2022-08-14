@@ -34,7 +34,7 @@
     margin: 0 auto;
     height: 450px;
 }
-.button:hover {
+.button:active {
     background-color: azure;
     border: none;
     border-radius: 5px;
@@ -60,17 +60,17 @@
     margin-top: 0;
     margin-bottom: 0;
 }
-.greenDark:hover {
+.greenDark:active {
     background: #87c2b6;
     border-radius: 6px;
 }
-.blueDarker:hover {
+.blueDarker:active {
     background: linear-gradient(315deg, blue, purple);
 }
-.blueDarker2:hover {
+.blueDarker2:active {
     background: linear-gradient(135deg, blue, purple);
 }
-.redDarker:hover {
+.redDarker:active {
     background: black;
 }
 .flex-container {
@@ -224,6 +224,28 @@
     }
 }
 @media (min-width: 800px) {
+    .button:hover, .button:active {
+        background-color: azure;
+        border: none;
+        border-radius: 5px;
+        color: green;
+        margin-left: 8px;
+        margin-right: 8px;
+        border: 1px solid yellow;
+    }
+    .greenDark:hover {
+        background: #87c2b6;
+        border-radius: 6px;
+    }
+    .blueDarker:hover {
+        background: linear-gradient(315deg, blue, purple);
+    }
+    .blueDarker2:hover {
+        background: linear-gradient(135deg, blue, purple);
+    }
+    .redDarker:hover {
+        background: black;
+    }
     .centerLeft {
         margin-left: calc(50% - 280px);
         display: flex;
