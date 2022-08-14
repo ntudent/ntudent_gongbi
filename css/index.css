@@ -88,6 +88,9 @@
     width: 30px;
     height: 30px;
 }
+#tomorrowClass {
+    white-space: pre-wrap;
+}
 .image_rotate_90 { /*順時針旋轉*/
     animation: rotation_90 1s;
     animation-fill-mode: forwards;
