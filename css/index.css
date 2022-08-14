@@ -97,6 +97,12 @@
     width: 30px;
     height: 30px;
 }
+#checkbox_countdown{
+    padding-top: 10px;
+}
+#checkbox_all{
+    padding-top: 10px;
+}
 #tomorrowClass {
     white-space: pre-wrap;
 }
@@ -289,5 +295,11 @@
     }
     #body_code{
         height: 420px;
+    }
+    #checkbox_countdown{
+        padding-top: 0px;
+    }
+    #checkbox_all{
+        padding-top: 0px;
     }
 }
