@@ -323,7 +323,7 @@ $(() => {
                 }
             }
         }
-        if (week_lower(1) == 2) { //星期二普通課程
+        if (week_lower(2) == 2) { //星期二普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4) {
@@ -338,7 +338,7 @@ $(() => {
                 }
             }
         }
-        if (week_lower(1) == 3) { //星期三普通課程
+        if (week_lower(2) == 3) { //星期三普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4 && i>=2) {
