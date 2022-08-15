@@ -323,7 +323,7 @@ $(() => {
                 }
             }
         }
-        if (week_lower(1) == 2) { //星期二普通課程
+        if (week_lower(2) == 2) { //星期二普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4) {
@@ -338,11 +338,11 @@ $(() => {
                 }
             }
         }
-        if (week_lower(1) == 3) { //星期三普通課程
+        if (week_lower(2) == 3) { //星期三普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4 && i>=2) {
-                        tomorrowClass[i] = "OD"
+                        tomorrowClass[i] = " OD"
                     }
                     if(i==6||i==7){
                         tomorrowClass[i] = "大體"
@@ -374,6 +374,7 @@ $(() => {
                 tomorrowClassOut.push(tomorrowClass[i]) //依節次輸出，每課程名只會用到一次
             }
         }
+        alert(tomorrowClassOut)
         $($('#tomorrowClass')).text(tomorrowClassOut.join("\r\n"))
         //docu = document.getElementById("tomorrow")
         //docu.style.setProperty('--height', `${tomorrowClassOut.length * 20 + 40}px`)
