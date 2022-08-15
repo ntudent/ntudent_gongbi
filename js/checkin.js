@@ -374,6 +374,7 @@ $(() => {
                 tomorrowClassOut.push(tomorrowClass[i]) //依節次輸出，每課程名只會用到一次
             }
         }
+        alert(tomorrowClassOut[0])
         $($('#tomorrowClass')).text(tomorrowClassOut.join("\r\n"))
         //docu = document.getElementById("tomorrow")
         //docu.style.setProperty('--height', `${tomorrowClassOut.length * 20 + 40}px`)
