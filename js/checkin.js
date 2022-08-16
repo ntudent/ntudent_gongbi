@@ -274,6 +274,10 @@ $(() => {
     del = getHours() - 8 //第2節getHours() = 9，要劃掉第1節課
     if (getHours() == 16) {del = 7}
     if (getHours() == 17) {del = 8}
+    if (del < 0) {
+        docu = document.getElementsByClassName("drop")
+        docu[0].style.setProperty('display', 'none') //setProperty要加[0]
+    }
     if (del > 0 && del < 9) { //上課時間，依照節次加入劃掉的css
         addDel(del)
         //箭頭掉下來
