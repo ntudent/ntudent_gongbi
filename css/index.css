@@ -240,6 +240,9 @@
         margin-right: 5px;
         border: 1px solid yellow;
     }
+    .loadAll:active, .loadWeek:active {
+        background: green;
+    }
 }
 @media (min-width: 800px) {
     .button:hover, .button:active {
@@ -301,5 +304,8 @@
     }
     #checkbox_all{
         padding-top: 0px;
+    }
+    .loadAll:active, .loadWeek:active, .loadAll:hover, .loadWeek:hover {
+        background: green;
     }
 }
