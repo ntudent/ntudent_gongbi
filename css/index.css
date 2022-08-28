@@ -109,6 +109,12 @@
 #news {
     background: red;
 }
+#loadAll, #loadWeek {
+    border: 0px; 
+    border-radius: 6px; 
+    background: rgb(119, 236, 119); 
+    color: whitesmoke;
+}
 .image_rotate_90 { /*順時針旋轉*/
     animation: rotation_90 1s;
     animation-fill-mode: forwards;
