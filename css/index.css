@@ -240,7 +240,7 @@
         margin-right: 5px;
         border: 1px solid yellow;
     }
-    .loadAll:active, .loadWeek:active {
+    #loadAll:active, #loadWeek:active {
         background: green;
     }
 }
@@ -305,7 +305,7 @@
     #checkbox_all{
         padding-top: 0px;
     }
-    .loadAll:active, .loadWeek:active, .loadAll:hover, .loadWeek:hover {
+    #loadAll:active, #loadWeek:active, #loadAll:hover, #loadWeek:hover {
         background: green;
     }
 }
