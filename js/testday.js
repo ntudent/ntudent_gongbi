@@ -13,10 +13,9 @@ $(() => {
     item_testday = document.createElement('item_testday') //開一個DOM節點
     item_testday = new Array()
     //改共筆改以下這段
-    item_testday[0] = new Array(count_item_testday("OD"), "期中", "2022-07-03", "") //(考科, 範圍, 日期, 剩餘日)
-    item_testday[1] = new Array(count_item_testday("口解"), "期末", "2022-09-03", "")
-    item_testday[2] = new Array(count_item_testday("大體"), "期中: Ch.1-16", "2022-07-05", "")
-    item_testday[3] = new Array(count_item_testday("普化"), "期中: ~Ch.22", "2022-07-01", "")
+    item_testday[0] = new Array(count_item_testday("口解"), "期末", "2022-12-23", "") //(考科, 範圍, 日期, 剩餘日)
+    item_testday[1] = new Array(count_item_testday("口胚"), "期中", "2022-10-28", "")
+    item_testday[2] = new Array(count_item_testday("口胚"), "期末", "2022-12-23", "")
     //改共筆改以上這段
 
     for (i=0; i<n_test; i++) { //剩餘日計算
