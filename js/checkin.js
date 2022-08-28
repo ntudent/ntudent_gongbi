@@ -178,6 +178,18 @@ $(() => {
             special.push(i) //特別課程的節次
         }
     }
+    kp_class = new Array("2022-08-29")
+    if (jQuery.inArray(today, kp_class) !== -1) {
+        for (i=3; i<=4; i++) {
+            getLi("kpClass", i)
+            $kpClass = document.querySelectorAll("[id='kpClass']")
+            $($kpClass).text("口胚")
+            special.push(i) //特別課程的節次
+        }
+        for (i=6; i<=9; i++) {
+            special.push(i) //調課時間，下午為空堂，所以不顯示
+        }
+    }
     //星期一 組織:若碰上第i節有掛id::ptClass的就不要getLi
     if (week_lower(0) == 1) {
         for (i=1; i<=9; i++) {
@@ -315,6 +327,14 @@ $(() => {
                 tomorrowClass[i] = "胚胎"
             }
         }
+        if (jQuery.inArray(formatDate(1), kp_class) !== -1) {
+            for (i=3; i<=4; i++) {
+                tomorrowClass[i] = "口胚"
+            }
+            for (i=6; i<=9; i++) {
+                tomorrowClass[i] = ""
+            }
+        }
         if (week_lower(1) == 1) { //星期一普通課程
             for (i=1; i<=9; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
@@ -372,6 +392,8 @@ $(() => {
                 }
             }
         }
+        
+
         tomorrowClassOut = new Array()
         for (i=1; i<=9; i++) {
             if(jQuery.inArray(tomorrowClass[i], tomorrowClassOut) == -1 && tomorrowClass[i] !== undefined){
