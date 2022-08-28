@@ -45,14 +45,16 @@ function alert_name_f (alert_name, type) {
     return ("今天要" + type + "的人類: " + a);
 }
 document.getElementById("loadAll").addEventListener('click', () => {
-    if (document.getElementById("loadAll").checked) {
-        var $week = document.getElementById("week");
-        $($week).text("所有"); //當按下"未來所有"時改字
-    }
-    else {
-        var $week = document.getElementById("week");
-        $($week).text("一周");
-    }
+    var $week = document.getElementById("week");
+    $($week).text("所有"); //當按下"未來所有"時改字
+    document.getElementById("loadWeek").style.display = "block";
+    document.getElementById("loadAll").style.display = "none";
+})
+document.getElementById("loadWeek").addEventListener('click', () => {
+    var $week = document.getElementById("week");
+    $($week).text("一周"); //當按下"未來所有"時改字
+    document.getElementById("loadAll").style.display = "block";
+    document.getElementById("loadWeek").style.display = "none";
 })
 $(() => {
     
@@ -285,48 +287,46 @@ $(() => {
     
     //做顯示全部
     $('#loadAll').on('click', () => {
-        if ($('#loadAll').is(':checked') == true) {
-            for (i=n_layer_id_tillnow; i<=2*n_item; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
-                if (document.getElementById(i) !== null) {
-                    //alert(document.getElementById(i))
-                    document.getElementById(i).remove("#"+toString(i))
-                }
-            }
-
-            n_layer_id = n_layer_id_tillnow //n_layer_id重置
-            gb.sort((a, b) => a[4] - b[4])
-            for (i=0; i<n_item; i++) {
-                if (gb[i][4] > 0) {
-                    getTr(n_layer_id, 'print_gb') //創層
-                    for (j=0; j<7; j++) { 
-                        let $td = $('<td>') //創造元素
-                        n_layer_id_num = $('#' + n_layer_id)
-                        $td.text(gb[i][j]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
-                    }
-                    n_layer_id += 1
-                }
+        for (i=n_layer_id_tillnow; i<=2*n_item; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
+            if (document.getElementById(i) !== null) {
+                //alert(document.getElementById(i))
+                document.getElementById(i).remove("#"+toString(i))
             }
         }
-        else {
-            for (i=n_layer_id_tillnow; i<=2*n_item; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
-                if (document.getElementById(i) !== null) {
-                    //alert(document.getElementById(i))
-                    document.getElementById(i).remove("#"+toString(i))
-                }
-            }
 
-            n_layer_id = n_layer_id_tillnow //n_layer_id重置
-            gb.sort((a, b) => a[4] - b[4])
-            for (i=0; i<n_item; i++) {
-                if (gb[i][4] > 0 && gb[i][4] < 7) {
-                    getTr(n_layer_id, 'print_gb') //創層
-                    for (j=0; j<7; j++) { 
-                        let $td = $('<td>') //創造元素
-                        n_layer_id_num = $('#' + n_layer_id)
-                        $td.text(gb[i][j]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
-                    }
-                    n_layer_id += 1
+        n_layer_id = n_layer_id_tillnow //n_layer_id重置
+        gb.sort((a, b) => a[4] - b[4])
+        for (i=0; i<n_item; i++) {
+            if (gb[i][4] > 0) {
+                getTr(n_layer_id, 'print_gb') //創層
+                for (j=0; j<7; j++) { 
+                    let $td = $('<td>') //創造元素
+                    n_layer_id_num = $('#' + n_layer_id)
+                    $td.text(gb[i][j]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
                 }
+                n_layer_id += 1
+            }
+        }
+    })
+    $('#loadWeek').on('click', () => {
+        for (i=n_layer_id_tillnow; i<=2*n_item; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
+            if (document.getElementById(i) !== null) {
+                //alert(document.getElementById(i))
+                document.getElementById(i).remove("#"+toString(i))
+            }
+        }
+
+        n_layer_id = n_layer_id_tillnow //n_layer_id重置
+        gb.sort((a, b) => a[4] - b[4])
+        for (i=0; i<n_item; i++) {
+            if (gb[i][4] > 0 && gb[i][4] < 7) {
+                getTr(n_layer_id, 'print_gb') //創層
+                for (j=0; j<7; j++) { 
+                    let $td = $('<td>') //創造元素
+                    n_layer_id_num = $('#' + n_layer_id)
+                    $td.text(gb[i][j]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
+                }
+                n_layer_id += 1
             }
         }
     })
