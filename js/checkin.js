@@ -178,7 +178,7 @@ $(() => {
             special.push(i) //特別課程的節次
         }
     }
-    kp_class = new Array("2022-08-29")
+    kp_class = new Array("2022-08-30")
     if (jQuery.inArray(today, kp_class) !== -1) {
         for (i=3; i<=4; i++) {
             getLi("kpClass", i)
