@@ -98,12 +98,12 @@ $(() => {
     item_buy[5] = new Array("共筆", "組織", n[3], n[5], n[6], n[12], n[21], n[22], n[30], n[33])
     item_buy[6] = new Array("共筆", "胚胎", n[5], n[6], n[12], n[21], n[30], n[33])
     item_buy[7] = new Array("考古", "OD", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
-    item_buy[8] = new Array("共筆", "口胚", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
-    item_buy[9] = new Array("共筆", "口解", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
-    item_buy[10] = new Array("共筆", "大體", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[22], n[23], n[24], n[30], n[33])
-    item_buy[11] = new Array("共筆", "生理", n[1], n[3], n[4], n[5], n[6], n[8], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
-    item_buy[12] = new Array("共筆", "組織", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[22], n[23], n[24], n[30], n[33])
-    item_buy[13] = new Array("共筆", "胚胎", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
+    item_buy[8] = new Array("考古", "口胚", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
+    item_buy[9] = new Array("考古", "口解", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
+    item_buy[10] = new Array("考古", "大體", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[22], n[23], n[24], n[30], n[33])
+    item_buy[11] = new Array("考古", "生理", n[1], n[3], n[4], n[5], n[6], n[8], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
+    item_buy[12] = new Array("考古", "組織", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[22], n[23], n[24], n[30], n[33])
+    item_buy[13] = new Array("考古", "胚胎", n[1], n[3], n[4], n[5], n[6], n[12], n[19], n[21], n[23], n[24], n[30], n[33])
     //改購買的共筆改以上這段    
 
     $('#yourname').keypress(function(e) { //按enter鍵也觸發#enter_name的onclick()事件
@@ -239,7 +239,7 @@ $(() => {
         //以下為共筆購買搜尋
         gb_buy = new Array()
         kg_buy = new Array()
-        for (i=0; i<3; i++) { //這邊記得中間改成全部共筆的個數
+        for (i=0; i<14; i++) { //這邊記得中間改成全部共筆的個數
             if (jQuery.inArray(yourname, item_buy[i]) !== -1) {
                 if (item_buy[i][0] == "共筆") {
                     gb_buy.push(item_buy[i][1])
