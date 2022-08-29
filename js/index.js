@@ -21,9 +21,41 @@ function objShow(id) { //並顯示新的obj
     document.getElementById(id).classList.add('button_clicked');
     //document.querySelector(objName).style.font-size = '19';設字體 注意.css只能用在jQuery
 }
+function formatDate(i) {
+    const d = new Date();
+    d.setDate(d.getDate() + i);
+    var month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+    if (month.length < 2) {
+        month = '0' + month;
+    }
+    if (day.length < 2) {
+        day = '0' + day;
+    }
+    return [year, month, day].join('-');
+}
 $(() => {
     $('#obj_countdown').attr("height", "2000")
-    
+    //自動公告課程
+    today = formatDate(0)
+    switch (today) {
+        case "2022-09-16":
+            $('#auto').text("口胚：預錄")
+            break
+        case "2022-09-23":
+            $('#auto').text("口胚：預錄")
+            break
+        case "2022-09-30":
+            $('#auto').text("口胚：14:00-18:00")
+            break
+        case "2022-10-07":
+            $('#auto').text("口胚：14:00-18:00")
+            break
+        case "2022-12-02":
+            $('#auto').text("口胚：14:30-18:00")
+            break
+    }
     
 })
 
