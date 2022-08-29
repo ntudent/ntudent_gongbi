@@ -40,7 +40,7 @@ $(() => {
     //自動公告課程
     today = formatDate(0)
     switch (today) {
-        case "2022-09-16":
+        case "2022-08-29":
             $('#auto').text("口胚：預錄")
             break
         case "2022-09-23":
