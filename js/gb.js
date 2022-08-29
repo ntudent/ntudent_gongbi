@@ -330,8 +330,23 @@ $(() => {
             }
         }
     })
-    
-    
+    //hover時變更顏色
+    $('#loadAll').on({
+        mouseenter: function() {
+            $('#loadAll').addClass("load")
+        },
+        mouseleave: function() {
+            $('#loadAll').removeClass("load")
+        }
+    })
+    $('#loadWeek').on({
+        mouseenter: function() {
+            $('#loadAll').addClass("load")
+        },
+        mouseleave: function() {
+            $('#loadAll').removeClass("load")
+        }
+    })
 })
 
 function test() {
