@@ -341,10 +341,10 @@ $(() => {
     })
     $('#loadWeek').on({
         mouseenter: function() {
-            $('#loadAll').addClass("load")
+            $('#loadWeek').addClass("load")
         },
         mouseleave: function() {
-            $('#loadAll').removeClass("load")
+            $('#loadWeek').removeClass("load")
         }
     })
 })
