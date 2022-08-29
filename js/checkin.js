@@ -160,8 +160,35 @@ $(() => {
     special = new Array()
     //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
     //胚胎上課表
-    pt_class = new Array("2022-08-18", "2022-10-24")
-    if (jQuery.inArray(today, pt_class) !== -1) {
+    pt_class1 = new Array("2022-10-18")
+    if (jQuery.inArray(today, pt_class1) !== -1) {
+        for (i=1; i<=1; i++) {
+            getLi("ptClass", i)
+            $ptClass = document.querySelectorAll("[id='ptClass']")
+            $($ptClass).text("胚胎")
+            special.push(i) //特別課程的節次
+        }
+    }
+    pt_class12 = new Array("2022-10-24")
+    if (jQuery.inArray(today, pt_class12) !== -1) {
+        for (i=1; i<=2; i++) {
+            getLi("ptClass", i)
+            $ptClass = document.querySelectorAll("[id='ptClass']")
+            $($ptClass).text("胚胎")
+            special.push(i) //特別課程的節次
+        }
+    }
+    pt_class34 = new Array("2022-09-27")
+    if (jQuery.inArray(today, pt_class34) !== -1) {
+        for (i=3; i<=4; i++) {
+            getLi("ptClass", i)
+            $ptClass = document.querySelectorAll("[id='ptClass']")
+            $($ptClass).text("胚胎")
+            special.push(i) //特別課程的節次
+        }
+    }
+    pt_class67 = new Array("2022-09-14", "2022-12-06", "2022-12-20")
+    if (jQuery.inArray(today, pt_class67) !== -1) {
         for (i=6; i<=7; i++) {
             getLi("ptClass", i)
             $ptClass = document.querySelectorAll("[id='ptClass']")
@@ -169,9 +196,9 @@ $(() => {
             special.push(i) //特別課程的節次
         }
     }
-    pt_class2 = new Array("2022-08-19", "2022-9-24")
-    if (jQuery.inArray(today, pt_class2) !== -1) {
-        for (i=1; i<=2; i++) {
+    pt_class89 = new Array("2022-09-07", "2022-09-20", "2022-11-22", "2022-12-06")
+    if (jQuery.inArray(today, pt_class89) !== -1) {
+        for (i=8; i<=9; i++) {
             getLi("ptClass", i)
             $ptClass = document.querySelectorAll("[id='ptClass']")
             $($ptClass).text("胚胎")
@@ -317,13 +344,28 @@ $(() => {
             $(docu).text("一")
         }
         tomorrowClass = new Array()
-        if (jQuery.inArray(formatDate(1), pt_class) !== -1) {
-            for (i=6; i<=7; i++) {
+        if (jQuery.inArray(formatDate(1), pt_class1) !== -1) {
+            for (i=1; i<=1; i++) {
                 tomorrowClass[i] = "胚胎" //把特殊課程加到明天課程的array中
             }
         }
-        if (jQuery.inArray(formatDate(1), pt_class2) !== -1) {
+        if (jQuery.inArray(formatDate(1), pt_class12) !== -1) {
             for (i=1; i<=2; i++) {
+                tomorrowClass[i] = "胚胎"
+            }
+        }
+        if (jQuery.inArray(formatDate(1), pt_class34) !== -1) {
+            for (i=3; i<=4; i++) {
+                tomorrowClass[i] = "胚胎"
+            }
+        }
+        if (jQuery.inArray(formatDate(1), pt_class67) !== -1) {
+            for (i=6; i<=7; i++) {
+                tomorrowClass[i] = "胚胎"
+            }
+        }
+        if (jQuery.inArray(formatDate(1), pt_class89) !== -1) {
+            for (i=8; i<=9; i++) {
                 tomorrowClass[i] = "胚胎"
             }
         }
