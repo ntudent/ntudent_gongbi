@@ -109,10 +109,15 @@
 #news {
     background: red;
 }
-#loadAll, #loadWeek {
+#loadAll {
     border: 0px; 
     border-radius: 6px; 
     color: blue;
+}
+#loadWeek {
+    border: 0px; 
+    border-radius: 6px; 
+    color: brown;
 }
 .load {
     background: rgb(119, 236, 119);
