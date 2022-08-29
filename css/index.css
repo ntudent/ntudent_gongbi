@@ -109,6 +109,18 @@
 #news {
     background: red;
 }
+#loadAll, #loadWeek {
+    border: 0px; 
+    border-radius: 6px; 
+    background: rgb(119, 236, 119); 
+    color: whitesmoke;
+}
+.load {
+    border: 0px; 
+    border-radius: 6px; 
+    background: rgb(2, 125, 2); 
+    color: whitesmoke;
+}
 .image_rotate_90 { /*順時針旋轉*/
     animation: rotation_90 1s;
     animation-fill-mode: forwards;
@@ -240,15 +252,6 @@
         margin-right: 5px;
         border: 1px solid yellow;
     }
-    #loadAll, #loadWeek {
-        border: 0px; 
-        border-radius: 6px; 
-        background: rgb(119, 236, 119); 
-        color: whitesmoke;
-    }
-    #loadAll:active, #loadWeek:active {
-        background: green;
-    }
 }
 @media (min-width: 800px) {
     .button:hover, .button:active {
@@ -310,14 +313,5 @@
     }
     #checkbox_all{
         padding-top: 0px;
-    }
-    #loadAll, #loadWeek {
-        border: 0px; 
-        border-radius: 6px; 
-        background: rgb(119, 236, 119); 
-        color: whitesmoke;
-    }
-    #loadAll:active, #loadWeek:active, #loadAll:hover, #loadWeek:hover {
-        background: green;
     }
 }
