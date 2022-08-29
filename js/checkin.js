@@ -160,7 +160,7 @@ $(() => {
     special = new Array()
     //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
     //胚胎上課表
-    pt_class1 = new Array("2022-10-18")
+    pt_class1 = new Array("2022-08-29") //10-18
     if (jQuery.inArray(today, pt_class1) !== -1) {
         for (i=1; i<=1; i++) {
             getLi("ptClass", i)
