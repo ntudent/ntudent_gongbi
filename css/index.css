@@ -112,14 +112,10 @@
 #loadAll, #loadWeek {
     border: 0px; 
     border-radius: 6px; 
-    background: rgb(119, 236, 119); 
     color: whitesmoke;
 }
 .load {
-    border: 0px; 
-    border-radius: 6px; 
-    background: rgb(2, 125, 2); 
-    color: whitesmoke;
+    background: rgb(119, 236, 119);
 }
 .image_rotate_90 { /*順時針旋轉*/
     animation: rotation_90 1s;
