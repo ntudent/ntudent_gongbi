@@ -29,7 +29,6 @@
     color: azure;
     margin-left: 5px;
     margin-right: 5px;
-    border: 1px solid green;
 }
 .obj_50 {
     margin: 0 auto;
@@ -234,7 +233,6 @@
         border: none;
         border-radius: 5px;
         color: azure;
-        border: 1px solid green;
     }
     .inputMargin {
         margin-top: 10px;
