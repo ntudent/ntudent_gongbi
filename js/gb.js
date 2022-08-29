@@ -339,6 +339,12 @@ $(() => {
             $('#loadAll').removeClass("load")
         }
     })
+    $("#loadAll").on("tap",function(){
+        $('#loadAll').addClass("load")
+        setTimeout(function() {
+            $('#loadAll').removeClass("load")
+        }, 200)
+    })
     $('#loadWeek').on({
         mouseenter: function() {
             $('#loadWeek').addClass("load")
@@ -346,6 +352,12 @@ $(() => {
         mouseleave: function() {
             $('#loadWeek').removeClass("load")
         }
+    })
+    $("#loadWeek").on("tap",function(){
+        $('#loadWeek').addClass("load")
+        setTimeout(function() {
+            $('#loadWeek').removeClass("load")
+        }, 200)
     })
 })
 
