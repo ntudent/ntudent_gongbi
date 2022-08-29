@@ -1,80 +1,313 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkin</title>
-    <script>//臺大牙醫系B09蔡侁甫所有網站</script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="./css/index.css">
-</head>
-<body style="background: #24fdd2; font-family: 'Times New Roman', Helvetica, 標楷體;">
-    <div id="head_checkin"></div>
-    <div id="body_checkin">
-        <div style="display: flex; flex-wrap: nowrap; padding-top: 5px; padding-bottom: 10px; background-color: rgb(192, 206, 255); opacity: 0.8;">
-            <div style="margin-left: calc(50% - 160px); width: 200px; padding-top: 5px; background-color: rgb(112, 143, 253); border: yellow; border-style: groove; border-radius: 15px;" >
-                <div id="upperHolder" class="middle" style="height: 150px; width: 180px; background: linear-gradient(45deg, #F5E3E6, #D9E4F5); border: green; border-style: groove; border-radius: 10px;">
-                    <div id="month" style="display: flex; height: 45px;">
-                        <div id="month_num" style="font-size: 28; margin-left: 25px;"></div> <!--div無法onload-->
-                        <div style="padding-top: 40px;">月</div>
-                        <div id="month_en" style="font-size: 10; margin-left: 10px; padding-top: 30px"></div>
-                    </div>
-                    <div id="date" class="middle" style="height: 60px;"></div>
-                    <div id="week" class="middle" style="margin-top: 5px;"></div>
-                </div>
-                <div id="lowerHolder" class="middle" style="display: flex; flex-wrap: nowrap; margin-top: 10px;height: 240px; width: 180px;">
-                    <div id="class" style="width: 120px;">
-                        <ul id="1" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <li id="className">第一節：</li>
-                        </ul>
-                        <ul id="2" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <li id="className">第二節：</li>
-                        </ul>
-                        <ul id="3" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <li id="className">第三節：</li>
-                        </ul>
-                        <ul id="4" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <dli id="className">第四節：</li>
-                        </ul>
-                        <ul id="5" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <li id="className">第五節：</li>
-                        </ul>
-                        <ul id="6" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <li id="className">第六節：</li>
-                        </ul>
-                        <ul id="7" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <li id="className">第七節：</li>
-                        </ul>
-                        <ul id="8" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <li id="className">第八節：</li>
-                        </ul>
-                        <ul id="9" style="display: flex; list-style-type: none; padding-left: 10px; height: 10px; width: 110px;">
-                            <li id="className">第九節：</li>
-                        </ul>
-                    </div>
-                    <div id="arrow" style="width: 30px;">
-                        <span style="width: 30px;">
-                            <svg class="drop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve"><path fill="#F28500" d="m10 256 200 150v-80h156V186H210v-80zM394 186h40v140h-40zM462 186h40v140h-40z"/></svg>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div id="tomorrow" style="margin-top: 200px; width: 80px; margin-bottom: 80px; margin-left: 20px; background-color: pink; color: black; border: green 0.5px; border-style: groove; border-radius: 10px; opacity: 0.6; display: flex; flex-direction: column; justify-content: center;">
-                <div style="padding-left: 5px;">明日：</div>
-                <div id="noClass" style="display: none; padding-left: 5px;">無課</div>
-                <div id="yesClass" style="display: none; padding-left: 5px;">第<span id="classFrom"></span>節起</div>
-                <div id="tomorrowClass" style="padding-left: 5px;"></div>
-            </div>
-        </div>
+:root {
+    /*這裡放global variables*/
+    --c: center;
+}
 
-    </div>
+.middle {
+    text-align: var(--c);
+    margin-left: auto;
+    margin-right: auto;
+}
+.leftHeader {
+    margin-left: calc(50% - 140px);
+}
+.wordLarge {
+    font-size: 15px;
+}
+.flex-button {
+    display: flex; /*flex排列*/
+    flex-direction: row;
+    flex-wrap: nowrap; /*超過不換行*/
+    justify-content: center;
+    padding: 10px;
+}
+.button {
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color: azure;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.obj_50 {
+    margin: 0 auto;
+    height: 450px;
+}
+.button:active {
+    background-color: azure;
+    border: none;
+    border-radius: 5px;
+    color: green;
+    margin-left: 8px;
+    margin-right: 8px;
+    border: 1px solid yellow;
+}
+.button_clicked {
+    background-color: azure;
+    border: none;
+    border-radius: 5px;
+    color: green;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid yellow;
+}
+.obj_90 {
+    width: 90%;
+    margin-left: 5%;
+}
+.greenDark {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.greenDark:active {
+    background: #87c2b6;
+    border-radius: 6px;
+}
+.blueDarker{
+    background: linear-gradient(135deg, blue, purple); 
+}
+.blueDarker:active {
+    background: linear-gradient(315deg, blue, purple);
+}
+.blueDarker2{
+    background-color: blue; 
+}
+.blueDarker2:active {
+    background: linear-gradient(135deg, blue, purple);
+}
+.redDarker{
+    background-color: red; 
+}
+.redDarker:active {
+    background: black;
+}
+.flex-container {
+    display: flex; /*flex排列*/
+    flex-direction: row;
+    flex-wrap: nowrap; /*超過不換行*/
+    justify-content: flex-start;
+}
+.inputMargin {
+    margin-top: -10px;
+    margin-right: 5px;
+}
+.closebox {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+#checkbox_countdown{
+    padding-top: 10px;
+}
+#checkbox_all{
+    padding-top: 10px;
+}
+#tomorrowClass {
+    white-space: pre;
+}
+#news {
+    background: red;
+}
+#loadAll, #loadWeek {
+    border: 0px; 
+    border-radius: 6px; 
+    color: whitesmoke;
+}
+.load {
+    background: rgb(119, 236, 119);
+}
+.image_rotate_90 { /*順時針旋轉*/
+    animation: rotation_90 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation: rotation_90 1s forwards;
+}
+@-webkit-keyframes rotation_90 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+@keyframes rotation_90 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+.image_rotate_-90 { /*逆時針旋轉*/
+    animation: rotation_-90 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation: rotation_-90 1s forwards;
+}
+@-webkit-keyframes rotation_-90 {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+@keyframes rotation_-90 {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+.fadeIn { /*浮現*/
+    animation: fadeIn 0.5s forwards;
+    -webkit-animation: fadeIn 0.5s forwards;
+}
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.delLine {
+    position: relative;
+    color: grey;
+}
+.delLine::after {
+    content: ' ';
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: black;
+    color: grey;
+    animation-name: delLine;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: delLine;
+    -webkit-animation-duration: 0.2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+}
+@keyframes delLine {
+    0%   { width : 0; }
+    100% { width: 100%; }
+}
+@-webkit-keyframes delLine {
+    0%   { width : 0; }
+    100% { width: 100%; }
+}
+.drop {
+    /*margin-top: var(--margin-top);*/
+    animation: drop 0.5s ease forwards;
+    -webkit-animation: drop 0.5s ease forwards;
+}
+@keyframes drop {
+    from { transform: translateY(calc(-1 * var(--margin-top))); }
+    to   { transform: translateY(var(--margin-top)); }
+}
+@-webkit-keyframes drop {
+    from { transform: translateY(calc(-1 * var(--margin-top))); }
+    to   { transform: translateY(var(--margin-top)); }
+}
 
-    <script src="./jquery-3.6.0.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
-    <script src="./js/index.js"></script>
-    <script src="./js/checkin.js"></script>
-</html>
+@media (min-width: 576px) { /*手機優先 不知道為什麼放原來的前面會被槓掉*/
+    .middle {
+        text-align: var(--c);
+    }
+    .flex-button {
+        display: flex; /*flex排列*/
+        flex-direction: row;
+        flex-wrap: nowrap; /*超過不換行*/
+        justify-content: space-around;
+        padding: 10px;
+    }
+    .button {
+        background-color: green;
+        border: none;
+        border-radius: 5px;
+        color: azure;
+    }
+    .inputMargin {
+        margin-top: 10px;
+        margin-right: 5px;
+        vertical-align: text-bottom;
+    }
+    .button:hover {
+        background-color: azure;
+        border: none;
+        border-radius: 5px;
+        color: green;
+        margin-left: 5px;
+        margin-right: 5px;
+        border: 1px solid yellow;
+    }
+}
+@media (min-width: 800px) {
+    .button:hover, .button:active {
+        background-color: azure;
+        border: none;
+        border-radius: 5px;
+        color: green;
+        margin-left: 8px;
+        margin-right: 8px;
+        border: 1px solid yellow;
+    }
+    .greenDark {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .greenDark:hover, .greenDark:active {
+        background: #87c2b6;
+        border-radius: 6px;
+    }
+    .blueDarker:hover, .blueDarker:active {
+        background: linear-gradient(315deg, blue, purple);
+    }
+    .blueDarker2:hover, .blueDarker2:active {
+        background: linear-gradient(135deg, blue, purple);
+    }
+    .redDarker:hover, .redDarker:active {
+        background: black;
+    }
+    .centerLeft {
+        margin-left: calc(50% - 280px);
+        display: flex;
+        margin-top: -10px;
+    }
+    #news:hover {
+        background: linear-gradient(225deg, purple, red);
+    }
+    .showOnPhone {
+        opacity: 0;
+    }
+    .obj_50 {
+        margin: 0 auto;
+        height: 420px;
+    }
+    .wordLarge {
+        font-size: 18px;
+    }
+    .obj_90 {
+        width: 60%;
+        margin-left: 20%;
+    }
+    .leftHeader {
+        margin-left: 0;
+    }
+    #body_code{
+        height: 420px;
+    }
+    #checkbox_countdown{
+        padding-top: 0px;
+    }
+    #checkbox_all{
+        padding-top: 0px;
+    }
+}
