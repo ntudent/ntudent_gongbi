@@ -249,7 +249,7 @@ $(() => {
                 }
             }
         }
-        $('#gb_buy').text("購買共筆：" + gb_buy.join(', ')) //輸出，用join隔開元素
-        $('#kg_buy').text("購買考古：" + kg_buy.join(', ')) //輸出，用join隔開元素
+        $('#gb_buy').text("購買共筆：" + gb_buy.join('.')) //輸出，用join隔開元素
+        $('#kg_buy').text("購買考古：" + kg_buy.join('.')) //輸出，用join隔開元素
     })
 })
