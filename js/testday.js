@@ -16,6 +16,9 @@ $(() => {
     item_testday[0] = new Array(count_item_testday("口解"), "期末", "2022-12-23", "") //(考科, 範圍, 日期, 剩餘日)
     item_testday[1] = new Array(count_item_testday("口胚"), "期中", "2022-10-28", "")
     item_testday[2] = new Array(count_item_testday("口胚"), "期末", "2022-12-23", "")
+    item_testday[3] = new Array(count_item_testday("胚胎"), "期末", "2022-12-20", "")
+    item_testday[4] = new Array(count_item_testday("大體"), "期中", "2022-10-12", "")
+    item_testday[5] = new Array(count_item_testday("大體"), "期末", "2022-12-20", "")
     //改共筆改以上這段
 
     for (i=0; i<n_test; i++) { //剩餘日計算
