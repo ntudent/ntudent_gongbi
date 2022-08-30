@@ -27,8 +27,8 @@
     border: none;
     border-radius: 5px;
     color: azure;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 .obj_50 {
     margin: 0 auto;
@@ -39,8 +39,8 @@
     border: none;
     border-radius: 5px;
     color: green;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 3px;
+    margin-right: 3px;
     border: 1px solid yellow;
 }
 .button_clicked {
@@ -48,8 +48,8 @@
     border: none;
     border-radius: 5px;
     color: green;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
     border: 1px solid yellow;
 }
 .obj_90 {
@@ -249,8 +249,8 @@
         border: none;
         border-radius: 5px;
         color: green;
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 3px;
+        margin-right: 3px;
         border: 1px solid yellow;
     }
 }
@@ -260,8 +260,8 @@
         border: none;
         border-radius: 5px;
         color: green;
-        margin-left: 8px;
-        margin-right: 8px;
+        margin-left: 5px;
+        margin-right: 5px;
         border: 1px solid yellow;
     }
     .greenDark {
