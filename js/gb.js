@@ -105,7 +105,7 @@ $(() => {
                     gb[i][3] = "" //考古無上課日
                     continue;
                 } else {
-                    dateParse = Date.parse(item[i][3] + "T00:00:01Z") //做期限日秒數轉換
+                    dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
                     d = new Date()
                     d = d.getTime() //當下毫秒
                     count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -114,15 +114,15 @@ $(() => {
                 }
             } else if (j == 4) { //交稿日
                 if (item[i][3] == "x") { //考古
-                    dateParse = Date.parse(item[i][4] + "T00:00:01Z") //做期限日秒數轉換
+                    dateParse = Date.parse(item[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
                     d = new Date()
                     d = d.getTime() //當下毫秒
                     count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
                     count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                     gb[i][4] = count_d
                 } else {
-                    item[i][4] = getday2(item[i][3]) //其他人要從item[i][3]加2天
-                    dateParse = Date.parse(item[i][4] + "T00:00:01Z") //做期限日秒數轉換
+                    //item[i][4] = getday2(item[i][3]) //其他人要從item[i][3]加2天
+                    dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") + 2* 86400000 //做期限日秒數轉換
                     d = new Date()
                     d = d.getTime() //當下毫秒
                     count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -134,8 +134,8 @@ $(() => {
                     gb[i][6] = "" //考古無上課日
                     continue;
                 } else {
-                    item[i][6] = getday3(item[i][3]) //其他人要從item[i][3]加3天
-                    dateParse = Date.parse(item[i][6] + "T00:00:01Z") //做期限日秒數轉換
+                    //item[i][6] = getday3(item[i][3]) //其他人要從item[i][3]加3天
+                    dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
                     d = new Date()
                     d = d.getTime() //當下毫秒
                     count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
