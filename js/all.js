@@ -70,11 +70,11 @@ $(() => {
     item_all = new Array()
     gb_all = new Array()
     //改共筆改以下這段
-    item_all[0] = new Array(thisgb("OD", "1"), n[19], n[23], "2022-07-05", "", n[17], "") //(共筆, 寫手1, 寫手2, 寫手日, 交稿日, 審稿, 審稿日)
-    item_all[1] = new Array(thisgb("OD", "2"), n[1], n[19], "2022-07-05", "", n[10], "")
-    item_all[2] = new Array(thisgb("生理", "1"), n[2], n[9], "2022-07-04", "", n[19], "")
-    item_all[3] = new Array(thisgb("口解", "考古"), n[17], n[0], "x", "2022-07-05", n[0], "x")
-    item_all[4] = new Array(thisgb("醫人", "1"), n[3], n[19], "2022-07-06", "", n[8], "")
+    item_all[0] = new Array(thisgb("OD", "1"), n[19], n[23], "2022-08-30", "", n[17], "") //(共筆, 寫手1, 寫手2, 寫手日, 交稿日, 審稿, 審稿日)
+    item_all[1] = new Array(thisgb("OD", "2"), n[1], n[19], "2022-08-31", "", n[10], "")
+    item_all[2] = new Array(thisgb("生理", "1"), n[2], n[9], "2022-09-01", "", n[19], "")
+    item_all[3] = new Array(thisgb("口解", "考古"), n[17], n[0], "x", "2022-09-02", n[0], "x")
+    item_all[4] = new Array(thisgb("醫人", "1"), n[3], n[19], "2022-09-03", "", n[8], "")
     item_all[5] = new Array(thisgb("醫人", "2"), n[21], n[19], "2022-07-02", "", n[7], "")
     item_all[6] = new Array(thisgb("醫人", "3"), n[4], n[19], "2022-07-01", "", n[26], "")
     item_all[7] = new Array(thisgb("醫人", "0"), n[5], n[6], "2022-08-03", "", n[19], "")
@@ -142,7 +142,7 @@ $(() => {
                         gb_all[i][3] = "" //考古無上課日
                         continue;
                     } else {
-                        dateParse = Date.parse(item_all[i][3] + " 00:00:01") //做期限日秒數轉換
+                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
                         d = new Date()
                         d = d.getTime() //當下毫秒
                         count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -151,15 +151,15 @@ $(() => {
                     }
                 } else if (j == 4) { //交稿日
                     if (item_all[i][3] == "x") { //考古
-                        dateParse = Date.parse(item_all[i][4] + " 00:00:01") //做期限日秒數轉換
+                        dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
                         d = new Date()
                         d = d.getTime() //當下毫秒
                         count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
                         count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                         gb_all[i][4] = count_d
                     } else {
-                        item_all[i][4] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
-                        dateParse = Date.parse(item_all[i][4] + " 00:00:01") //做期限日秒數轉換
+                        //item_all[i][4] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
+                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
                         d = new Date()
                         d = d.getTime() //當下毫秒
                         count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -171,8 +171,8 @@ $(() => {
                         gb_all[i][6] = "" //考古無上課日
                         continue;
                     } else {
-                        item_all[i][6] = getday_all(item_all[i][3], 3) //其他人要從item_all[i][3]加3天
-                        dateParse = Date.parse(item_all[i][6] + " 00:00:01") //做期限日秒數轉換
+                        //item_all[i][6] = getday_all(item_all[i][3], 3) //其他人要從item_all[i][3]加3天
+                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
                         d = new Date()
                         d = d.getTime() //當下毫秒
                         count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
