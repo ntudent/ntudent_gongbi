@@ -322,7 +322,7 @@ $(() => {
         n_layer_id = 1
         gb.sort((a, b) => a[4] - b[4])
         for (i=0; i<n_item; i++) {
-            if (gb[i][4] > 0 && gb[i][4] < 7) {
+            if (gb[i][4] > 0 && gb[i][4] <= 7) {
                 getTr('c' + n_layer_id, 'print_gb') //創層
                 for (j=0; j<7; j++) { 
                     let $td = $('<td>') //創造元素
