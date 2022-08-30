@@ -21,6 +21,7 @@
     flex-wrap: nowrap; /*超過不換行*/
     justify-content: center;
     padding: 10px;
+    white-space: nowrap;
 }
 .button {
     background-color: green;
@@ -28,6 +29,7 @@
     border-radius: 5px;
     color: azure;
     width: 50px;
+    white-space: nowrap;
 }
 .obj_50 {
     margin: 0 auto;
@@ -48,6 +50,7 @@
     color: green;
     width: 50px;
     border: 1px solid yellow;
+    white-space: nowrap;
 }
 .obj_90 {
     width: 90%;
@@ -229,12 +232,14 @@
         flex-wrap: nowrap; /*超過不換行*/
         justify-content: space-around;
         padding: 10px;
+        white-space: nowrap;
     }
     .button {
         background-color: green;
         border: none;
         border-radius: 5px;
         color: azure;
+        white-space: nowrap;
     }
     .inputMargin {
         margin-top: 10px;
