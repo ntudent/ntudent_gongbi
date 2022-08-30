@@ -289,9 +289,9 @@ $(() => {
     //做顯示全部
     $('#loadAll').on('click', () => {
         for (i=1; i<=n_layer_id; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
-            if (document.getElementById(i) !== null) {
+            if (document.getElementById('c'+i) !== null) {
                 //alert(document.getElementById(i))
-                document.getElementById(i).remove("#c"+toString(i))
+                document.getElementById('c'+i).remove("#c"+toString(i))
             }
         }
 
@@ -312,9 +312,9 @@ $(() => {
     })
     $('#loadWeek').on('click', () => {
         for (i=1; i<=n_layer_id; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
-            if (document.getElementById(i) !== null) {
+            if (document.getElementById('c'+i) !== null) {
                 //alert(document.getElementById(i))
-                document.getElementById(i).remove("#c"+toString(i))
+                document.getElementById('c'+i).remove("#c"+toString(i))
             }
         }
 
