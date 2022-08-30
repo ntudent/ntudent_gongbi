@@ -172,11 +172,11 @@ $(() => {
         }
     }
     for (i=0; i<day_0.length; i++) {
-        getTr(n_layer_id, 'print_today') //創層
+        getTr('a'+ n_layer_id, 'print_today') //創層
         if (gb[day_0[i]][3] === 0) { //上課日:寫手與審稿均需出席
             for (j=0; j<7; j++) { 
                 let $td = $('<td>') //創造元素
-                n_layer_id_num = $('#' + n_layer_id)
+                n_layer_id_num = $('#a' + n_layer_id)
                 if (j == 4 || j == 6) {
                     $td.text(gb[day_0[i]][j]).appendTo(n_layer_id_num)
                 } else {
@@ -199,7 +199,7 @@ $(() => {
         } else if (gb[day_0[i]][4] === 0) { //交稿日:寫手交稿審稿審稿
             for (j=0; j<7; j++) { 
                 let $td = $('<td>') //創造元素
-                n_layer_id_num = $('#' + n_layer_id)
+                n_layer_id_num = $('#a' + n_layer_id)
                 if (j == 3) {
                     $td.text(gb[day_0[i]][j]).appendTo(n_layer_id_num)
                 } else {
@@ -223,7 +223,7 @@ $(() => {
         } else if (gb[day_0[i]][6] === 0) { //審稿日
             for (j=0; j<7; j++) { 
                 let $td = $('<td>') //創造元素
-                n_layer_id_num = $('#' + n_layer_id)
+                n_layer_id_num = $('#a' + n_layer_id)
                 if (j == 5 || j == 6) {
                     $td.text(gb[day_0[i]][j]).css('color', 'red').appendTo(n_layer_id_num)
                 } else if (j == 0) {
@@ -243,7 +243,7 @@ $(() => {
     //alert那些人   
     alert(alert_name_f(alert_name_ss, "當寫手") + "\n" + alert_name_f(alert_name_sg_today, "當審稿")+ "\n\n" + alert_name_f(alert_name_ss_jiao, "交初稿")  + "\n" + alert_name_f(alert_name_sg, "交審稿") + "\n" + alert_name_f(alert_name_kg, "交考古"))
         
-   
+    n_layer_id = 1
     //審稿sorting
     for (i=1; i<=3; i++){
         for (j=0; j<n_item; j++) {
@@ -253,17 +253,18 @@ $(() => {
                     day_0.push(j) //暫且把day_0陣列設成元素不重複
                 }                
 
-                getTr(n_layer_id, 'print_sg') //創層
+                getTr('b' + n_layer_id, 'print_sg') //創層
                 for (k=0; k<7; k++) { 
                     let $td = $('<td>') //創造元素
-                    n_layer_id_num = $('#' + n_layer_id)
+                    n_layer_id_num = $('#b' + n_layer_id)
                     $td.text(gb[j][k]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
                 }
                 n_layer_id += 1
             }
         }        
     }
-    n_layer_id_tillnow = n_layer_id //等等後來的n_layer_id會重置
+    //n_layer_id_tillnow = n_layer_id //等等後來的n_layer_id會重置
+    n_layer_id = 1
     //寫手、考古sorting
     gb.sort((a, b) => a[4] - b[4])
     for (i=1; i<=7; i++){        
@@ -274,10 +275,10 @@ $(() => {
                     day_0.push(j) //暫且把day_0陣列設成元素不重複
                 }                
 
-                getTr(n_layer_id, 'print_gb') //創層
+                getTr('c' + n_layer_id, 'print_gb') //創層
                 for (k=0; k<7; k++) { 
                     let $td = $('<td>') //創造元素
-                    n_layer_id_num = $('#' + n_layer_id)
+                    n_layer_id_num = $('#c' + n_layer_id)
                     $td.text(gb[j][k]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
                 }
                 n_layer_id += 1
@@ -287,21 +288,22 @@ $(() => {
     
     //做顯示全部
     $('#loadAll').on('click', () => {
-        for (i=n_layer_id_tillnow; i<=2*n_item; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
+        for (i=1; i<=n_layer_id; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
             if (document.getElementById(i) !== null) {
                 //alert(document.getElementById(i))
-                document.getElementById(i).remove("#"+toString(i))
+                document.getElementById(i).remove("#c"+toString(i))
             }
         }
 
-        n_layer_id = n_layer_id_tillnow //n_layer_id重置
+        //n_layer_id = n_layer_id_tillnow //n_layer_id重置
+        n_layer_id = 1
         gb.sort((a, b) => a[4] - b[4])
         for (i=0; i<n_item; i++) {
             if (gb[i][4] > 0) {
-                getTr(n_layer_id, 'print_gb') //創層
+                getTr('c' + n_layer_id, 'print_gb') //創層
                 for (j=0; j<7; j++) { 
                     let $td = $('<td>') //創造元素
-                    n_layer_id_num = $('#' + n_layer_id)
+                    n_layer_id_num = $('#c' + n_layer_id)
                     $td.text(gb[i][j]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
                 }
                 n_layer_id += 1
@@ -309,21 +311,22 @@ $(() => {
         }
     })
     $('#loadWeek').on('click', () => {
-        for (i=n_layer_id_tillnow; i<=2*n_item; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
+        for (i=1; i<=n_layer_id; i++) { //再按一次鍵後清空所有數字(id=n_layer_id_tillnow~n_time)的<tr>
             if (document.getElementById(i) !== null) {
                 //alert(document.getElementById(i))
-                document.getElementById(i).remove("#"+toString(i))
+                document.getElementById(i).remove("#c"+toString(i))
             }
         }
 
-        n_layer_id = n_layer_id_tillnow //n_layer_id重置
+        //n_layer_id = n_layer_id_tillnow //n_layer_id重置
+        n_layer_id = 1
         gb.sort((a, b) => a[4] - b[4])
         for (i=0; i<n_item; i++) {
             if (gb[i][4] > 0 && gb[i][4] < 7) {
-                getTr(n_layer_id, 'print_gb') //創層
+                getTr('c' + n_layer_id, 'print_gb') //創層
                 for (j=0; j<7; j++) { 
                     let $td = $('<td>') //創造元素
-                    n_layer_id_num = $('#' + n_layer_id)
+                    n_layer_id_num = $('#c' + n_layer_id)
                     $td.text(gb[i][j]).appendTo(n_layer_id_num) //賦予元素值，加到層之中     
                 }
                 n_layer_id += 1
