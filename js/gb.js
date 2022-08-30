@@ -102,7 +102,7 @@ $(() => {
         for (j=0; j<7; j++) {
             if (j == 3) {
                 if (item[i][3] == "x") { //考古
-                    gb[i][3] = "" //考古無上課日
+                    gb[i][j] = "" //考古無上課日
                     continue;
                 } else {
                     dateSplit = item[i][3].split(/[^\d]/)
@@ -111,7 +111,7 @@ $(() => {
                     d = d.getTime() //當下毫秒
                     count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
                     count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                    gb[i][3] = count_d
+                    gb[i][j] = count_d
                 }
             } else if (j == 4) { //交稿日
                 if (item[i][3] == "x") { //考古
@@ -121,30 +121,30 @@ $(() => {
                     d = d.getTime() //當下毫秒
                     count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
                     count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                    gb[i][4] = count_d
+                    gb[i][j] = count_d
                 } else {
-                    item[i][4] = getday2(item[i][3]) //其他人要從item[i][3]加2天
-                    dateSplit = item[i][4].split(/[^\d]/)
+                    item[i][j] = getday2(item[i][3]) //其他人要從item[i][3]加2天
+                    dateSplit = item[i][j].split(/[^\d]/)
                     dateParse = new Date(dateSplit[0], dateSplit[1]-1, dateSplit[2], 0, 0, 1) //做期限日秒數轉換
                     d = new Date()
                     d = d.getTime() //當下毫秒
                     count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
                     count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                    gb[i][4] = count_d
+                    gb[i][j] = count_d
                 }
             } else if (j == 6) { //審稿日
                 if (item[i][6] == "x") { //考古
-                    gb[i][6] = "" //考古無上課日
+                    gb[i][j] = "" //考古無上課日
                     continue;
                 } else {
-                    item[i][6] = getday3(item[i][3]) //其他人要從item[i][3]加3天
-                    dateSplit = item[i][6].split(/[^\d]/)
+                    item[i][j] = getday3(item[i][3]) //其他人要從item[i][3]加3天
+                    dateSplit = item[i][j].split(/[^\d]/)
                     dateParse = new Date(dateSplit[0], dateSplit[1]-1, dateSplit[2], 0, 0, 1) //做期限日秒數轉換
                     d = new Date()
                     d = d.getTime() //當下毫秒
                     count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
                     count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                    gb[i][6] = count_d 
+                    gb[i][j] = count_d 
                 }
             }
             else {
