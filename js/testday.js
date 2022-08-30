@@ -26,6 +26,7 @@ $(() => {
         dateParse = new Date(dateSplit[0], dateSplit[1]-1, dateSplit[2], 0, 0, 1) //做期限日秒數轉換
         d = new Date()
         d = d.getTime() //當下毫秒
+        dataParse = dateParse.getTime()
         count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
         count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
         item_testday[i][3] = count_d
