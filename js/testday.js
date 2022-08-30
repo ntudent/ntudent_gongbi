@@ -13,18 +13,20 @@ $(() => {
     item_testday = document.createElement('item_testday') //開一個DOM節點
     item_testday = new Array()
     //改共筆改以下這段
-    item_testday[0] = new Array(count_item_testday("口解"), "期末", "2022-12-23 00:00:01", "") //(考科, 範圍, 日期, 剩餘日)
-    item_testday[1] = new Array(count_item_testday("口胚"), "期中", "2022-10-28 00:00:01", "")
-    item_testday[2] = new Array(count_item_testday("口胚"), "期末", "2022-12-23 00:00:01", "")
-    item_testday[3] = new Array(count_item_testday("胚胎"), "期末", "2022-12-20 00:00:01", "")
-    item_testday[4] = new Array(count_item_testday("大體"), "期中", "2022-10-12 00:00:01", "")
-    item_testday[5] = new Array(count_item_testday("大體"), "期末", "2022-12-20 00:00:01", "")
+    item_testday[0] = new Array(count_item_testday("口解"), "期末", "2022-12-23", "") //(考科, 範圍, 日期, 剩餘日)
+    item_testday[1] = new Array(count_item_testday("口胚"), "期中", "2022-10-28", "")
+    item_testday[2] = new Array(count_item_testday("口胚"), "期末", "2022-12-23", "")
+    item_testday[3] = new Array(count_item_testday("胚胎"), "期末", "2022-12-20", "")
+    item_testday[4] = new Array(count_item_testday("大體"), "期中", "2022-10-12", "")
+    item_testday[5] = new Array(count_item_testday("大體"), "期末", "2022-12-20", "")
     //改共筆改以上這段
 
     for (i=0; i<n_test; i++) { //剩餘日計算
+        dateSplit = item_testday[i][2].split(/[^\d]/)
+        dateParse = new Date(dateSplit[0], dateSplit[1]-1, dateSplit[2], 0, 0, 1) //做期限日秒數轉換
         d = new Date()
         d = d.getTime() //當下毫秒
-        count_d = (item_testday[i][2] - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
         count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
         item_testday[i][3] = count_d
     }
