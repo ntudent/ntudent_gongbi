@@ -201,16 +201,16 @@ $(() => {
                 }
                 else if (item_all[i][1] == yourname) { //寫手人士 && 名字==item[j][1]
                     all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][2], item_all[i][3].replace(/.{5}/, ""), gb_all[i][3])
-                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][2], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
+                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][2], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), gb_all[i][4])
                 }
                 else { //寫手人士 && 名字==item[j][2]
                     all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][1], item_all[i][3].replace(/.{5}/, ""), gb_all[i][3])
-                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][1], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
+                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][1], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), gb_all[i][4])
                 }
                 num_all += 1 //計數
             }
             else if (item_all[i][5] == yourname && item_all[i][3] !== "x") { //審稿人士
-                all[num_all] = new Array(item_all[i][0], "審稿", "", item_all[i][6].replace(/.{5}/, ""), gb_all[i][6])
+                all[num_all] = new Array(item_all[i][0], "審稿", "", getday_all(item_all[i][3], 3).replace(/.{5}/, ""), gb_all[i][6])
                 num_all += 1 //計數
             } else if (item_all[i][5] == yourname && item_all[i][3] == "x") { //考古的審稿
                 all[num_all] = new Array(item_all[i][0], "考古(審)", item_all[i][1], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
