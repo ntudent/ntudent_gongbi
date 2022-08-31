@@ -78,13 +78,13 @@ $(() => {
     item_all[4] = new Array(thisgb("生理", "5"), n[2], n[4], "2022-10-03", "", n[29], "")
     item_all[5] = new Array(thisgb("生理", "6"), n[34], n[14], "2022-10-17", "", n[22], "")
     item_all[6] = new Array(thisgb("生理", "Lab2/3"), n[22], n[34], "2022-10-24", "", n[33], "")
-    item_all[7] = new Array(thisgb("生理", "期中"), n[27], n[0], "x", "2022-10-17", n[7], "x")
+    item_all[7] = new Array(thisgb("生理", "期中"), n[27], n[0], "x", "2022-10-17", n[9], "x")
     item_all[8] = new Array(thisgb("生理", "7"), n[29], n[26], "2022-11-07", "", n[4], "")
     item_all[9] = new Array(thisgb("生理", "8"), n[2], n[4], "2022-11-14", "", n[26], "")
     item_all[10] = new Array(thisgb("生理", "9"), n[22], n[34], "2022-11-21", "", n[14], "")
     item_all[11] = new Array(thisgb("生理", "10"), n[34], n[14], "2022-11-28", "", n[22], "")
     item_all[12] = new Array(thisgb("生理", "Lab4"), n[2], n[26], "2022-12-05", "", n[4], "")
-    item_all[13] = new Array(thisgb("生理", "期末"), n[27], n[0], "x", "2022-12-05", n[7], "x")
+    item_all[13] = new Array(thisgb("生理", "期末"), n[27], n[0], "x", "2022-12-05", n[9], "x")
     item_all[14] = new Array(thisgb("生理", "11"), n[4], n[26], "2022-12-12", "", n[29], "")
     //改共筆改以上這段
 
