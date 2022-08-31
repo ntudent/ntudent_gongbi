@@ -23,6 +23,8 @@ $(() => {
     item_testday[7] = new Array(count_item_testday("組織"), "期中", "2022-10-17", "")
     item_testday[8] = new Array(count_item_testday("組織"), "Quiz 2", "2022-12-05", "")
     item_testday[9] = new Array(count_item_testday("組織"), "期末", "2022-12-19", "")
+    item_testday[10] = new Array(count_item_testday("OD"), "期中", "2022-10-26", "")
+    item_testday[11] = new Array(count_item_testday("OD"), "期末", "2022-12-21", "")
     //改共筆改以上這段
 
     for (i=0; i<n_test; i++) { //剩餘日計算
