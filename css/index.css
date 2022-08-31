@@ -23,7 +23,9 @@
     padding: 10px;
     white-space: nowrap;
 }
-td {
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
     border: none;
     border-bottom: 0.5px solid grey;
 }
