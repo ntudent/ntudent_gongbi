@@ -41,6 +41,9 @@ td, tr {
     margin: 0 auto;
     height: 450px;
 }
+#obj_code {
+    background-color: black;
+}
 .button:active {
     background-color: azure;
     border: none;
