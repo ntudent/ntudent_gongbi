@@ -13,12 +13,14 @@ function objShow(id) { //並顯示新的obj
     var obj = document.querySelector('object[style="display: block;"]');
     obj.style.display = 'none'; //隱藏原object
     if (document.getElementsByClassName('button_clicked').length !== 0){
+        document.getElementsByClassName('button_clicked')[0].classList.add('button');
         document.getElementsByClassName('button_clicked')[0].classList.remove('button_clicked');
     }
     document.getElementById('#countdown')
     var objName = "obj_" + id;
     document.getElementById(objName).style.display = 'block';
     document.getElementById(id).classList.add('button_clicked');
+    document.getElementById(id).classList.remove('button');
     //document.querySelector(objName).style.font-size = '19';設字體 注意.css只能用在jQuery
 }
 function formatDate(i) {
