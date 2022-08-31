@@ -23,11 +23,11 @@
     padding: 10px;
     white-space: nowrap;
 }
-tbody, td, tfoot, th, thead, tr {
+td, tr {
     border-color: inherit;
     border-style: solid;
     border: none !important;
-    border-bottom: 0.5px solid grey !important; 
+    border-top: 0.5px solid grey !important; 
 }
 .button {
     background-color: green;
