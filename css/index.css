@@ -24,6 +24,7 @@
     white-space: nowrap;
 }
 td {
+    border: none;
     border-bottom: 0.5px solid grey;
 }
 .button {
