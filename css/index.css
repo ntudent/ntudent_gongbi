@@ -35,6 +35,8 @@ td {
     border-radius: 5px;
     color: azure;
     width: 50px;
+    padding-left: auto;
+    padding-right: auto;
     white-space: nowrap;
 }
 .obj_50 {
