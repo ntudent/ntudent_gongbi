@@ -82,8 +82,15 @@ $(() => {
     item[12] = new Array(thisgb("生理", "Lab4"), n[2], n[26], "2022-12-05", "", n[4], "")
     item[13] = new Array(thisgb("生理", "期末"), n[27], n[0], "x", "2022-12-05", n[9], "x")
     item[14] = new Array(thisgb("生理", "11"), n[4], n[26], "2022-12-12", "", n[29], "")
-    
-    
+    item[15] = new Array(thisgb("OD", "1"), n[31], n[32], "2022-09-07", "", n[30], "")
+    item[16] = new Array(thisgb("OD", "2"), n[30], n[12], "2022-10-05", "", n[32], "")
+    item[17] = new Array(thisgb("OD", "3"), n[31], n[32], "2022-10-12", "", n[12], "")
+    item[18] = new Array(thisgb("OD", "期中"), n[1], n[0], "x", "2022-10-12", n[23], "x")
+    item[19] = new Array(thisgb("OD", "4"), n[30], n[12], "2022-11-02", "", n[31], "")
+    item[20] = new Array(thisgb("OD", "5"), n[31], n[32], "2022-11-09", "", n[30], "")
+    item[21] = new Array(thisgb("OD", "6"), n[31], n[32], "2022-11-23", "", n[12], "")
+    item[22] = new Array(thisgb("OD", "7"), n[30], n[12], "2022-12-14", "", n[32], "")
+    item[23] = new Array(thisgb("OD", "期末"), n[1], n[0], "x", "2022-12-07", n[23], "x")
     //改共筆改以上這段
 
     for (i=0; i<n_item; i++) {
