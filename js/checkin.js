@@ -54,7 +54,7 @@ function month_en() {
     }
     var docu = document.getElementById("month_en");
     $(docu).text(text);
-    docu.style.fontSize = '24px';
+    docu.style.fontSize = '18px';
     docu.classList.add("fadeIn"); //浮現動畫
 }
 function getdate() { //取得日期
