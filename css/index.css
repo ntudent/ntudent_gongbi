@@ -58,6 +58,8 @@ td {
     color: green;
     width: 50px;
     border: 1px solid yellow;
+    padding-left: auto;
+    padding-right: auto;
     white-space: nowrap;
 }
 .obj_90 {
