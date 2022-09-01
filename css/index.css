@@ -23,7 +23,7 @@
     padding: 10px;
     white-space: nowrap;
 }
-td, tr {
+td {
     border-color: inherit;
     border-style: solid;
     border: none !important;
