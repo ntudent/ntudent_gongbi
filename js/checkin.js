@@ -155,6 +155,14 @@ function addDel(del){ //刪除線
         }, 200)
     }
 }
+function arrow(del) {
+    for(let i=1; i<=del; i++) {
+        setTimeout(() => {
+            var docu = document.getElementsByClassName("drop");
+            docu[0].style.marginTop = (i * 25.5) + 'px';
+        }, 1000);
+    }
+}
 $(() => {
     today = formatDate(0)
     special = new Array()
@@ -328,11 +336,7 @@ $(() => {
         addDel(9)
         docu = document.getElementsByClassName("drop")
         //docu[0].style.setProperty('--margin-top', `${del * 25.5}px`)
-        for (let i = 0; i<= del; i++) {
-            setTimeout(() => {
-                docu[0].style.marginTop = (i * 25.5) + "px"
-            }, 1000)
-        }
+        arrow(del)
         //docu[0].style.marginTop = (del * 25.5) + "px"
         //docu[0].style.setProperty('display', 'none') //setProperty要加[0]
     }
