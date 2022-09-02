@@ -158,9 +158,8 @@ function addDel(del){ //刪除線
 function arrow(del) {
     for(let i=1; i<=del; i++) {
         setTimeout(() => {
-            var docu = document.getElementsByClassName("drop");
-            docu[0].style.marginTop = (i * 25.5) + 'px';
-        }, 1000);
+            $('.drop').style.marginTop = (i * 25.5) + 'px';
+        }, 200);
     }
 }
 $(() => {
