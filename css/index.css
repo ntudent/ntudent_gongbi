@@ -33,7 +33,7 @@ td {
     background-color: gold;
     border: none;
     border-radius: 5px;
-    color: azure;
+    color: #92a8d1;
     width: 50px;
     padding-left: auto;
     padding-right: auto;
@@ -47,7 +47,7 @@ td {
     background-color: azure;
     border: none;
     border-radius: 5px;
-    color: green;
+    color: black;
     width: 50px;
     border: 1px solid yellow;
 }
@@ -55,7 +55,7 @@ td {
     background-color: azure;
     border: none;
     border-radius: 5px;
-    color: green;
+    color: black;
     width: 50px;
     border: 1px solid yellow;
     padding-left: auto;
@@ -242,7 +242,7 @@ td {
         background-color: gold;
         border: none;
         border-radius: 5px;
-        color: azure;
+        color: #92a8d1;
         white-space: nowrap;
     }
     .inputMargin {
@@ -254,7 +254,7 @@ td {
         background-color: azure;
         border: none;
         border-radius: 5px;
-        color: green;
+        color: black;
         width: 50px;
         border: 1px solid yellow;
     }
@@ -264,7 +264,7 @@ td {
         background-color: azure;
         border: none;
         border-radius: 5px;
-        color: green;
+        color: black;
         width: 50px;
         border: 1px solid yellow;
     }
