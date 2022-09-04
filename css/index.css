@@ -71,20 +71,14 @@ td {
     margin-bottom: 0;
 }
 .greenDark:active {
-    background: #87c2b6;
+    background: #92bfff;
     border-radius: 6px;
 }
 .blueDarker{
-    background: linear-gradient(135deg, blue, purple); 
-}
-.blueDarker:active {
-    background: linear-gradient(315deg, blue, purple);
+    background: #1e2f97; 
 }
 .blueDarker2{
-    background-color: blue; 
-}
-.blueDarker2:active {
-    background: linear-gradient(135deg, blue, purple);
+    background-color: #1e2f97; 
 }
 .redDarker{
     background-color: red; 
@@ -245,7 +239,7 @@ td {
         white-space: nowrap;
     }
     .button {
-        background-color: green;
+        background-color: gold;
         border: none;
         border-radius: 5px;
         color: azure;
