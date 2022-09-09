@@ -137,54 +137,106 @@ $(() => {
     }
 
     for (i=0; i<n_item; i++) { //改寫item[][]成gb[][]
-        for (j=0; j<7; j++) {
-            if (j == 3) {
-                if (item[i][3] == "x") { //考古
-                    gb[i][3] = "" //考古無上課日
-                    continue;
-                } else {
-                    dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
-                    d = new Date()
-                    d = d.getTime() //當下毫秒
-                    count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                    count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                    gb[i][3] = count_d
+        if (item[i][0].indexOf("生理") > -1) {  //生理的共筆提早交
+            for (j=0; j<7; j++) {
+                if (j == 3) {
+                    if (item[i][3] == "x") { //考古
+                        gb[i][3] = "" //考古無上課日
+                        continue;
+                    } else {
+                        dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
+                        d = new Date()
+                        d = d.getTime() //當下毫秒
+                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                        gb[i][3] = count_d
+                    }
+                } else if (j == 4) { //交稿日
+                    if (item[i][3] == "x") { //考古
+                        dateParse = Date.parse(item[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
+                        d = new Date()
+                        d = d.getTime() //當下毫秒
+                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                        gb[i][4] = count_d
+                    } else {
+                        //item[i][4] = getday2(item[i][3]) //其他人要從item[i][3]加1天
+                        dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") + 1* 86400000 //做期限日秒數轉換
+                        d = new Date()
+                        d = d.getTime() //當下毫秒
+                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                        gb[i][4] = count_d
+                    }
+                } else if (j == 6) { //審稿日
+                    if (item[i][6] == "x") { //考古
+                        gb[i][6] = "" //考古無上課日
+                        continue;
+                    } else {
+                        //item[i][6] = getday3(item[i][3]) //其他人要從item[i][3]加2天
+                        dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                        d = new Date()
+                        d = d.getTime() //當下毫秒
+                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                        gb[i][6] = count_d 
+                    }
                 }
-            } else if (j == 4) { //交稿日
-                if (item[i][3] == "x") { //考古
-                    dateParse = Date.parse(item[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
-                    d = new Date()
-                    d = d.getTime() //當下毫秒
-                    count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                    count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                    gb[i][4] = count_d
-                } else {
-                    //item[i][4] = getday2(item[i][3]) //其他人要從item[i][3]加2天
-                    dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") + 2* 86400000 //做期限日秒數轉換
-                    d = new Date()
-                    d = d.getTime() //當下毫秒
-                    count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                    count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                    gb[i][4] = count_d
-                }
-            } else if (j == 6) { //審稿日
-                if (item[i][6] == "x") { //考古
-                    gb[i][6] = "" //考古無上課日
-                    continue;
-                } else {
-                    //item[i][6] = getday3(item[i][3]) //其他人要從item[i][3]加3天
-                    dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
-                    d = new Date()
-                    d = d.getTime() //當下毫秒
-                    count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                    count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                    gb[i][6] = count_d 
+                else {
+                    gb[i][j] = item[i][j]
                 }
             }
-            else {
-                gb[i][j] = item[i][j]
+        } else {
+            for (j=0; j<7; j++) {
+                if (j == 3) {
+                    if (item[i][3] == "x") { //考古
+                        gb[i][3] = "" //考古無上課日
+                        continue;
+                    } else {
+                        dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
+                        d = new Date()
+                        d = d.getTime() //當下毫秒
+                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                        gb[i][3] = count_d
+                    }
+                } else if (j == 4) { //交稿日
+                    if (item[i][3] == "x") { //考古
+                        dateParse = Date.parse(item[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
+                        d = new Date()
+                        d = d.getTime() //當下毫秒
+                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                        gb[i][4] = count_d
+                    } else {
+                        //item[i][4] = getday2(item[i][3]) //其他人要從item[i][3]加2天
+                        dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") + 2* 86400000 //做期限日秒數轉換
+                        d = new Date()
+                        d = d.getTime() //當下毫秒
+                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                        gb[i][4] = count_d
+                    }
+                } else if (j == 6) { //審稿日
+                    if (item[i][6] == "x") { //考古
+                        gb[i][6] = "" //考古無上課日
+                        continue;
+                    } else {
+                        //item[i][6] = getday3(item[i][3]) //其他人要從item[i][3]加3天
+                        dateParse = Date.parse(item[i][3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
+                        d = new Date()
+                        d = d.getTime() //當下毫秒
+                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                        gb[i][6] = count_d 
+                    }
+                }
+                else {
+                    gb[i][j] = item[i][j]
+                }
             }
-        }        
+        }
+                
     }
     //把day0的拉進來
     day_0 = new Array()
