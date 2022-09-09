@@ -185,54 +185,105 @@ $(() => {
             gb_all[i] = new Array() //建新array元素
         }
         for (i=0; i<n_time; i++) { //改寫item_all[][]成gb_all[][]
-            for (j=0; j<7; j++) {
-                if (j == 3) {
-                    if (item_all[i][3] == "x") { //考古
-                        gb_all[i][3] = "" //考古無上課日
-                        continue;
-                    } else {
-                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
-                        d = new Date()
-                        d = d.getTime() //當下毫秒
-                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                        gb_all[i][3] = count_d
+            if (item_all[i][0].indexOf("生理") > -1) {  //生理共筆提早交
+                for (j=0; j<7; j++) {
+                    if (j == 3) {
+                        if (item_all[i][3] == "x") { //考古
+                            gb_all[i][3] = "" //考古無上課日
+                            continue;
+                        } else {
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][3] = count_d
+                        }
+                    } else if (j == 4) { //交稿日
+                        if (item_all[i][3] == "x") { //考古
+                            dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][4] = count_d
+                        } else {
+                            //item_all[i][4] = getday_all(item_all[i][3], 1) //其他人要從item_all[i][3]加1天
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 1 * 86400000 //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][4] = count_d
+                        }
+                    } else if (j == 6) { //審稿日
+                        if (item_all[i][6] == "x") { //考古
+                            gb_all[i][6] = "" //考古無上課日
+                            continue;
+                        } else {
+                            //item_all[i][6] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][6] = count_d 
+                        }
                     }
-                } else if (j == 4) { //交稿日
-                    if (item_all[i][3] == "x") { //考古
-                        dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
-                        d = new Date()
-                        d = d.getTime() //當下毫秒
-                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                        gb_all[i][4] = count_d
-                    } else {
-                        //item_all[i][4] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
-                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
-                        d = new Date()
-                        d = d.getTime() //當下毫秒
-                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                        gb_all[i][4] = count_d
+                    else {
+                        gb_all[i][j] = item_all[i][j]
                     }
-                } else if (j == 6) { //審稿日
-                    if (item_all[i][6] == "x") { //考古
-                        gb_all[i][6] = "" //考古無上課日
-                        continue;
-                    } else {
-                        //item_all[i][6] = getday_all(item_all[i][3], 3) //其他人要從item_all[i][3]加3天
-                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
-                        d = new Date()
-                        d = d.getTime() //當下毫秒
-                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                        gb_all[i][6] = count_d 
+                } 
+            } else {
+                for (j=0; j<7; j++) {
+                    if (j == 3) {
+                        if (item_all[i][3] == "x") { //考古
+                            gb_all[i][3] = "" //考古無上課日
+                            continue;
+                        } else {
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][3] = count_d
+                        }
+                    } else if (j == 4) { //交稿日
+                        if (item_all[i][3] == "x") { //考古
+                            dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][4] = count_d
+                        } else {
+                            //item_all[i][4] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][4] = count_d
+                        }
+                    } else if (j == 6) { //審稿日
+                        if (item_all[i][6] == "x") { //考古
+                            gb_all[i][6] = "" //考古無上課日
+                            continue;
+                        } else {
+                            //item_all[i][6] = getday_all(item_all[i][3], 3) //其他人要從item_all[i][3]加3天
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][6] = count_d 
+                        }
                     }
-                }
-                else {
-                    gb_all[i][j] = item_all[i][j]
-                }
-            }        
+                    else {
+                        gb_all[i][j] = item_all[i][j]
+                    }
+                } 
+            }                   
         }
         
         //2D all陣列記錄待輸出值
