@@ -7,7 +7,7 @@ function getmonth() { //取得月份
     for (let i = 1; i<=month; i++) {
         setTimeout(() => {
             var docu = document.getElementById("month_num");
-            docu.style.fontSize = '48px';
+            docu.style.fontSize = '40px';
             $(docu).text(i++); //月份往上跳
         }, 100 * i)
     } 
@@ -54,7 +54,7 @@ function month_en() {
     }
     var docu = document.getElementById("month_en");
     $(docu).text(text);
-    docu.style.fontSize = '18px';
+    docu.style.fontSize = '15px';
     docu.classList.add("fadeIn"); //浮現動畫
 }
 function getdate() { //取得日期
@@ -221,47 +221,47 @@ $(() => {
             $($kpClass).text("口胚")
             special.push(i) //特別課程的節次
         }
-        for (i=6; i<=9; i++) {
+        for (i=6; i<=10; i++) {
             special.push(i) //調課時間，下午為空堂，所以不顯示
         }
     }
-    //星期一 組織:若碰上第i節有掛id::ptClass的就不要getLi
+    //星期一 
     if (week_lower(0) == 1) {
-        for (i=1; i<=9; i++) {
+        for (i=1; i<=10; i++) {
             if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
             } else {
                 if (i<=4) {
+                    getLi("sjClass", i)
+                    $sjClass = document.querySelectorAll("[id='sjClass']")
+                    $($sjClass).text("神解")
+                }
+                if (i>=10) {
+                    getLi("stClass", i)
+                    $stClass = document.querySelectorAll("[id='stClass']")
+                    $($stClass).text("小討")
+                }
+            } 
+        }
+    }
+    //星期二 胚胎組織大體:若碰上第i節有掛id::ptClass的就不要getLi
+    if (week_lower(0) == 2) {
+        for (i=1; i<=10; i++) {
+            docu = document.querySelectorAll("[id='ptClass']")
+            if (i == $(docu).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
+                continue;
+            } else {
+                if (i<=2) {
+                    getLi("ptClass", i)
+                    $ptClass = document.querySelectorAll("[id='ptClass']")
+                    $($ptClass).text("胚胎")
+                }
+                if (i == 3 || i == 4) {
                     getLi("zzClass", i)
                     $zzClass = document.querySelectorAll("[id='zzClass']")
                     $($zzClass).text("組織")
                 }
                 if (i>=6) {
-                    getLi("slClass", i)
-                    $slClass = document.querySelectorAll("[id='slClass']")
-                    $($slClass).text("生理")
-                }
-            } 
-        }
-    }
-    //星期二 下午若無胚胎則組織
-    if (week_lower(0) == 2) {
-        for (i=1; i<=9; i++) {
-            docu = document.querySelectorAll("[id='ptClass']")
-            if (i == $(docu).closest('ul').attr('id') || i == $(docu[1]).closest('ul').attr('id')) {
-                continue;
-            } else {
-                if (i<=4) {
-                    getLi("dtClass", i)
-                    $dtClass = document.querySelectorAll("[id='dtClass']")
-                    $($dtClass).text("大體")
-                }
-                if (i == 6 || i == 7) {
-                    getLi("zzClass", i)
-                    $zzClass = document.querySelectorAll("[id='zzClass']")
-                    $($zzClass).text("組織")
-                }
-                if (i == 8 || i == 9) {
                     getLi("dtClass", i)
                     $dtClass = document.querySelectorAll("[id='dtClass']")
                     $($dtClass).text("大體")
@@ -271,48 +271,52 @@ $(() => {
     }
     //星期三
     if (week_lower(0) == 3) {
-        for (i=1; i<=9; i++) {
+        for (i=1; i<=10; i++) {
             if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
             } else {
-                if (i>=2 && i<=4) {
-                    getLi("odClass", i)
-                    $odClass = document.querySelectorAll("[id='odClass']")
-                    $($odClass).text("OD")
+                if (i<=4) {
+                    getLi("fixClass", i)
+                    $fixClass = document.querySelectorAll("[id='fixClass']")
+                    $($fixClass).text("補綴")
+                }
+            } 
+        }
+    }
+    //星期四
+    if (week_lower(0) == 4) {
+        for (i=1; i<=10; i++) {
+            if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
+                continue;
+            } else {
+                if (i==3 || i==4) {
+                    getLi("periClass", i)
+                    $periClass = document.querySelectorAll("[id='periClass']")
+                    $($periClass).text("牙周")
                 }
                 if (i==6 || i==7) {
-                    getLi("dtClass", i)
-                    $dtClass = document.querySelectorAll("[id='dtClass']")
-                    $($dtClass).text("大體")
+                    getLi("ocClass", i)
+                    $ocClass = document.querySelectorAll("[id='ocClass']")
+                    $($ocClass).text("咬合")
                 }
                 if (i==8 || i==9) {
-                    getLi("zzClass", i)
-                    $zzClass = document.querySelectorAll("[id='zzClass']")
-                    $($zzClass).text("組織")
+                    getLi("radClass", i)
+                    $radClass = document.querySelectorAll("[id='radClass']")
+                    $($radClass).text("牙放")
                 }
             } 
         }
     }
     //星期五
     if (week_lower(0) == 5) {
-        for (i=1; i<=9; i++) {
+        for (i=1; i<=10; i++) {
             if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
                 continue;
             } else {
                 if (i==1) {
-                    getLi("kjClass", i)
-                    $kjClass = document.querySelectorAll("[id='kjClass']")
-                    $($kjClass).text("口解")
-                }
-                if (i==3 || i==4) {
-                    getLi("irClass", i)
-                    $irClass = document.querySelectorAll("[id='irClass']")
-                    $($irClass).text("醫人")
-                }
-                if (i>=6) {
-                    getLi("kpClass", i)
-                    $kpClass = document.querySelectorAll("[id='kpClass']")
-                    $($kpClass).text("口胚")
+                    getLi("osClass", i)
+                    $osClass = document.querySelectorAll("[id='osClass']")
+                    $($osClass).text("口解")
                 }
             } 
         }
@@ -321,19 +325,20 @@ $(() => {
     del = getHours() - 8 //第2節getHours() = 9，要劃掉第1節課
     if (getHours() == 16) {del = 7}
     if (getHours() == 17) {del = 8}
+    if (getHours() == 18) {del = 9}
     if (del < 0) {
         docu = document.getElementsByClassName("drop")
         docu[0].style.setProperty('display', 'none') //setProperty要加[0]
     }
-    if (del > 0 && del < 9) { //上課時間，依照節次加入劃掉的css
+    if (del > 0 && del < 10) { //上課時間，依照節次加入劃掉的css
         addDel(del)
         //箭頭掉下來
         docu = document.getElementsByClassName("drop")
         //docu[0].style.setProperty('--margin-top', `${del * 25.5}px`) //setProperty要加[0]
         docu[0].style.marginTop = (del * 25.5) + "px"
     }
-    if (del >= 9){ //放學後，全部課程劃掉
-        addDel(9)
+    if (del >= 10){ //放學後，全部課程劃掉
+        addDel(10)
         docu = document.getElementsByClassName("drop")
         //docu[0].style.setProperty('--margin-top', `${del * 25.5}px`)
         //arrow(del)
@@ -343,13 +348,11 @@ $(() => {
     //顯示明天課表
     if (week_lower(1) == 6 || week_lower(1) == 0) { //禮拜六日無課
         document.getElementById("noClass").style.setProperty('display', 'block')
-    } else if (week_lower(1) == 4) { //禮拜四無課
-        document.getElementById("noClass").style.setProperty('display', 'block')
     } else {
         document.getElementById("yesClass").style.setProperty('display', 'block')
-        if (week_lower(1) == 3) {
+        if (week_lower(1) == 4) {
             docu = document.getElementById("classFrom")
-            $(docu).text("二") //裡拜三是從第二節開始上課
+            $(docu).text("三") //裡拜四是從第三節開始上課
         } else {
             docu = document.getElementById("classFrom")
             $(docu).text("一")
@@ -389,58 +392,61 @@ $(() => {
             }
         }
         if (week_lower(1) == 1) { //星期一普通課程
-            for (i=1; i<=9; i++) {
+            for (i=1; i<=10; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4) {
-                        tomorrowClass[i] = "組織"
+                        tomorrowClass[i] = "神解"
                     }
-                    if(i>=6) {
-                        tomorrowClass[i] = "生理"
+                    if(i>=10) {
+                        tomorrowClass[i] = "小討"
                     }
                 }
             }
         }
         if (week_lower(1) == 2) { //星期二普通課程
-            for (i=1; i<=9; i++) {
+            for (i=1; i<=10; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
-                    if(i<=4) {
-                        tomorrowClass[i] = "大體"
+                    if(i<=2) {
+                        tomorrowClass[i] = "胚胎"
                     }
-                    if(i==6||i==7){
+                    if(i==3||i==4){
                         tomorrowClass[i] = "組織"
                     }
-                    if(i==8||i==9){
+                    if(i>=6){
                         tomorrowClass[i] = "大體"
                     }
                 }
             }
         }
         if (week_lower(1) == 3) { //星期三普通課程
-            for (i=1; i<=9; i++) {
+            for (i=1; i<=10; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
-                    if(i<=4 && i>=2) {
-                        tomorrowClass[i] = " OD"
+                    if(i<=4) {
+                        tomorrowClass[i] = "補綴"
+                    }
+                }
+            }
+        }
+        if (week_lower(1) == 4) { //星期四普通課程
+            for (i=1; i<=10; i++) {
+                if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
+                    if(i==3||i==4){
+                        tomorrowClass[i] = "牙周"
                     }
                     if(i==6||i==7){
-                        tomorrowClass[i] = "大體"
+                        tomorrowClass[i] = "咬合"
                     }
                     if(i==8||i==9){
-                        tomorrowClass[i] = "組織"
+                        tomorrowClass[i] = "牙放"
                     }
                 }
             }
         }
         if (week_lower(1) == 5) { //星期五普通課程
-            for (i=1; i<=9; i++) {
+            for (i=1; i<=10; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i==1) {
                         tomorrowClass[i] = "口解"
-                    }
-                    if(i==3||i==4){
-                        tomorrowClass[i] = "醫人"
-                    }
-                    if(i>=6){
-                        tomorrowClass[i] = "口胚"
                     }
                 }
             }
@@ -448,7 +454,7 @@ $(() => {
         
 
         tomorrowClassOut = new Array()
-        for (i=1; i<=9; i++) {
+        for (i=1; i<=10; i++) {
             if(jQuery.inArray(tomorrowClass[i], tomorrowClassOut) == -1 && tomorrowClass[i] !== undefined){
                 tomorrowClassOut.push(tomorrowClass[i]) //依節次輸出，每課程名只會用到一次
             }
