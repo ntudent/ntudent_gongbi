@@ -24,6 +24,7 @@ $(() => {
     item_testday[8] = new Array(count_item_testday("牙放"), "期末", "2023-04-18", "")
     item_testday[9] = new Array(count_item_testday("咬合"), "期末", "2023-04-18", "")
     item_testday[10] = new Array(count_item_testday("FIX"), "期末", "2023-04-18", "")
+    item_testday[11] = new Array(count_item_testday("神解"), "期末", "2023-04-18", "")
     //改共筆改以上這段
 
     for (i=0; i<n_test; i++) { //剩餘日計算
