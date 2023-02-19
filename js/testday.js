@@ -14,17 +14,19 @@ $(() => {
     item_testday = new Array()
     //改共筆改以下這段
     item_testday[0] = new Array(count_item_testday("口解"), "期末", "2023-06-05", "") //(考科, 範圍, 日期, 剩餘日)
-    item_testday[1] = new Array(count_item_testday("胚胎"), "期末", "2023-12-20", "")
+    item_testday[1] = new Array(count_item_testday("胚胎"), "期末", "2023-06-07", "")
     item_testday[2] = new Array(count_item_testday("大體"), "期中", "2023-04-25", "")
     item_testday[3] = new Array(count_item_testday("大體"), "期末", "2023-06-06", "")
     item_testday[4] = new Array(count_item_testday("組織"), "Quiz", "2023-03-28", "")
     item_testday[5] = new Array(count_item_testday("組織"), "期末", "2023-04-18", "")
-    item_testday[6] = new Array(count_item_testday("牙周"), "期中", "2023-04-18", "")
-    item_testday[7] = new Array(count_item_testday("牙周"), "期末", "2023-04-18", "")
-    item_testday[8] = new Array(count_item_testday("牙放"), "期末", "2023-04-18", "")
-    item_testday[9] = new Array(count_item_testday("咬合"), "期末", "2023-04-18", "")
-    item_testday[10] = new Array(count_item_testday("FIX"), "期末", "2023-04-18", "")
-    item_testday[11] = new Array(count_item_testday("神解"), "期末", "2023-04-18", "")
+    item_testday[6] = new Array(count_item_testday("牙周"), "期中", "2023-04-13", "")
+    item_testday[7] = new Array(count_item_testday("牙周"), "期末", "2023-06-01", "")
+    item_testday[8] = new Array(count_item_testday("牙放"), "期末", "2023-06-08", "")
+    item_testday[9] = new Array(count_item_testday("咬合"), "期末", "2023-06-08", "")
+    item_testday[10] = new Array(count_item_testday("FIX"), "正課期末", "2023-06-07", "")
+    item_testday[11] = new Array(count_item_testday("FIX"), "Lab期末", "2023-05-24", "")
+    item_testday[12] = new Array(count_item_testday("神解"), "期中", "2023-04-10", "")
+    item_testday[13] = new Array(count_item_testday("神解"), "期末 + Lab", "2023-06-05", "")
     //改共筆改以上這段
 
     for (i=0; i<n_test; i++) { //剩餘日計算
