@@ -168,26 +168,8 @@ $(() => {
     special = new Array()
     //若today有特殊課表如胚胎，先填上去然後給個id，如果普通課遇到id就break
     //胚胎上課表
-    pt_class1 = new Array("2022-10-18")
+    pt_class1 = new Array("2023-02-20", "2023-03-13", "2023-04-17")
     if (jQuery.inArray(today, pt_class1) !== -1) {
-        for (i=1; i<=1; i++) {
-            getLi("ptClass", i)
-            $ptClass = document.querySelectorAll("[id='ptClass']")
-            $($ptClass).text("胚胎")
-            special.push(i) //特別課程的節次
-        }
-    }
-    pt_class12 = new Array("2022-10-24")
-    if (jQuery.inArray(today, pt_class12) !== -1) {
-        for (i=1; i<=2; i++) {
-            getLi("ptClass", i)
-            $ptClass = document.querySelectorAll("[id='ptClass']")
-            $($ptClass).text("胚胎")
-            special.push(i) //特別課程的節次
-        }
-    }
-    pt_class34 = new Array("2022-09-27")
-    if (jQuery.inArray(today, pt_class34) !== -1) {
         for (i=3; i<=4; i++) {
             getLi("ptClass", i)
             $ptClass = document.querySelectorAll("[id='ptClass']")
@@ -195,18 +177,27 @@ $(() => {
             special.push(i) //特別課程的節次
         }
     }
-    pt_class67 = new Array("2022-09-14", "2022-12-06", "2022-12-20")
-    if (jQuery.inArray(today, pt_class67) !== -1) {
-        for (i=6; i<=7; i++) {
+    pt_class2 = new Array("2023-04-25")
+    if (jQuery.inArray(today, pt_class2) !== -1) {
+        for (i=7; i<=8; i++) {
             getLi("ptClass", i)
             $ptClass = document.querySelectorAll("[id='ptClass']")
             $($ptClass).text("胚胎")
             special.push(i) //特別課程的節次
         }
     }
-    pt_class89 = new Array("2022-09-07", "2022-09-20", "2022-11-22", "2022-12-06")
-    if (jQuery.inArray(today, pt_class89) !== -1) {
-        for (i=8; i<=9; i++) {
+    pt_class3 = new Array("2023-05-02")
+    if (jQuery.inArray(today, pt_class3) !== -1) {
+        for (i=1; i<=4; i++) {
+            getLi("ptClass", i)
+            $ptClass = document.querySelectorAll("[id='ptClass']")
+            $($ptClass).text("胚胎")
+            special.push(i) //特別課程的節次
+        }
+    }
+    pt_class4 = new Array("2023-05-16")
+    if (jQuery.inArray(today, pt_class4) !== -1) {
+        for (i=6; i<=6; i++) {
             getLi("ptClass", i)
             $ptClass = document.querySelectorAll("[id='ptClass']")
             $($ptClass).text("胚胎")
@@ -236,6 +227,11 @@ $(() => {
                     $sjClass = document.querySelectorAll("[id='sjClass']")
                     $($sjClass).text("神解")
                 }
+                if (i==9) {
+                    getLi("osClass", i)
+                    $osClass = document.querySelectorAll("[id='osClass']")
+                    $($osClass).text("口解")
+                }
                 if (i>=10) {
                     getLi("stClass", i)
                     $stClass = document.querySelectorAll("[id='stClass']")
@@ -254,7 +250,7 @@ $(() => {
                 if (i<=2) {
                     getLi("ptClass", i)
                     $ptClass = document.querySelectorAll("[id='ptClass']")
-                    $($ptClass).text("胚胎")
+                    $($ptClass).text("大體")
                 }
                 if (i == 3 || i == 4) {
                     getLi("zzClass", i)
@@ -278,7 +274,7 @@ $(() => {
                 if (i<=4) {
                     getLi("fixClass", i)
                     $fixClass = document.querySelectorAll("[id='fixClass']")
-                    $($fixClass).text("補綴")
+                    $($fixClass).text("FIX")
                 }
             } 
         }
@@ -307,20 +303,7 @@ $(() => {
             } 
         }
     }
-    //星期五
-    if (week_lower(0) == 5) {
-        for (i=1; i<=10; i++) {
-            if (jQuery.inArray(i, special) !== -1) { //有特別課程則按照該課表
-                continue;
-            } else {
-                if (i==1) {
-                    getLi("osClass", i)
-                    $osClass = document.querySelectorAll("[id='osClass']")
-                    $($osClass).text("口解")
-                }
-            } 
-        }
-    }
+
     //時間已過的要劃掉
     del = getHours() - 8 //第2節getHours() = 9，要劃掉第1節課
     if (getHours() == 16) {del = 7}
@@ -352,34 +335,29 @@ $(() => {
         document.getElementById("yesClass").style.setProperty('display', 'block')
         if (week_lower(1) == 4) {
             docu = document.getElementById("classFrom")
-            $(docu).text("三") //裡拜四是從第三節開始上課
+            $(docu).text("三") //禮拜四是從第三節開始上課
         } else {
             docu = document.getElementById("classFrom")
             $(docu).text("一")
         }
         tomorrowClass = new Array()
         if (jQuery.inArray(formatDate(1), pt_class1) !== -1) {
-            for (i=1; i<=1; i++) {
+            for (i=3; i<=4; i++) {
                 tomorrowClass[i] = "胚胎" //把特殊課程加到明天課程的array中
             }
         }
-        if (jQuery.inArray(formatDate(1), pt_class12) !== -1) {
-            for (i=1; i<=2; i++) {
+        if (jQuery.inArray(formatDate(1), pt_class2) !== -1) {
+            for (i=7; i<=8; i++) {
                 tomorrowClass[i] = "胚胎"
             }
         }
-        if (jQuery.inArray(formatDate(1), pt_class34) !== -1) {
-            for (i=3; i<=4; i++) {
+        if (jQuery.inArray(formatDate(1), pt_class3) !== -1) {
+            for (i=1; i<=4; i++) {
                 tomorrowClass[i] = "胚胎"
             }
         }
-        if (jQuery.inArray(formatDate(1), pt_class67) !== -1) {
-            for (i=6; i<=7; i++) {
-                tomorrowClass[i] = "胚胎"
-            }
-        }
-        if (jQuery.inArray(formatDate(1), pt_class89) !== -1) {
-            for (i=8; i<=9; i++) {
+        if (jQuery.inArray(formatDate(1), pt_class4) !== -1) {
+            for (i=6; i<=6; i++) {
                 tomorrowClass[i] = "胚胎"
             }
         }
@@ -397,6 +375,9 @@ $(() => {
                     if(i<=4) {
                         tomorrowClass[i] = "神解"
                     }
+                    if(i==9) {
+                        tomorrowClass[i] = "口解"
+                    }
                     if(i>=10) {
                         tomorrowClass[i] = "小討"
                     }
@@ -407,7 +388,7 @@ $(() => {
             for (i=1; i<=10; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=2) {
-                        tomorrowClass[i] = "胚胎"
+                        tomorrowClass[i] = "大體"
                     }
                     if(i==3||i==4){
                         tomorrowClass[i] = "組織"
@@ -422,7 +403,7 @@ $(() => {
             for (i=1; i<=10; i++) {
                 if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
                     if(i<=4) {
-                        tomorrowClass[i] = "補綴"
+                        tomorrowClass[i] = "FIX"
                     }
                 }
             }
@@ -438,15 +419,6 @@ $(() => {
                     }
                     if(i==8||i==9){
                         tomorrowClass[i] = "牙放"
-                    }
-                }
-            }
-        }
-        if (week_lower(1) == 5) { //星期五普通課程
-            for (i=1; i<=10; i++) {
-                if (tomorrowClass[i] == undefined) { //若該節沒有特殊課程
-                    if(i==1) {
-                        tomorrowClass[i] = "口解"
                     }
                 }
             }
