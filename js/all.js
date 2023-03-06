@@ -198,63 +198,110 @@ $(() => {
         }
         $('#yourname').val('') //清除<input>中字串
         $('#nameBlank').text(yourname) //放上姓名
-        //for (i=0; i<n_time; i++) {
-            //gb_all[i] = new Array() //建新array元素
-        //}
+        for (i=0; i<n_time; i++) {
+            gb_all[i] = new Array() //建新array元素
+        }
         for (i=0; i<n_time; i++) { //改寫item_all[][]成gb_all[][]
-            for (j=0; j<7; j++) {
-                if (j == 3) {
-                    if (item_all[i][3] == "x") { //考古
-                        item_all[i][3] = ""
-                        //gb_all[i][3] = "" //考古無上課日
-                        continue;
-                    } else {
-                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
-                        d = new Date()
-                        d = d.getTime() //當下毫秒
-                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                        item_all[i][3] = count_d
-                        //gb_all[i][3] = count_d
+            x = new Array()
+            x = item_all[i]
+            if (x[0].indexOf("生理") > -1) {  //生理共筆提早交
+                for (j=0; j<7; j++) {
+                    if (j == 3) {
+                        if (item_all[i][3] == "x") { //考古
+                            gb_all[i][3] = "" //考古無上課日
+                            continue;
+                        } else {
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][3] = count_d
+                        }
+                    } else if (j == 4) { //交稿日
+                        if (item_all[i][3] == "x") { //考古
+                            dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][4] = count_d
+                        } else {
+                            //item_all[i][4] = getday_all(item_all[i][3], 1) //其他人要從item_all[i][3]加1天
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 1 * 86400000 //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][4] = count_d
+                        }
+                    } else if (j == 6) { //審稿日
+                        if (item_all[i][6] == "x") { //考古
+                            gb_all[i][6] = "" //考古無上課日
+                            continue;
+                        } else {
+                            //item_all[i][6] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][6] = count_d 
+                        }
                     }
-                } else if (j == 4) { //交稿日
-                    if (item_all[i][3] == "x") { //考古
-                        dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
-                        d = new Date()
-                        d = d.getTime() //當下毫秒
-                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                        item_all[i][4] = count_d
-                        //gb_all[i][4] = count_d
-                    } else {
-                        //item_all[i][4] = getday_all(item_all[i][3], 1) //其他人要從item_all[i][3]加1天
-                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 1 * 86400000 //做期限日秒數轉換
-                        d = new Date()
-                        d = d.getTime() //當下毫秒
-                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                        item_all[i][4] = count_d
-                        //gb_all[i][4] = count_d
+                    else {
+                        gb_all[i][j] = item_all[i][j]
                     }
-                } else if (j == 6) { //審稿日
-                    if (item_all[i][6] == "x") { //考古
-                        item_all[i][6] = ""
-                        //gb_all[i][6] = "" //考古無上課日
-                        continue;
-                    } else {
-                        //item_all[i][6] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
-                        dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
-                        d = new Date()
-                        d = d.getTime() //當下毫秒
-                        count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                        count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
-                        item_all[i][6] = count_d
-                        //gb_all[i][6] = count_d 
+                } 
+            } else {
+                for (j=0; j<7; j++) {
+                    if (j == 3) {
+                        if (item_all[i][3] == "x") { //考古
+                            gb_all[i][3] = "" //考古無上課日
+                            continue;
+                        } else {
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][3] = count_d
+                        }
+                    } else if (j == 4) { //交稿日
+                        if (item_all[i][3] == "x") { //考古
+                            dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][4] = count_d
+                        } else {
+                            //item_all[i][4] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][4] = count_d
+                        }
+                    } else if (j == 6) { //審稿日
+                        if (item_all[i][6] == "x") { //考古
+                            gb_all[i][6] = "" //考古無上課日
+                            continue;
+                        } else {
+                            //item_all[i][6] = getday_all(item_all[i][3], 3) //其他人要從item_all[i][3]加3天
+                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
+                            d = new Date()
+                            d = d.getTime() //當下毫秒
+                            count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            gb_all[i][6] = count_d 
+                        }
                     }
-                }
-                //else {
-                    //gb_all[i][j] = item_all[i][j]
-                //}
+                    else {
+                        gb_all[i][j] = item_all[i][j]
+                    }
+                } 
             }                   
         }
         
@@ -268,30 +315,23 @@ $(() => {
                 all[num_all] = new Array()
 
                 if (item_all[i][3] == "x") { //考古人士
-                    all[num_all] = new Array(item_all[i][0], "考古", item_all[i][5], item_all[i][4].replace(/.{5}/, ""), item_all[i][4])
-                    //all[num_all] = new Array(item_all[i][0], "考古", item_all[i][5], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
+                    all[num_all] = new Array(item_all[i][0], "考古", item_all[i][5], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
                 }
                 else if (item_all[i][1] == yourname) { //寫手人士 && 名字==item[j][1]
-                    all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][2], item_all[i][3].replace(/.{5}/, ""), item_all[i][3])
-                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][2], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), item_all[i][4])
-                    //all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][2], item_all[i][3].replace(/.{5}/, ""), gb_all[i][3])
-                    //all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][2], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), gb_all[i][4])
+                    all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][2], item_all[i][3].replace(/.{5}/, ""), gb_all[i][3])
+                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][2], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), gb_all[i][4])
                 }
                 else { //寫手人士 && 名字==item[j][2]
-                    all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][1], item_all[i][3].replace(/.{5}/, ""), item_all[i][3])
-                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][1], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), item_all[i][4])
-                    //all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][1], item_all[i][3].replace(/.{5}/, ""), gb_all[i][3])
-                    //all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][1], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), gb_all[i][4])
+                    all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][1], item_all[i][3].replace(/.{5}/, ""), gb_all[i][3])
+                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][1], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), gb_all[i][4])
                 }
                 num_all += 1 //計數
             }
             else if (item_all[i][5] == yourname && item_all[i][3] !== "x") { //審稿人士
-                all[num_all] = new Array(item_all[i][0], "審稿", "", getday_all(item_all[i][3], 3).replace(/.{5}/, ""), item_all[i][6])
-                //all[num_all] = new Array(item_all[i][0], "審稿", "", getday_all(item_all[i][3], 3).replace(/.{5}/, ""), gb_all[i][6])
+                all[num_all] = new Array(item_all[i][0], "審稿", "", getday_all(item_all[i][3], 3).replace(/.{5}/, ""), gb_all[i][6])
                 num_all += 1 //計數
             } else if (item_all[i][5] == yourname && item_all[i][3] == "x") { //考古的審稿
-                all[num_all] = new Array(item_all[i][0], "考古(審)", item_all[i][1], item_all[i][4].replace(/.{5}/, ""), item_all[i][4])
-                //all[num_all] = new Array(item_all[i][0], "考古(審)", item_all[i][1], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
+                all[num_all] = new Array(item_all[i][0], "考古(審)", item_all[i][1], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
                 num_all += 1 //計數
             }
         }
