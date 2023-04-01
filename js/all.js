@@ -211,28 +211,28 @@ $(() => {
                             gb_all[i][3] = "" //考古無上課日
                             continue;
                         } else {
-                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T23:59:59+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][3] = count_d
                         }
                     } else if (j == 4) { //交稿日
                         if ($(item_all[i])[3] == "x") { //考古
-                            dateParse = Date.parse($(item_all[i])[4] + "T00:00:01+08:00") //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[4] + "T23:59:59+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][4] = count_d
                         } else {
                             //item_all[i][4] = getday_all(item_all[i][3], 1) //其他人要從item_all[i][3]加1天
-                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") + 1 * 86400000 //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T23:59:59+08:00") + 1 * 86400000 //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][4] = count_d
                         }
                     } else if (j == 6) { //審稿日
@@ -241,11 +241,11 @@ $(() => {
                             continue;
                         } else {
                             //item_all[i][6] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
-                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T23:59:59+08:00") + 2 * 86400000 //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][6] = count_d 
                         }
                     }
@@ -260,28 +260,28 @@ $(() => {
                             gb_all[i][3] = "" //考古無上課日
                             continue;
                         } else {
-                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T23:59:59+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][3] = count_d
                         }
                     } else if (j == 4) { //交稿日
                         if ($(item_all[i])[3] == "x") { //考古
-                            dateParse = Date.parse($(item_all[i])[4] + "T00:00:01+08:00") //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[4] + "T23:59:59+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][4] = count_d
                         } else {
                             //item_all[i][4] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
-                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T23:59:59+08:00") + 2 * 86400000 //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][4] = count_d
                         }
                     } else if (j == 6) { //審稿日
@@ -290,11 +290,11 @@ $(() => {
                             continue;
                         } else {
                             //item_all[i][6] = getday_all(item_all[i][3], 3) //其他人要從item_all[i][3]加3天
-                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T23:59:59+08:00") + 3 * 86400000 //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][6] = count_d 
                         }
                     }
