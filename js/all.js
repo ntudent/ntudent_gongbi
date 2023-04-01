@@ -215,7 +215,7 @@ $(() => {
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][3] = count_d
                         }
                     } else if (j == 4) { //交稿日
@@ -224,7 +224,7 @@ $(() => {
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][4] = count_d
                         } else {
                             //item_all[i][4] = getday_all(item_all[i][3], 1) //其他人要從item_all[i][3]加1天
@@ -232,7 +232,7 @@ $(() => {
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][4] = count_d
                         }
                     } else if (j == 6) { //審稿日
@@ -245,7 +245,7 @@ $(() => {
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][6] = count_d 
                         }
                     }
@@ -264,7 +264,7 @@ $(() => {
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][3] = count_d
                         }
                     } else if (j == 4) { //交稿日
@@ -273,7 +273,7 @@ $(() => {
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][4] = count_d
                         } else {
                             //item_all[i][4] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
@@ -281,7 +281,7 @@ $(() => {
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][4] = count_d
                         }
                     } else if (j == 6) { //審稿日
@@ -294,7 +294,7 @@ $(() => {
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
-                            count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
+                            //count_d = Math.ceil(count_d) //剩餘日數(無條件進位)
                             gb_all[i][6] = count_d 
                         }
                     }
