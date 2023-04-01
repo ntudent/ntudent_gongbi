@@ -211,7 +211,7 @@ $(() => {
                             gb_all[i][3] = "" //考古無上課日
                             continue;
                         } else {
-                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -220,7 +220,7 @@ $(() => {
                         }
                     } else if (j == 4) { //交稿日
                         if ($(item_all[i])[3] == "x") { //考古
-                            dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[4] + "T00:00:01+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -228,7 +228,7 @@ $(() => {
                             gb_all[i][4] = count_d
                         } else {
                             //item_all[i][4] = getday_all(item_all[i][3], 1) //其他人要從item_all[i][3]加1天
-                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 1 * 86400000 //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") + 1 * 86400000 //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -241,7 +241,7 @@ $(() => {
                             continue;
                         } else {
                             //item_all[i][6] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
-                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -260,7 +260,7 @@ $(() => {
                             gb_all[i][3] = "" //考古無上課日
                             continue;
                         } else {
-                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -269,7 +269,7 @@ $(() => {
                         }
                     } else if (j == 4) { //交稿日
                         if ($(item_all[i])[3] == "x") { //考古
-                            dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[4] + "T00:00:01+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -277,7 +277,7 @@ $(() => {
                             gb_all[i][4] = count_d
                         } else {
                             //item_all[i][4] = getday_all(item_all[i][3], 2) //其他人要從item_all[i][3]加2天
-                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") + 2 * 86400000 //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -290,7 +290,7 @@ $(() => {
                             continue;
                         } else {
                             //item_all[i][6] = getday_all(item_all[i][3], 3) //其他人要從item_all[i][3]加3天
-                            dateParse = Date.parse(item_all[i][3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
+                            dateParse = Date.parse($(item_all[i])[3] + "T00:00:01+08:00") + 3 * 86400000 //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
                             count_d = (dateParse - d ) / (1000 * 60 * 60 * 24) //毫秒換秒
@@ -311,27 +311,27 @@ $(() => {
         num_all = 0 //all[?]有幾個
         //sorting_layer_id = 1 //每層<tr>的id
         for (i=0; i<n_time; i++) { //all[][]記錄值
-            if (item_all[i][1] == yourname || item_all[i][2] == yourname) {
+            if ($(item_all[i])[1] == yourname || $(item_all[i])[2] == yourname) {
                 all[num_all] = new Array()
 
-                if (item_all[i][3] == "x") { //考古人士
-                    all[num_all] = new Array(item_all[i][0], "考古", item_all[i][5], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
+                if ($(item_all[i])[3] == "x") { //考古人士
+                    all[num_all] = new Array($(item_all[i])[0], "考古", $(item_all[i])[5], $(item_all[i])[4].replace(/.{5}/, ""), gb_all[i][4])
                 }
-                else if (item_all[i][1] == yourname) { //寫手人士 && 名字==item[j][1]
-                    all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][2], item_all[i][3].replace(/.{5}/, ""), gb_all[i][3])
-                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][2], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), gb_all[i][4])
+                else if ($(item_all[i])[1] == yourname) { //寫手人士 && 名字==item[j][1]
+                    all[num_all++] = new Array($(item_all[i])[0], "寫手(課)", $(item_all[i])[2], $(item_all[i])[3].replace(/.{5}/, ""), gb_all[i][3])
+                    all[num_all] = new Array($(item_all[i])[0], "寫手(交)", $(item_all[i])[2], getday_all($(item_all[i])[3], 2).replace(/.{5}/, ""), gb_all[i][4])
                 }
                 else { //寫手人士 && 名字==item[j][2]
-                    all[num_all++] = new Array(item_all[i][0], "寫手(課)", item_all[i][1], item_all[i][3].replace(/.{5}/, ""), gb_all[i][3])
-                    all[num_all] = new Array(item_all[i][0], "寫手(交)", item_all[i][1], getday_all(item_all[i][3], 2).replace(/.{5}/, ""), gb_all[i][4])
+                    all[num_all++] = new Array($(item_all[i])[0], "寫手(課)", $(item_all[i])[1], $(item_all[i])[3].replace(/.{5}/, ""), gb_all[i][3])
+                    all[num_all] = new Array($(item_all[i])[0], "寫手(交)", $(item_all[i])[1], getday_all($(item_all[i])[3], 2).replace(/.{5}/, ""), gb_all[i][4])
                 }
                 num_all += 1 //計數
             }
-            else if (item_all[i][5] == yourname && item_all[i][3] !== "x") { //審稿人士
-                all[num_all] = new Array(item_all[i][0], "審稿", "", getday_all(item_all[i][3], 3).replace(/.{5}/, ""), gb_all[i][6])
+            else if ($(item_all[i])[5] == yourname && $(item_all[i])[3] !== "x") { //審稿人士
+                all[num_all] = new Array($(item_all[i])[0], "審稿", "", getday_all($(item_all[i])[3], 3).replace(/.{5}/, ""), gb_all[i][6])
                 num_all += 1 //計數
-            } else if (item_all[i][5] == yourname && item_all[i][3] == "x") { //考古的審稿
-                all[num_all] = new Array(item_all[i][0], "考古(審)", item_all[i][1], item_all[i][4].replace(/.{5}/, ""), gb_all[i][4])
+            } else if ($(item_all[i])[5] == yourname && $(item_all[i])[3] == "x") { //考古的審稿
+                all[num_all] = new Array($(item_all[i])[0], "考古(審)", $(item_all[i])[1], $(item_all[i])[4].replace(/.{5}/, ""), gb_all[i][4])
                 num_all += 1 //計數
             }
         }
@@ -341,14 +341,14 @@ $(() => {
             for (j=0; j<7; j++) { 
                 let $td = $('<td class="removable">') //創造元素
                 n_sorting_layer_id_num = $('#' + sorting_layer_id)
-                if (all[i][4] == 0) {
-                    $td.text(all[i][j]).css('color', 'red').appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
+                if ($(all[i])[4] == 0) {
+                    $td.text($(all[i])[j]).css('color', 'red').appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
                     //加紅標css({property1: value1, property2: value2)
                 } else if (all[i][4] < 0) {
                     all[i][4] = "已過"
-                    $td.text(all[i][j]).appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
+                    $td.text($(all[i])[j]).appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
                 } else {
-                    $td.text(all[i][j]).appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
+                    $td.text($(all[i])[j]).appendTo(n_sorting_layer_id_num) //賦予元素值，加到層之中
                 }
                           
             }
@@ -360,11 +360,11 @@ $(() => {
         kg_buy = new Array()
         for (i=0; i<14; i++) { //這邊記得中間改成全部共筆的個數
             if (jQuery.inArray(yourname, item_buy[i]) !== -1) {
-                if (item_buy[i][0] == "共筆") {
-                    gb_buy.push(item_buy[i][1])
+                if ($(item_buy[i])[0] == "共筆") {
+                    gb_buy.push($(item_buy[i])[1])
                 }
-                if (item_buy[i][0] == "考古") {
-                    kg_buy.push(item_buy[i][1])
+                if ($(item_buy[i])[0] == "考古") {
+                    kg_buy.push($(item_buy[i])[1])
                 }
             }
         }
