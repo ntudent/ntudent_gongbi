@@ -358,7 +358,7 @@ $(() => {
         //以下為共筆購買搜尋
         gb_buy = new Array()
         kg_buy = new Array()
-        for (i=0; i<14; i++) { //這邊記得中間改成全部共筆的個數
+        for (i=0; i<100; i++) { //這邊記得中間改成全部共筆的個數
             if (jQuery.inArray(yourname, item_buy[i]) !== -1) {
                 if ($(item_buy[i])[0] == "共筆") {
                     gb_buy.push($(item_buy[i])[1])
