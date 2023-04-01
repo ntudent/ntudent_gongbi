@@ -203,8 +203,8 @@ $(() => {
         }
         for (i=0; i<n_time; i++) { //改寫item_all[][]成gb_all[][]
             x = new Array()
-            x = item_all[i]
-            if (x[0].indexOf("生理") > -1) {  //生理共筆提早交
+            //if (item_all[i][0].indexOf("生理") > -1) {  //生理共筆提早交
+            if (Array.isArray(item_all[i]) && $(item_all[i]).length > 0 ) {     
                 for (j=0; j<7; j++) {
                     if (j == 3) {
                         if (item_all[i][3] == "x") { //考古
