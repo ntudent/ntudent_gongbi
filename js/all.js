@@ -207,7 +207,7 @@ $(() => {
             if (Array.isArray(item_all[i]) && $(item_all[i]).length > 0 ) {     
                 for (j=0; j<7; j++) {
                     if (j == 3) {
-                        if (item_all[i][3] == "x") { //考古
+                        if ($(item_all[i])[3] == "x") { //考古
                             gb_all[i][3] = "" //考古無上課日
                             continue;
                         } else {
@@ -219,7 +219,7 @@ $(() => {
                             gb_all[i][3] = count_d
                         }
                     } else if (j == 4) { //交稿日
-                        if (item_all[i][3] == "x") { //考古
+                        if ($(item_all[i])[3] == "x") { //考古
                             dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
@@ -236,7 +236,7 @@ $(() => {
                             gb_all[i][4] = count_d
                         }
                     } else if (j == 6) { //審稿日
-                        if (item_all[i][6] == "x") { //考古
+                        if ($(item_all[i])[6] == "x") { //考古
                             gb_all[i][6] = "" //考古無上課日
                             continue;
                         } else {
@@ -250,13 +250,13 @@ $(() => {
                         }
                     }
                     else {
-                        gb_all[i][j] = item_all[i][j]
+                        gb_all[i][j] = $(item_all[i])[j]
                     }
                 } 
             } else {
                 for (j=0; j<7; j++) {
                     if (j == 3) {
-                        if (item_all[i][3] == "x") { //考古
+                        if ($(item_all[i])[3] == "x") { //考古
                             gb_all[i][3] = "" //考古無上課日
                             continue;
                         } else {
@@ -268,7 +268,7 @@ $(() => {
                             gb_all[i][3] = count_d
                         }
                     } else if (j == 4) { //交稿日
-                        if (item_all[i][3] == "x") { //考古
+                        if ($(item_all[i])[3] == "x") { //考古
                             dateParse = Date.parse(item_all[i][4] + "T00:00:01+08:00") //做期限日秒數轉換
                             d = new Date()
                             d = d.getTime() //當下毫秒
@@ -285,7 +285,7 @@ $(() => {
                             gb_all[i][4] = count_d
                         }
                     } else if (j == 6) { //審稿日
-                        if (item_all[i][6] == "x") { //考古
+                        if ($(item_all[i])[6] == "x") { //考古
                             gb_all[i][6] = "" //考古無上課日
                             continue;
                         } else {
