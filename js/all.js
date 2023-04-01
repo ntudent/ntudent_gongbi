@@ -299,7 +299,7 @@ $(() => {
                         }
                     }
                     else {
-                        gb_all[i][j] = item_all[i][j]
+                        gb_all[i][j] = $(item_all[i])[j]
                     }
                 } 
             }                   
